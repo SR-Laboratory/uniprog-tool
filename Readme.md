@@ -1,4 +1,4 @@
-# UniProgrammer (3.Software)
+# UniProgrammer
 
 Frontend + Tauri backend workspace.
 

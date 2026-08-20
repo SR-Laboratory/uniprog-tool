@@ -1,0 +1,47 @@
+# ── UniProgrammer ────────────────────────────────────────────────
+# 依赖
+node_modules/
+dist/
+
+# 闭源厂商二进制（不在仓库分发，本地构建时自行放置）
+CH34X.DLL
+**/CH34X.DLL
+
+# Rust / Tauri 构建产物
+src-tauri/target/
+build/
+
+# 环境文件
+.env
+.env.local
+.env.*.local
+
+# 日志与临时文件
+*.log
+*.tmp
+*.bak
+
+# 本地设置文件（便携版运行后生成）
+Setting.set
+**/Setting.set
+
+# 插件启用状态与构建时复制进插件包的 sidecar 二进制（本地生成）
+plugin-state.toml
+**/plugin-state.toml
+modules/upt-adapter-ch34x-dll/package/upt_ch34x_sidecar_dll*
+modules/upt-adapter-ch34x-libusb/package/upt_ch34x_sidecar_libusb*
+modules/upt-chipdb-package/package/upt_chipdb_sidecar*
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 安装包产物（正式发布走 GitHub Actions）
+*.msi
+*.dmg
+*.AppImage
+
+# Portable program test directory (local only)
+ProgramTest/
