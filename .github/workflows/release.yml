@@ -32,23 +32,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate tag matches all version files
+      - name: Validate tag matches central version
         shell: pwsh
         run: |
           $tag = $env:GITHUB_REF_NAME
-          $npmVersion = (Get-Content package.json -Raw | ConvertFrom-Json).version
-          $tauriVersion = (Get-Content modules/upt-bootstrap/root/tauri.conf.json -Raw | ConvertFrom-Json).version
-          $cargoText = Get-Content modules/upt-bootstrap/root/Cargo.toml -Raw
-          $cargoVersion = [regex]::Match($cargoText, '(?m)^version\s*=\s*"([^"]+)"').Groups[1].Value
-          if ("v$npmVersion" -ne $tag) {
-            throw "tag '$tag' does not match package.json version '$npmVersion'"
+          $versionText = Get-Content version.toml -Raw
+          $centralVersion = [regex]::Match(
+            $versionText,
+            '(?m)^version\s*=\s*"([^"]+)"'
+          ).Groups[1].Value
+          if ("v$centralVersion" -ne $tag) {
+            throw "tag '$tag' does not match version.toml version '$centralVersion'"
           }
-          if ($tauriVersion -ne $npmVersion) {
-            throw "tauri.conf.json version '$tauriVersion' != package.json version '$npmVersion'"
-          }
-          if ($cargoVersion -ne $npmVersion) {
-            throw "Cargo.toml version '$cargoVersion' != package.json version '$npmVersion'"
-          }
+
+      - name: Validate all version files are in sync
+        run: npm run version:check
 
       - name: Lint
         run: npm run lint

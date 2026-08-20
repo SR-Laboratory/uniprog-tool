@@ -28,6 +28,9 @@ const profileIndex = args.indexOf('--profile')
 const profile = profileIndex >= 0 ? args[profileIndex + 1] : null
 if (!profile) fail('missing --profile <name>')
 
+const versionSync = run(process.execPath, [path.join(root, 'tools', 'set-version.mjs')], root)
+if (versionSync !== 0) fail('version sync failed')
+
 const assemble = run(
   process.execPath,
   [path.join(root, 'tools', 'assemble.mjs'), '--profile', profile],

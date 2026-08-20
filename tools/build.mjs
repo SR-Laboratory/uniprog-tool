@@ -46,6 +46,12 @@ const configArg = backend === 'libusb' ? ['--config', 'src-tauri/tauri.libusb.co
 const profileRoot = path.join(root, 'build', profileName)
 const srcTauri = path.join(profileRoot, 'src-tauri')
 
+// 0. Sync all version files from the central `version.toml` before building,
+//    so editing that one file is enough for a new version.
+if (run(process.execPath, [path.join(root, 'tools', 'set-version.mjs')], root) !== 0) {
+  fail('version sync failed')
+}
+
 // 1. Frontend bundles land in the module package dirs.
 const npmCommand = process.platform === 'win32' ? 'npm' : 'npm'
 if (run(npmCommand, ['run', 'build'], root, process.platform === 'win32') !== 0) {

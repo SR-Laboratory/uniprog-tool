@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # UniProgrammer 编译选单（Linux / macOS）
-# 选择 HAL 后端后构建前端 + Rust release。
+# 选择后端后运行完整构建管线（前端 + 组装 + Rust release + 打包）。
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -13,22 +13,24 @@ echo '  [3] 强制 DLL（CH34X.DLL，仅 Windows 有意义）'
 echo
 read -r -p '  选择后端 (1/2/3): ' choice
 
-features=()
 case "$choice" in
-  1) ;;
-  2) features=(--features hal-libusb) ;;
-  3) features=(--features hal-dll) ;;
+  1)
+    if [ "$(uname -s)" = "Linux" ]; then
+      profile="desktop-tauri-libusb"
+    else
+      profile="desktop-tauri-dll"
+    fi
+    ;;
+  2) profile="desktop-tauri-libusb" ;;
+  3) profile="desktop-tauri-dll" ;;
   *) echo '无效选择' >&2; exit 1 ;;
 esac
 
 echo
-echo '>>> npm run build'
-npm run build
+echo ">>> node tools/build.mjs --profile $profile"
+node tools/build.mjs --profile "$profile"
 
 echo
-echo ">>> cargo build --release ${features[*]}"
-(cd src-tauri && cargo build --release "${features[@]}")
-
-echo
-echo '完成。可执行文件：'
-echo '  src-tauri/target/release/uniprog'
+echo '完成。产物目录：'
+echo "  dist/$profile/installer"
+echo "  dist/$profile/portable"

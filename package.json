@@ -19,6 +19,8 @@
     "assemble": "node tools/assemble.mjs",
     "assemble:libusb": "node tools/assemble.mjs --profile desktop-tauri-libusb",
     "assemble:dll": "node tools/assemble.mjs --profile desktop-tauri-dll",
+    "version:sync": "node tools/set-version.mjs",
+    "version:check": "node tools/set-version.mjs --check",
     "verify:libusb": "node tools/verify.mjs --profile desktop-tauri-libusb",
     "verify:dll": "node tools/verify.mjs --profile desktop-tauri-dll",
     "package": "node tools/package.mjs",
