@@ -724,7 +724,7 @@ pub struct BbmLutEntry {
 
 fn parse_bbm_lut(raw: &[u8]) -> Vec<BbmLutEntry> {
     let mut entries = Vec::new();
-    for (index, chunk) in raw.chunks_exact(4).enumerate().take(20) {
+    for (index, chunk) in raw.as_chunks::<4>().0.iter().enumerate().take(20) {
         let lba = u16::from_le_bytes([chunk[0], chunk[1]]);
         let pba = u16::from_le_bytes([chunk[2], chunk[3]]);
         let status = lba >> 14;
