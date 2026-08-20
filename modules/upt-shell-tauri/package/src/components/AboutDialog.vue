@@ -6,7 +6,7 @@ import { t } from '@/i18n'
 
 const open = defineModel<boolean>('open', { default: false })
 
-const REPO_URL = 'https://github.com/M0rt1s0114/UniProgrammer'
+const REPO_URL = 'https://github.com/SR-Laboratory/uniprog-tool'
 const version = ref('')
 const total = ref(0)
 const stats = ref<{ protocol: string; count: number }[]>([])
