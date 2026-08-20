@@ -1,3 +1,3 @@
 # Single source of truth for the UniProgrammer version.
 # Run `npm run version:sync` after changing this file.
-version = "0.5.0-alpha.1"
+version = "0.5.0-alpha.2"
