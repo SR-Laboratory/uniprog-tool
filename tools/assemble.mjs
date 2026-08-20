@@ -46,6 +46,80 @@ function readModule(name) {
   return module
 }
 
+// Built-in plugin packages are shipped as runtime resources, not as source
+// trees. Copy only the install payload (`unipkg.toml` plus what
+// `[packaging]` declares) so `src/`, `vite.config.js` and friends never end
+// up in the installer or the portable zip.
+function readUnipkgDocument(sourceDir) {
+  const manifestPath = path.join(sourceDir, 'unipkg.toml')
+  if (!fs.existsSync(manifestPath)) return null
+  try {
+    return parseToml(fs.readFileSync(manifestPath, 'utf8'))
+  } catch (error) {
+    fail(`invalid plugin manifest ${manifestPath}: ${error.message}`)
+  }
+}
+
+function copyPayloadPattern(sourceDir, targetDir, pattern) {
+  const normalized = pattern.replaceAll('\\', '/')
+  if (normalized.startsWith('/') || normalized.includes('..')) {
+    fail(`unsafe [packaging] include pattern: ${pattern}`)
+  }
+  const direct = path.join(sourceDir, normalized)
+  if (fs.existsSync(direct)) {
+    if (fs.statSync(direct).isDirectory()) {
+      fs.cpSync(direct, path.join(targetDir, normalized), { recursive: true })
+    } else {
+      copyFile(direct, path.join(targetDir, normalized))
+    }
+    return true
+  }
+  const withExe = `${normalized}.exe`
+  if (fs.existsSync(path.join(sourceDir, withExe))) {
+    copyFile(path.join(sourceDir, withExe), path.join(targetDir, withExe))
+    return true
+  }
+  return false
+}
+
+function copyPluginPackage(source, target) {
+  fs.mkdirSync(target, { recursive: true })
+  const document = readUnipkgDocument(source)
+  if (!document) {
+    // Not a unipkg package after all: fall back to a full directory copy.
+    copyDir(source, target)
+    return
+  }
+
+  copyFile(path.join(source, 'unipkg.toml'), path.join(target, 'unipkg.toml'))
+  const manifest = document.package || {}
+  const packaging = document.packaging || {}
+  const include = Array.isArray(packaging.include) ? packaging.include : null
+
+  if (include) {
+    for (const pattern of include) {
+      if (!copyPayloadPattern(source, target, String(pattern))) {
+        console.log(
+          `[assemble] ${manifest.name}: payload ${pattern} not built yet (expected at bundle time)`,
+        )
+      }
+    }
+  } else if (manifest.kind === 'ui') {
+    if (!copyPayloadPattern(source, target, 'dist')) {
+      console.log(`[assemble] ${manifest.name}: dist not built yet (expected at bundle time)`)
+    }
+  } else if (manifest.kind === 'adapter') {
+    if (manifest.entry && manifest.entry !== 'builtin') {
+      copyPayloadPattern(source, target, manifest.entry)
+    }
+    for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
+      if (entry.isFile() && entry.name.toLowerCase().endsWith('.dll')) {
+        copyFile(path.join(source, entry.name), path.join(target, entry.name))
+      }
+    }
+  }
+}
+
 const args = process.argv.slice(2)
 const profileIndex = args.indexOf('--profile')
 const profileName = profileIndex >= 0 ? args[profileIndex + 1] : null
@@ -78,7 +152,9 @@ for (const name of profile.modules) {
   if (seenTargets.has(module.target)) fail(`duplicate module target: ${module.target}`)
   seenTargets.add(module.target)
   if (!fs.existsSync(source)) fail(`module source not found for ${name}: ${source}`)
-  if (fs.statSync(source).isDirectory()) {
+  if (module.target.startsWith('plugins/builtin/') && fs.statSync(source).isDirectory()) {
+    copyPluginPackage(source, target)
+  } else if (fs.statSync(source).isDirectory()) {
     copyDir(source, target)
   } else {
     copyFile(source, target)

@@ -7,6 +7,7 @@ import { spawnSync } from 'node:child_process'
 //
 //   node tools/build.mjs --profile desktop-tauri-libusb
 //   node tools/build.mjs --profile desktop-tauri-dll
+//   node tools/build.mjs --profile desktop-tauri-libusb --skip-smoke   # CI
 //
 // Pipeline:
 //   frontend build -> assemble -> cargo release -> prepare sidecars ->
@@ -30,6 +31,7 @@ const args = process.argv.slice(2)
 const profileIndex = args.indexOf('--profile')
 const profileName = profileIndex >= 0 ? args[profileIndex + 1] : null
 if (!profileName) fail('missing --profile <name>')
+const skipSmoke = args.includes('--skip-smoke')
 
 const profileFile = path.join(root, 'profiles', `${profileName}.toml`)
 if (!fs.existsSync(profileFile)) fail(`profile not found: ${profileFile}`)
@@ -83,14 +85,10 @@ const tauriArgs = [
 if (run(process.execPath, tauriArgs, profileRoot) !== 0) fail('tauri bundle failed')
 
 // 5. Stage 6: collect the finished build into `dist/<profile>/`.
-if (
-  run(
-    process.execPath,
-    [path.join(root, 'tools', 'package.mjs'), '--profile', profileName],
-    root,
-  ) !== 0
-) {
-  fail('packaging failed')
-}
+//    CI passes `--skip-smoke` because launching the GUI on a runner is flaky;
+//    local builds keep the startup smoke check by default.
+const packageArgs = [path.join(root, 'tools', 'package.mjs'), '--profile', profileName]
+if (skipSmoke) packageArgs.push('--skip-smoke')
+if (run(process.execPath, packageArgs, root) !== 0) fail('packaging failed')
 
 console.log(`[build] profile ${profileName} finished in ${profileRoot}`)
