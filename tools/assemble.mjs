@@ -134,6 +134,12 @@ const requiredTargets = Array.isArray(profile.required) ? profile.required : []
 const buildDir = path.join(root, 'build', profile.name, 'src-tauri')
 cleanDir(buildDir)
 
+// The chip database XML is maintained as plaintext in `flashdb/` and copied
+// into the generated workspace for chipdb tools and tests.
+const flashDbXml = path.join(root, 'flashdb', 'chiplib.xml')
+if (!fs.existsSync(flashDbXml)) fail(`plaintext chip database not found: ${flashDbXml}`)
+copyFile(flashDbXml, path.join(buildDir, 'chiplib.xml'))
+
 // Proprietary vendor DLL only belongs to the local dll profile. It lives in
 // `vendor/` (gitignored) and is copied into the generated workspace here.
 if (profile.backend === 'dll') {
