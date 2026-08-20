@@ -1,6 +1,6 @@
 [package]
 name = "uniprog"
-version = "0.4.0-alpha.12"
+version = "0.5.0-alpha.1"
 edition = "2021"
 license = "GPL-3.0-or-later"
 default-run = "uniprog"
