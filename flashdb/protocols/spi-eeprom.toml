@@ -1,0 +1,31 @@
+protocol = "SPI_EEPROM"
+description = "SPI_EEPROM Flash database"
+
+[vendors.ADI]
+chips = [
+  { id = "", model = "DS24B33", adapt = "adapM35080", page = 16, size = 4096, vcc = "5.0" }
+]
+
+[vendors.APLUS]
+chips = [
+  { id = "", model = "AF25BC08", page = 32, size = 1024 }
+]
+
+[vendors.MICROCHIP]
+chips = [
+  { id = "", model = "_25AA010A", page = 16, size = 128 }
+]
+
+[vendors.SAIFUN]
+chips = [
+  { id = "", model = "SA25C1024H", page = 128, size = 131072, spicmd = 95 },
+  { id = "", model = "SA25C1024L", page = 128, size = 131072, spicmd = 95 },
+  { id = "", model = "SA25C512H", page = 128, size = 65536, spicmd = 95 },
+  { id = "", model = "SA25C512L", page = 128, size = 65536, spicmd = 95 }
+]
+
+[vendors.ST]
+chips = [
+  { id = "", model = "M35080-Vx_080D0W", adapt = "adapM35080", page = 32, size = 1024, vcc = "5.0" }
+]
+

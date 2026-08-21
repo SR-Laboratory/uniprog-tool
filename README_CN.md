@@ -121,29 +121,19 @@ npm run dist:dll
 ## 芯片数据库
 
 `chiplib.bin` 是运行时数据库，在磁盘上轻度混淆（FFW 风格逐字节掩码 +
-旋转）。可维护的明文芯片清单按协议拆分在 `flashdb/protocols/`，由
-`flashdb/manifest.toml` 控制合并；构建时组装器把片段合并进生成工程。仓库
-里不再存放混淆后的 XML，也不会在工作目录留下明文数据库文件。
+旋转）。可维护的芯片清单以 TOML 形式按协议拆分在 `flashdb/protocols/`，
+顺序由 `flashdb/manifest.toml` 控制。组装器把 TOML 文件直接编译成
+`chiplib.bin`，没有 XML 中间步骤。
 
-维护工具（另见 `cargo run --example chipdb_tool -- help`）：
+维护数据库：
 
 ```bash
-# 从明文 XML 片段重新生成 chiplib.bin
-npm run chipdb:merge
-cargo run --example chipdb_tool -- xml2bin \
-  build/chipdb/chiplib.xml modules/upt-bootstrap/root/chiplib.bin
-
-# 合并 TSV 芯片表（插入缺失项、补全已有属性）
-cargo run --example chipdb_tool -- merge modules/upt-bootstrap/root/chiplib.bin chips.tsv
-
-# 按 JEDEC ID 添加或替换一个芯片
-cargo run --example chipdb_tool -- add modules/upt-bootstrap/root/chiplib.bin 5E3213 \
-  Zbit ZB25D40B SPI_NOR page=256 size=524288 sector=4096 block=65536
-
-# 从 IMSProg.Dat 字段补全（只补缺失值）
-cargo run --example chipdb_tool -- \
-  modules/upt-bootstrap/root/chiplib.bin IMSProg.Dat --backup
+# 编辑 flashdb/protocols/*.toml 之后，编译运行时 bin
+npm run chipdb:build
 ```
+
+输出文件是 `build/chipdb/chiplib.bin`。所有 `npm run dist:*` / `verify:*`
+构建也会自动执行同样的编译。
 
 ## 开发
 

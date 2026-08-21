@@ -1,8 +1,8 @@
 # Chiplib source manifest.
 #
-# `order` controls the merged XML layout. `sources` maps each protocol tag
-# to its fragment file under `flashdb/`. The assembler merges these fragments
-# into the generated workspace; never edit a generated chiplib.xml by hand.
+# `order` controls the protocol order in the compiled database. `sources`
+# maps each protocol tag to its TOML source under `flashdb/`. The assembler
+# compiles these files directly into the runtime chiplib.bin.
 [chipdb]
 order = [
   "SPI_EC",
@@ -21,16 +21,16 @@ order = [
 ]
 
 [chipdb.sources]
-SPI_EC = "protocols/spi-ec.xml"
-SPI_DATA_45 = "protocols/spi-data45.xml"
-SPI_NAND = "protocols/spi-nand.xml"
-SPI_NOR = "protocols/spi-nor.xml"
-SPI_EEPROM = "protocols/spi-eeprom.xml"
-SPI_F-RAM = "protocols/spi-fram.xml"
-I2C = "protocols/i2c.xml"
-I2C_F-RAM = "protocols/i2c-fram.xml"
-I2C_SPD = "protocols/i2c-spd.xml"
-Microwire = "protocols/microwire.xml"
-AVR = "protocols/avr.xml"
-MCU = "protocols/mcu.xml"
-PARALLEL_NAND = "protocols/parallel-nand.xml"
+SPI_EC = "protocols/spi-ec.toml"
+SPI_DATA_45 = "protocols/spi-data45.toml"
+SPI_NAND = "protocols/spi-nand.toml"
+SPI_NOR = "protocols/spi-nor.toml"
+SPI_EEPROM = "protocols/spi-eeprom.toml"
+SPI_F-RAM = "protocols/spi-fram.toml"
+I2C = "protocols/i2c.toml"
+I2C_F-RAM = "protocols/i2c-fram.toml"
+I2C_SPD = "protocols/i2c-spd.toml"
+Microwire = "protocols/microwire.toml"
+AVR = "protocols/avr.toml"
+MCU = "protocols/mcu.toml"
+PARALLEL_NAND = "protocols/parallel-nand.toml"

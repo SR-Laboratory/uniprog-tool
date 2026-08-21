@@ -168,15 +168,15 @@ checklist:
 
 ## Chip database
 
-- The plaintext chip list is maintained as per-protocol fragments in
-  `flashdb/protocols/`, with `flashdb/manifest.toml` controlling merge order.
-  The assembler merges them into the generated workspace.
-- `chiplib.bin` is the runtime database and is lightly obfuscated on disk.
+- The chip list is maintained as TOML files under `flashdb/protocols/`, with
+  `flashdb/manifest.toml` controlling protocol order.
+- `tools/compile-chipdb.mjs` compiles the TOML files directly into the runtime
+  `chiplib.bin`; there is no XML intermediate step.
+- `chiplib.bin` is generated output and is not committed; it is lightly
+  obfuscated on disk.
 - Decoding happens in memory only; never commit or leave a plaintext database
   file in the working directory.
-- Prefer `chipdb_tool merge <bin> <chips.tsv>` for batch updates and
-  `chipdb_tool add ...` for single chips so existing enriched attributes are
-  not overwritten.
+- Edit the TOML files directly and run `npm run chipdb:build` after changes.
 
 ## Versioning
 

@@ -1,0 +1,8 @@
+protocol = "SPI_EC"
+description = "SPI_EC Flash database"
+
+[vendors.ENE]
+chips = [
+  { id = "9012", model = "KB9012", adapt = "adapKB90", page = 128, size = 131072 }
+]
+

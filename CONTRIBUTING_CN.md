@@ -167,12 +167,13 @@ npm run verify:libusb
 
 ## 芯片数据库
 
-- 明文芯片清单按协议拆分维护在 `flashdb/protocols/`，合并顺序由
-  `flashdb/manifest.toml` 控制。组装器会把它们合并进生成工程。
-- `chiplib.bin` 是运行时数据库，磁盘上使用轻量混淆。
+- 芯片清单以 TOML 形式维护在 `flashdb/protocols/`，协议顺序由
+  `flashdb/manifest.toml` 控制。
+- `tools/compile-chipdb.mjs` 直接把 TOML 文件编译成运行时
+  `chiplib.bin`，没有 XML 中间步骤。
+- `chiplib.bin` 是生成产物，不提交进仓库；它在磁盘上轻度混淆。
 - 解码只发生在内存中；不得提交或在工作目录留下明文芯片库。
-- 批量更新优先使用 `chipdb_tool merge <bin> <chips.tsv>`，单颗芯片使用
-  `chipdb_tool add ...`，避免覆盖已有补全字段。
+- 修改后直接编辑 TOML 文件，然后运行 `npm run chipdb:build`。
 
 ## 版本管理
 

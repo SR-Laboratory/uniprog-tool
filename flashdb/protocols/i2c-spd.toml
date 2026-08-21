@@ -1,0 +1,8 @@
+protocol = "I2C_SPD"
+description = "I2C_SPD Flash database"
+
+[vendors.ST-ATMEL]
+chips = [
+  { id = "", model = "AT34C02", adapt = "adapI2CM34", addrtype = 1, page = 16, size = 256 }
+]
+

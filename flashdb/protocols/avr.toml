@@ -1,0 +1,18 @@
+protocol = "AVR"
+description = "AVR Flash database"
+
+[vendors.ATmega]
+chips = [
+  { id = "1E9802", model = "ATmega2561", page = 128, pageep = 8, size = 262144, sizeep = 4096 }
+]
+
+[vendors.ATtiny]
+chips = [
+  { id = "1E9412", model = "ATtiny1634", page = 16, pageep = 4, size = 16384, sizeep = 256 }
+]
+
+[vendors.specific]
+chips = [
+  { id = "1EA803", model = "ATmega2564RFR2", page = 128, pageep = 8, size = 262144, sizeep = 8192 }
+]
+

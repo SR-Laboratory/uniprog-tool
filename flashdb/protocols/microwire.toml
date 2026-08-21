@@ -1,0 +1,50 @@
+protocol = "Microwire"
+description = "Microwire Flash database"
+
+[vendors.ABLIC]
+chips = [
+  { id = "", model = "S93C86B_16bits", adapt = "adap93C", addrbitlen = 10, size = 2048, vcc = "5.0" },
+  { id = "", model = "S93C86BH_16bits", adapt = "adap93C", addrbitlen = 10, size = 2048, vcc = "5.0" },
+  { id = "", model = "S93C86BD_16bits", adapt = "adap93C", addrbitlen = 10, size = 2048, vcc = "5.0" },
+  { id = "", model = "S93C86BD41_16bits", adapt = "adap93C", addrbitlen = 10, size = 2048, vcc = "5.0" }
+]
+
+[vendors.CYPRESS]
+chips = [
+  { id = "", model = "CY93C01_8bits", adapt = "adap93C", addrbitlen = 7, size = 128 },
+  { id = "", model = "CY93C01_16bits", adapt = "adap93C", addrbitlen = 6, size = 128 }
+]
+
+[vendors.DIV_59x]
+chips = [
+  { id = "", model = "MSM16911_8bits", adapt = "adap59C", addrbitlen = 7, size = 128, vcc = "5.0" },
+  { id = "", model = "MSM16911_16bits", adapt = "adap59C", addrbitlen = 6, size = 128, vcc = "5.0" }
+]
+
+[vendors.Generic]
+chips = [
+  { id = "", model = "_93C86_8bits", adapt = "adap93C", addrbitlen = 11, size = 2048, vcc = "5.0" },
+  { id = "", model = "_93C86_16bits", adapt = "adap93C", addrbitlen = 10, size = 2048, vcc = "5.0" },
+  { id = "", model = "_93C76_8bits", adapt = "adap93C", addrbitlen = 11, size = 1024, vcc = "5.0" },
+  { id = "", model = "_93C76_16bits", adapt = "adap93C", addrbitlen = 10, size = 1024, vcc = "5.0" },
+  { id = "", model = "_93C66_8bits", adapt = "adap93C", addrbitlen = 9, size = 512, vcc = "5.0" },
+  { id = "", model = "_93C66_16bits", adapt = "adap93C", addrbitlen = 8, size = 512, vcc = "5.0" },
+  { id = "", model = "_93C57_8bits", adapt = "adap93C", addrbitlen = 8, size = 256, vcc = "5.0" },
+  { id = "", model = "_93C57_16bits", adapt = "adap93C", addrbitlen = 7, size = 256, vcc = "5.0" },
+  { id = "", model = "_93C56_8bits", adapt = "adap93C", addrbitlen = 9, size = 256, vcc = "5.0" },
+  { id = "", model = "_93C56_16bits", adapt = "adap93C", addrbitlen = 8, size = 256, vcc = "5.0" },
+  { id = "", model = "_93C46_8bits", adapt = "adap93C", addrbitlen = 7, size = 128, vcc = "5.0" },
+  { id = "", model = "_93C46_16bits", adapt = "adap93C", addrbitlen = 6, size = 128, vcc = "5.0" }
+]
+
+[vendors.ST_93Sx6]
+chips = [
+  { id = "", model = "M93S66_16bits", adapt = "adap93S", addrbitlen = 8, size = 512 },
+  { id = "", model = "M93C86", addrbitlen = 10, size = 2048 },
+  { id = "", model = "M93C76", addrbitlen = 10, size = 1024 },
+  { id = "", model = "M93C66", addrbitlen = 8, size = 512 },
+  { id = "", model = "M93C56", addrbitlen = 8, size = 256 },
+  { id = "", model = "M93C46", addrbitlen = 6, size = 128 },
+  { id = "", model = "M93C06", addrbitlen = 6, size = 16 }
+]
+

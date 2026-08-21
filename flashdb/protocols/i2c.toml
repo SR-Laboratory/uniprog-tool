@@ -1,0 +1,68 @@
+protocol = "I2C"
+description = "I2C Flash database"
+
+[vendors.ABLIC]
+chips = [
+  { id = "", model = "S-24CSC08A", addrtype = 3, page = 16, size = 1024 },
+  { id = "", model = "S-24CS16A", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "S-24CS32A", addrtype = 5, page = 32, size = 4096 },
+  { id = "", model = "S-24CS64A", addrtype = 5, page = 32, size = 8192 },
+  { id = "", model = "S-24CS512A", addrtype = 5, page = 128, size = 65536 }
+]
+
+[vendors.ATMEL]
+chips = [
+  { id = "", model = "AT24RF08C", adapt = "adapI2C", addrtype = 3, page = 16, size = 1024 }
+]
+
+[vendors.CATALYST_CSI]
+chips = [
+  { id = "", model = "CAT24C256", addrtype = 5, page = 64, size = 32768 }
+]
+
+[vendors.Generic]
+chips = [
+  { id = "", model = "_24C00", addrtype = 1, page = 1, size = 16 },
+  { id = "", model = "_24C01", addrtype = 1, page = 8, size = 128 },
+  { id = "", model = "_24C02", addrtype = 1, page = 8, size = 256 },
+  { id = "", model = "_24C04", addrtype = 2, page = 16, size = 512 },
+  { id = "", model = "_24C08", addrtype = 3, page = 16, size = 1024 },
+  { id = "", model = "_24C16", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "_24C32", addrtype = 5, page = 32, size = 4096 },
+  { id = "", model = "_24C64", addrtype = 5, page = 32, size = 8192 },
+  { id = "", model = "_24C128", addrtype = 5, page = 64, size = 16384 },
+  { id = "", model = "_24C256", addrtype = 5, page = 64, size = 32768 },
+  { id = "", model = "_24C512", addrtype = 5, page = 128, size = 65536 },
+  { id = "", model = "_24C1024", addrtype = 6, page = 256, size = 131072 },
+  { id = "", model = "_24C2048", addrtype = 7, page = 256, size = 262144 }
+]
+
+[vendors.MICROCHIP]
+chips = [
+  { id = "", model = "_24LC515", adapt = "adapI2C", addrtype = 5, page = 64, size = 65536, vcc = "5.0" }
+]
+
+[vendors.ROHM]
+chips = [
+  { id = "", model = "BR24T01-W", adapt = "adapI2C", addrtype = 1, page = 8, size = 128 },
+  { id = "", model = "BR24T02-W", adapt = "adapI2C", addrtype = 1, page = 8, size = 256 },
+  { id = "", model = "BR24T04-W", adapt = "adapI2C", addrtype = 2, page = 16, size = 512 },
+  { id = "", model = "BR24T08-W", adapt = "adapI2C", addrtype = 3, page = 16, size = 1024 },
+  { id = "", model = "BR24T16-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T32-W", adapt = "adapI2C", addrtype = 5, page = 32, size = 4096 },
+  { id = "", model = "BR24T64-W", adapt = "adapI2C", addrtype = 5, page = 32, size = 8192 },
+  { id = "", model = "BR24T128-W", adapt = "adapI2C", addrtype = 5, page = 64, size = 16384 },
+  { id = "", model = "BR24T256-W", adapt = "adapI2C", addrtype = 5, page = 64, size = 32768 },
+  { id = "", model = "BR24T512-W", adapt = "adapI2C", addrtype = 5, page = 128, size = 65536 },
+  { id = "", model = "BR24T1M-W", adapt = "adapI2C", addrtype = 6, page = 256, size = 131072 },
+  { id = "", model = "BR24T16-WZ", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16F-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16FJ-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16FJ-WSGN", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16FV-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16FVT-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16FVJ-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16FVM-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
+  { id = "", model = "BR24T16NUX-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 }
+]
+

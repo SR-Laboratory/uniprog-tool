@@ -1,5 +1,0 @@
-<I2C_F-RAM>
-    <CYPRESS>
-      <FM24C04x id="" addrtype="2" size="512" vcc="5.0"/>
-    </CYPRESS>
-</I2C_F-RAM>

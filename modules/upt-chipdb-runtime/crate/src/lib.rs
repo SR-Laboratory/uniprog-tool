@@ -956,12 +956,14 @@ mod tests {
     }
 
     #[test]
-    fn xml_fallback_contains_new_chip() {
-        let xml_path = uniprog_root().join("chiplib.xml");
-        let xml_path = xml_path.to_str().expect("path must be UTF-8");
-        let lib = Chiplib::load_xml(xml_path).expect("load chiplib.xml");
+    fn compiled_bin_contains_new_chip() {
+        let bin_path = uniprog_root().join("chiplib.bin");
+        let bin_path = bin_path.to_str().expect("path must be UTF-8");
+        let lib = Chiplib::load_bin(bin_path).expect("load compiled chiplib.bin");
         assert_eq!(lib.entry_count(), 1429);
-        let d40 = lib.find_by_id("5E3213").expect("ZB25D40B in XML fallback");
+        let d40 = lib
+            .find_by_id("5E3213")
+            .expect("ZB25D40B in compiled database");
         assert_eq!(d40.vendor, "Zbit");
         assert_eq!(d40.model, "ZB25D40B");
         assert_eq!(d40.protocol, "SPI_NOR");
@@ -973,7 +975,7 @@ mod tests {
 
         let merged = lib
             .find_by_id("0B4018")
-            .expect("XT25F128B in XML fallback after library expansion");
+            .expect("XT25F128B in compiled database after library expansion");
         assert_eq!(merged.vendor, "XTX");
         assert_eq!(merged.protocol, "SPI_NOR");
         assert_eq!(merged.size, 16 * 1024 * 1024);

@@ -135,14 +135,14 @@ const requiredTargets = Array.isArray(profile.required) ? profile.required : []
 const buildDir = path.join(root, 'build', profile.name, 'src-tauri')
 cleanDir(buildDir)
 
-// The chip database is maintained as per-protocol fragments under
-// `flashdb/protocols/`. Merge them into the generated workspace.
-const chipDbMerge = spawnSync(
+// The chip database is maintained as per-protocol TOML files under
+// `flashdb/protocols/`. Compile them natively into the runtime bin.
+const chipDbBuild = spawnSync(
   process.execPath,
-  [path.join(root, 'tools', 'merge-chipdb.mjs'), '--output', path.join(buildDir, 'chiplib.xml')],
+  [path.join(root, 'tools', 'compile-chipdb.mjs'), '--output', path.join(buildDir, 'chiplib.bin')],
   { cwd: root, stdio: 'inherit' },
 )
-if (chipDbMerge.status !== 0) fail('chiplib merge failed')
+if (chipDbBuild.status !== 0) fail('chiplib compilation failed')
 
 // Proprietary vendor DLL only belongs to the local dll profile. It lives in
 // `vendor/` (gitignored) and is copied into the generated workspace here.

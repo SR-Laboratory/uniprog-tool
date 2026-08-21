@@ -1,7 +1,0 @@
-<SPI_F-RAM>
-    <CYPRESS>
-      <FM25040 id="" size="512"/>
-      <CY15B104QSN id="0000000006825150" size="524288"/>
-      <CY15B128Q id="7F7F7F7F7F7FC221" size="16384"/>
-    </CYPRESS>
-</SPI_F-RAM>

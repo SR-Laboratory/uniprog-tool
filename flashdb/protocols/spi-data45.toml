@@ -1,0 +1,19 @@
+protocol = "SPI_DATA_45"
+description = "SPI_DATA_45 Flash database"
+
+[vendors.ATMEL]
+chips = [
+  { id = "1F2200", model = "AT45DB011D_3V3_binary", algorithm = 25, page = 256, sector = 256, size = 131072, vcc = "3.3" },
+  { id = "1F2300", model = "AT45DB021D_3V3_binary", algorithm = 26, page = 256, sector = 256, size = 262144, vcc = "3.3" },
+  { id = "1F2400", model = "AT45DB041D_3V3_binary", algorithm = 27, page = 256, sector = 256, size = 524288, vcc = "3.3" },
+  { id = "1F2500", model = "AT45DB081D_3V3_binary", algorithm = 28, page = 256, sector = 256, size = 1048576, vcc = "3.3" },
+  { id = "1F2600", model = "AT45DB161D_3V3_binary", algorithm = 28, page = 512, sector = 512, size = 2097152, vcc = "3.3" },
+  { id = "1F2701", model = "AT45DB321D_3V3_binary", algorithm = 29, page = 512, sector = 512, size = 4194304, vcc = "3.3" },
+  { id = "1F2800", model = "AT45DB642D_page1024", adapt = "adapSPI45", addr4bit = 0, algorithm = 31, page = 1024, sector = 528, size = 8388608, vcc = "3.3" }
+]
+
+[vendors.ADESTO]
+chips = [
+  { id = "1F2920", model = "AT45DB1282", page = 264, sector = 264, size = 16777216, vcc = "3.3" }
+]
+

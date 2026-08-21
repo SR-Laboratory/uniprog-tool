@@ -130,31 +130,21 @@ Backend selection is a compile-time Cargo feature. See
 ## Chip Database
 
 `chiplib.bin` is the runtime database and is lightly obfuscated on disk
-(FFW-style per-byte mask + rotate). The maintainable plaintext chip list is
-split by protocol in `flashdb/protocols/`, controlled by
-`flashdb/manifest.toml`; the assembler merges the fragments into the generated
-workspace during a build. No obfuscated XML is stored in the repository, and
-no plaintext database file is left in the working directory.
+(FFW-style per-byte mask + rotate). The maintainable chip list is stored as
+TOML, split by protocol in `flashdb/protocols/` and ordered by
+`flashdb/manifest.toml`. The assembler compiles those TOML files directly into
+`chiplib.bin`; there is no XML intermediate step.
 
-Maintenance tools (also see `cargo run --example chipdb_tool -- help`):
+Maintaining the database:
 
 ```bash
-# Rebuild chiplib.bin from the plaintext XML fragments
-npm run chipdb:merge
-cargo run --example chipdb_tool -- xml2bin \
-  build/chipdb/chiplib.xml modules/upt-bootstrap/root/chiplib.bin
-
-# Merge a TSV chip table (insert missing, enrich existing attributes)
-cargo run --example chipdb_tool -- merge modules/upt-bootstrap/root/chiplib.bin chips.tsv
-
-# Add or replace one chip by JEDEC ID
-cargo run --example chipdb_tool -- add modules/upt-bootstrap/root/chiplib.bin 5E3213 \
-  Zbit ZB25D40B SPI_NOR page=256 size=524288 sector=4096 block=65536
-
-# Enrich from IMSProg.Dat fields (fills missing values only)
-cargo run --example chipdb_tool -- \
-  modules/upt-bootstrap/root/chiplib.bin IMSProg.Dat --backup
+# After editing flashdb/protocols/*.toml, compile the runtime bin
+npm run chipdb:build
 ```
+
+The compiled file is written to `build/chipdb/chiplib.bin`. The same
+compilation runs automatically inside every `npm run dist:*` / `verify:*`
+build.
 
 ## Development
 

@@ -1,0 +1,10 @@
+protocol = "SPI_F-RAM"
+description = "SPI_F-RAM Flash database"
+
+[vendors.CYPRESS]
+chips = [
+  { id = "", model = "FM25040", size = 512 },
+  { id = "0000000006825150", model = "CY15B104QSN", size = 524288 },
+  { id = "7F7F7F7F7F7FC221", model = "CY15B128Q", size = 16384 }
+]
+

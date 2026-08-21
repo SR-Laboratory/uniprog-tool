@@ -1,0 +1,14 @@
+protocol = "MCU"
+description = "MCU Flash database"
+
+[vendors.Samsung_Zilog]
+chips = [
+  { id = "", model = "S3F8S24", VPP = "11V", mcutype = "S3F", page = 256, size = 4096 },
+  { id = "", model = "S3F8S28", VPP = "11V", mcutype = "S3F", page = 256, size = 8192 },
+  { id = "", model = "S3F8S35", VPP = "5.0V", mcutype = "S3F", page = 256, size = 16384 },
+  { id = "", model = "S3F8S39", VPP = "5.0V", mcutype = "S3F", page = 256, size = 32768 },
+  { id = "", model = "S3F9454B", VPP = "12.5V", mcutype = "S3F", page = 256, size = 4096 },
+  { id = "", model = "S3F94C4", VPP = "11V", mcutype = "S3F", page = 256, size = 4096 },
+  { id = "", model = "S3F94C8", VPP = "11V", mcutype = "S3F", page = 256, size = 8192 }
+]
+

@@ -1,0 +1,8 @@
+protocol = "I2C_F-RAM"
+description = "I2C_F-RAM Flash database"
+
+[vendors.CYPRESS]
+chips = [
+  { id = "", model = "FM24C04x", addrtype = 2, size = 512, vcc = "5.0" }
+]
+

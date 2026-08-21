@@ -21,7 +21,7 @@
     "assemble:dll": "node tools/assemble.mjs --profile desktop-tauri-dll",
     "version:sync": "node tools/set-version.mjs",
     "version:check": "node tools/set-version.mjs --check",
-    "chipdb:merge": "node tools/merge-chipdb.mjs --output build/chipdb/chiplib.xml",
+    "chipdb:build": "node tools/compile-chipdb.mjs --output build/chipdb/chiplib.bin",
     "verify:libusb": "node tools/verify.mjs --profile desktop-tauri-libusb",
     "verify:dll": "node tools/verify.mjs --profile desktop-tauri-dll",
     "package": "node tools/package.mjs",
