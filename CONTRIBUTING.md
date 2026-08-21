@@ -168,8 +168,9 @@ checklist:
 
 ## Chip database
 
-- The plaintext chip list is maintained in `flashdb/chiplib.xml` and committed
-  to the repository. The assembler copies it into the generated workspace.
+- The plaintext chip list is maintained as per-protocol fragments in
+  `flashdb/protocols/`, with `flashdb/manifest.toml` controlling merge order.
+  The assembler merges them into the generated workspace.
 - `chiplib.bin` is the runtime database and is lightly obfuscated on disk.
 - Decoding happens in memory only; never commit or leave a plaintext database
   file in the working directory.

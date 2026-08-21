@@ -121,16 +121,17 @@ npm run dist:dll
 ## 芯片数据库
 
 `chiplib.bin` 是运行时数据库，在磁盘上轻度混淆（FFW 风格逐字节掩码 +
-旋转）。可维护的明文芯片清单是 `flashdb/chiplib.xml`；构建时组装器会把它
-复制进生成工程。仓库里不再存放混淆后的 XML，也不会在工作目录留下明文
-数据库文件。
+旋转）。可维护的明文芯片清单按协议拆分在 `flashdb/protocols/`，由
+`flashdb/manifest.toml` 控制合并；构建时组装器把片段合并进生成工程。仓库
+里不再存放混淆后的 XML，也不会在工作目录留下明文数据库文件。
 
 维护工具（另见 `cargo run --example chipdb_tool -- help`）：
 
 ```bash
-# 从明文 XML 源重新生成 chiplib.bin
+# 从明文 XML 片段重新生成 chiplib.bin
+npm run chipdb:merge
 cargo run --example chipdb_tool -- xml2bin \
-  flashdb/chiplib.xml modules/upt-bootstrap/root/chiplib.bin
+  build/chipdb/chiplib.xml modules/upt-bootstrap/root/chiplib.bin
 
 # 合并 TSV 芯片表（插入缺失项、补全已有属性）
 cargo run --example chipdb_tool -- merge modules/upt-bootstrap/root/chiplib.bin chips.tsv

@@ -90,7 +90,7 @@ modules/                       手工维护的源码
   upt-adapter-ch34x-libusb/    CH34X libusb 适配器包
 
 profiles/                      构建 profile
-flashdb/                       明文芯片数据库 XML
+flashdb/                       按协议拆分的芯片 XML 片段与 manifest
 tools/                         Node.js 组装/构建/打包/验证脚本
 scripts/                       开发与打包辅助脚本
 build/                         生成的工程（gitignore）
@@ -134,7 +134,8 @@ build/<profile>/src-tauri/
 2. 把 profile 选择的每个模块复制到它声明的目标路径。
 3. 对插件包只复制安装载荷：`unipkg.toml`、UI 包的 `dist/`、适配器包的
    sidecar/DLL 文件。
-4. 把明文 `flashdb/chiplib.xml` 复制进生成工程。
+4. 把 `flashdb/protocols/` 下按协议拆分的片段合并成生成工程里的
+   `chiplib.xml`。
 5. DLL profile 复制厂商 DLL。
 6. 写入 `build-manifest.json`。
 7. 在 profile 根目录生成 `package.json`，并改写生成的

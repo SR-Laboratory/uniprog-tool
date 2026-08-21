@@ -1,0 +1,11 @@
+<AVR>
+    <ATmega>
+      <ATmega2561 id="1E9802" page="128" pageep="8" size="262144" sizeep="4096"/>
+    </ATmega>
+    <ATtiny>
+      <ATtiny1634 id="1E9412" page="16" pageep="4" size="16384" sizeep="256"/>
+    </ATtiny>
+    <specific>
+      <ATmega2564RFR2 id="1EA803" page="128" pageep="8" size="262144" sizeep="8192"/>
+    </specific>
+</AVR>

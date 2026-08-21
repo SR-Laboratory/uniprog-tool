@@ -1,0 +1,5 @@
+<SPI_EC>
+    <ENE>
+      <KB9012 id="9012" adapt="adapKB90" page="128" size="131072"/>
+    </ENE>
+</SPI_EC>

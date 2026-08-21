@@ -1,0 +1,55 @@
+<I2C>
+    <ABLIC>
+      <S-24CSC08A id="" addrtype="3" page="16" size="1024"/>
+      <S-24CS16A id="" addrtype="4" page="16" size="2048"/>
+      <S-24CS32A id="" addrtype="5" page="32" size="4096"/>
+      <S-24CS64A id="" addrtype="5" page="32" size="8192"/>
+      <S-24CS512A id="" addrtype="5" page="128" size="65536"/>
+    </ABLIC>
+    <ATMEL>
+      <AT24RF08C id="" adapt="adapI2C" addrtype="3" page="16" size="1024"/>
+    </ATMEL>
+    <CATALYST_CSI>
+      <CAT24C256 id="" addrtype="5" page="64" size="32768"/>
+    </CATALYST_CSI>
+    <Generic>
+      <_24C00 id="" addrtype="1" page="1" size="16"/>
+      <_24C01 id="" addrtype="1" page="8" size="128"/>
+      <_24C02 id="" addrtype="1" page="8" size="256"/>
+      <_24C04 id="" addrtype="2" page="16" size="512"/>
+      <_24C08 id="" addrtype="3" page="16" size="1024"/>
+      <_24C16 id="" addrtype="4" page="16" size="2048"/>
+      <_24C32 id="" addrtype="5" page="32" size="4096"/>
+      <_24C64 id="" addrtype="5" page="32" size="8192"/>
+      <_24C128 id="" addrtype="5" page="64" size="16384"/>
+      <_24C256 id="" addrtype="5" page="64" size="32768"/>
+      <_24C512 id="" addrtype="5" page="128" size="65536"/>
+      <_24C1024 id="" addrtype="6" page="256" size="131072"/>
+      <_24C2048 id="" addrtype="7" page="256" size="262144"/>
+    </Generic>
+    <MICROCHIP>
+      <_24LC515 id="" adapt="adapI2C" addrtype="5" page="64" size="65536" vcc="5.0"/>
+    </MICROCHIP>
+    <ROHM>
+      <BR24T01-W id="" adapt="adapI2C" addrtype="1" page="8" size="128"/>
+      <BR24T02-W id="" adapt="adapI2C" addrtype="1" page="8" size="256"/>
+      <BR24T04-W id="" adapt="adapI2C" addrtype="2" page="16" size="512"/>
+      <BR24T08-W id="" adapt="adapI2C" addrtype="3" page="16" size="1024"/>
+      <BR24T16-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T32-W id="" adapt="adapI2C" addrtype="5" page="32" size="4096"/>
+      <BR24T64-W id="" adapt="adapI2C" addrtype="5" page="32" size="8192"/>
+      <BR24T128-W id="" adapt="adapI2C" addrtype="5" page="64" size="16384"/>
+      <BR24T256-W id="" adapt="adapI2C" addrtype="5" page="64" size="32768"/>
+      <BR24T512-W id="" adapt="adapI2C" addrtype="5" page="128" size="65536"/>
+      <BR24T1M-W id="" adapt="adapI2C" addrtype="6" page="256" size="131072"/>
+      <BR24T16-WZ id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16F-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16FJ-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16FJ-WSGN id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16FV-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16FVT-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16FVJ-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16FVM-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+      <BR24T16NUX-W id="" adapt="adapI2C" addrtype="4" page="16" size="2048"/>
+    </ROHM>
+</I2C>

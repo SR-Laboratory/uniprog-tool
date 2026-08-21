@@ -1,0 +1,350 @@
+<SPI_NAND>
+    <ATO>
+      <ATO25D1GA id="9B12" block="131072" dummyMode="append" feature="0" page="2048" readMode="single" size="134217728" spare="64" writeMode="single"/>
+      <ATO25D2GA id="9BF1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <ATO25D2GB id="ADDA" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+    </ATO>
+    <BIWIN>
+      <BWJX08U id="BCB1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <BWET08U id="BCB2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+    </BIWIN>
+    <BoyaMicro>
+      <BY25Q40GL id="681013" addr4bit="0" algorithm="2" besize="128" block="65536" page="2048" sector="256" size="524288" spare="64" timing="1000" vcc="1.8"/>
+      <BY25Q40GLMIG id="681013" addr4bit="0" algorithm="2" besize="128" block="65536" page="2048" sector="256" size="524288" spare="64" timing="1000" vcc="1.8"/>
+      <BY25Q40GW id="686013" addr4bit="0" algorithm="2" besize="128" block="65536" page="2048" sector="256" size="524288" spare="64" timing="1000" vcc="3.3"/>
+      <BY25Q40AW id="686013" addr4bit="0" algorithm="2" besize="128" block="65536" page="2048" sector="256" size="524288" spare="64" timing="1000" vcc="3.3"/>
+      <BY25Q40AL id="686013" addr4bit="0" algorithm="2" besize="128" block="65536" page="2048" sector="256" size="524288" spare="64" timing="1000" vcc="1.8"/>
+    </BoyaMicro>
+    <DOSILICON>
+      <DS35M1GA-IB id="E521" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" readMode="dual" size="134217728" spare="64" vcc="1.8" writeMode="single"/>
+      <DS35M2GA-IB id="E522" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <DS35M2GA-IB-最新版 id="E522" besize="128" block="131072" dummyMode="append" feature="1" maxclk="104000" page="2048" planes="2" readMode="dual" size="268435456" spare="64" vcc="1.8" writeMode="single"/>
+      <DS35M4GB-IB id="E564" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <DS35M4GBS-A2B id="E564" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <DS35M4GB-JB id="E564" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <DS35Q1GA-IB id="E571" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" readMode="dual" size="134217728" spare="64" vcc="3.3" writeMode="single"/>
+      <DS35Q2GA-IB id="E572" besize="128" block="131072" dummyMode="append" feature="1" maxclk="104000" page="2048" planes="2" readMode="dual" size="268435456" spare="64" vcc="3.3" writeMode="single"/>
+      <DS35M4GB-JB id="E5A1" besize="128" page="2048" planes="2" size="134217728" spare="64" vcc="1.8"/>
+      <DS35M2GB-IB id="E5A2" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <DS35M2GBS-IB id="E5A2" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <DS35M4GB-IB id="E5B4" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <DS35M4GBS-A2B id="E5B4" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <DS35M4GB-JB id="E5B4" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <DS35M1GB-IB id="E5F1" besize="128" page="2048" size="134217728" spare="64" vcc="3.3"/>
+      <DS35M1GBS-IB id="E5F1" besize="128" page="2048" size="134217728" spare="64" vcc="3.3"/>
+      <DS35M1GB-IB id="E5F1" besize="128" page="2048" size="134217728" spare="64" vcc="1.8"/>
+      <DS35M1GBS-IB id="E5F1" besize="128" page="2048" size="134217728" spare="64" vcc="1.8"/>
+      <DS35M4GB-JB id="E5F1" besize="128" block="131072" dummyMode="append" feature="0" page="2048" planes="2" readMode="dual" size="134217728" spare="64" vcc="3.3" writeMode="single"/>
+      <DS35M2GB-IB id="E5F2" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <DS35M2GBS-IB id="E5F2" besize="128" block="131072" dummyMode="append" feature="1" page="2048" planes="2" readMode="dual" size="268435456" spare="64" vcc="3.3" writeMode="single"/>
+    </DOSILICON>
+    <ESMT>
+      <F50D2G41KA id="2C25" besize="128" page="2048" planes="2" size="268435456" spare="128" vcc="1.8"/>
+      <F50L4G41XB id="2C34" addr4bit="34" algorithm="4" besize="128" block="262144" maxclk="104000" page="2048" planes="2" sector="4096" size="536870912" spare="64" timing="1000" vcc="3.3"/>
+      <F50D4G41XB id="2C35" besize="128" maxclk="104000" page="2048" planes="2" size="536870912" spare="64" vcc="1.8"/>
+      <F50L1G41LB id="C801" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <F50L2G41LB id="C80A" block="131072" dummyMode="append" feature="2" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <F50L2G41LB-ECC_OOB id="C80A7F" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <F50D1G41LB(2M) id="C811" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <F50D2G41LB-ECC_OOB id="C81A7F" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <F50L512 id="C820" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="67108864" spare="64" writeMode="single"/>
+      <F50L1G id="C821" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+    </ESMT>
+    <ETRON>
+      <EM73E044SNA id="D503" block="262144" dummyMode="append" feature="0" page="4096" readMode="dual" size="536870912" spare="256" writeMode="single"/>
+      <EM73C044SNF id="D509" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <EM73D044SNC id="D50A" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <EM73D044SNF id="D510" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <EM73C044SNB id="D511" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <EM73D044SNA id="D512" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <EM73D044VCA id="D513" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <EM73D044VCB id="D514" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <EM73D044VCD id="D517" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <EM73C044VCA id="D518" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <EM73D044VCH id="D51B" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <EM73C044VCD id="D51C" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <EM73C044SND id="D51D" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <EM73D044SND id="D51E" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <EM73D044VCG id="D51F" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <EM73E044VCB id="D52F" besize="128" comment="Experimental" page="2048" size="536870912" spare="128"/>
+    </ETRON>
+    <FISON>
+      <CS11G0T0A0AA id="6B00" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <CS11G1T0A0AA id="6B01" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <CS11G0G0A0AA id="6B10" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+    </FISON>
+    <FMSH>
+      <FM25G02C id="A192" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <FM25S01 id="A1A1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <FM25G01B id="A1D1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <FM25G02B id="A1D2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <FM25S01A id="A1E4" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <FM25G02 id="A1F2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <FM25S02A id="A1E5" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+    </FMSH>
+    <FORESEE>
+      <F35UQA512M-WWT id="CD6060" besize="128" page="2048" planes="2" size="67108864" spare="64" vcc="1.8"/>
+      <F35UQA512M-WWR id="CD6060" besize="128" page="2048" planes="2" size="67108864" spare="64" vcc="1.8"/>
+      <F35UQA512M-WAT id="CD6060" besize="128" page="2048" planes="2" size="67108864" spare="64" vcc="1.8"/>
+      <F35UQA512M-VWT id="CD6060" besize="128" page="2048" planes="2" size="67108864" spare="64" vcc="1.8"/>
+      <F35UQA512M-VAT id="CD6060" besize="128" page="2048" planes="2" size="67108864" spare="64" vcc="1.8"/>
+      <F35UQA001G-WWT id="CD6161" IsBMM="0" block="131072" maxclk="15000" page="2048" pagePerBlock="64" size="134217728" spare="64" vcc="1.8"/>
+      <F35SQA512M id="CD70" block="131072" dummyMode="append" feature="0" page="2048" readMode="single" size="67108864" spare="64" writeMode="single"/>
+      <F35SQA001G id="CD71" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <F35SQA001G-WWT id="CD7171" IsBMM="0" addr4bit="37" algorithm="15" besize="128" block="131072" maxclk="15000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3"/>
+      <F35SQA001G-WWR id="CD7171" IsBMM="0" addr4bit="37" algorithm="15" besize="128" block="131072" maxclk="15000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3"/>
+      <F35SQA001G-WAT id="CD7171" IsBMM="0" addr4bit="37" algorithm="15" besize="128" block="131072" maxclk="15000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3"/>
+      <F35SQA001G id="CD7171" IsBMM="0" addr4bit="37" algorithm="15" besize="128" block="131072" maxclk="15000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3"/>
+      <F35SQA002G-WWT id="CD7272" addr4bit="37" algorithm="15" besize="128" block="131072" page="2048" planes="2" sector="2048" size="268435456" spare="64" timing="1000" vcc="3.3"/>
+      <F35SQA002G-WAT id="CD7272" addr4bit="37" algorithm="15" besize="128" block="131072" page="2048" planes="2" sector="2048" size="268435456" spare="64" timing="1000" vcc="3.3"/>
+      <F35SQA002G id="CD7272" addr4bit="37" algorithm="15" besize="128" block="131072" page="2048" planes="2" sector="2048" size="268435456" spare="64" timing="1000" vcc="3.3"/>
+      <FS35ND01GD1F1 id="CDA1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <FS35ND02GS2F1 id="CDA2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <FS35ND01GS1F1 id="CDB1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <FS35ND02GD1F1 id="CDB2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <FS35ND01G-S1Y2 id="CDEA11" besize="128" maxclk="15000" page="2048" planes="2" size="134217728" spare="64" vcc="3.3"/>
+      <FS35ND02G id="CDEB11" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <FS35ND04G-S2Y2 id="CDEC11" besize="128" maxclk="15000" page="2048" planes="2" size="536870912" spare="128" vcc="3.3"/>
+    </FORESEE>
+    <GENITOP>
+      <HYF1GQ4UAACAE id="C951" besize="128" maxclk="104000" page="2048" size="134217728" spare="64" vcc="3.3"/>
+      <HYF1GQ4IAACAE id="C951" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" readMode="dual" size="134217728" spare="64" vcc="1.8" writeMode="single"/>
+      <HYF2GQ4UAACAE id="C952" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <HYF2GQ4IAACAE id="C952" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+    </GENITOP>
+    <GIGADEVICE>
+      <GD5F2GQ5UExxH id="C220" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F2GQ5RExxH id="C220" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F2GQ5UEYIH id="C220" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F2GQ5UEYFH id="C220" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F2GQ5REYIH id="C220" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F2GQ5REYFH id="C220" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD25B256E id="C84019" addr4bit="17" algorithm="6" besize="128" block="65536" maxclk="104000" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B256DYIG id="C84019" addr4bit="17" algorithm="6" besize="128" block="65536" maxclk="104000" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B256DYIS id="C84019" addr4bit="17" algorithm="6" besize="128" block="65536" maxclk="104000" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <GD5F1GQ5RExxG id="C841" IsBMM="0" besize="128" maxclk="30000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="1.8"/>
+      <GD5F1GQ5REYIG id="C841" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="0" maxclk="30000" page="2048" pagePerBlock="64" readMode="dual" size="134217728" spare="128" vcc="1.8" writeMode="single"/>
+      <GD5F2GQ5RExxG id="C842" IsBMM="0" block="131072" maxclk="30000" page="2048" pagePerBlock="64" size="268435456" spare="128" vcc="1.8"/>
+      <GD5F4GQ6RExxG id="C845" IsBMM="0" block="131072" maxclk="30000" page="2048" pagePerBlock="64" size="536870912" spare="128" vcc="3.3"/>
+      <GD25B512M id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYIG id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYIS id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYJG id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYJS id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYEG id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYES id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYFG id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD25B512MEYFS id="C8471A" addr4bit="17" algorithm="26" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <GD5F1GQ5UExxG id="C851" IsBMM="0" addr4bit="1" algorithm="18" besize="128" block="131072" maxclk="30000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="128" timing="1000" vcc="3.3"/>
+      <GD5F1GQ5UEYIH id="C851" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="0" maxclk="30000" page="2048" pagePerBlock="64" planes="2" readMode="dual" size="134217728" spare="128" vcc="3.3" writeMode="single"/>
+      <GD5F2GQ5UExxG id="C852" IsBMM="0" block="131072" maxclk="30000" page="2048" pagePerBlock="64" size="268435456" spare="128" vcc="3.3"/>
+      <GD5F4GQ6UExxG id="C855" IsBMM="0" block="131072" maxclk="30000" page="2048" pagePerBlock="64" size="536870912" spare="128" vcc="3.3"/>
+      <GD25LR256E id="C86719" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <GD25LR256EWIG id="C86719" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <GD25LR256EYIG id="C86719" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <GD5F1GM7UEYIG id="C881" IsBMM="0" besize="128" maxclk="30000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="3.3"/>
+      <GD5F1GM7UEBIG id="C881" IsBMM="0" besize="128" maxclk="30000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="3.3"/>
+      <GD5F1GM7RE id="C881" IsBMM="0" besize="128" maxclk="30000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="1.8"/>
+      <GD5F1GM7RExxG id="C881" IsBMM="0" besize="128" maxclk="30000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="1.8"/>
+      <GD5F2GM7REYIG id="C882" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="0" maxclk="30000" page="2048" pagePerBlock="64" planes="2" readMode="dual" size="268435456" spare="64" vcc="1.8" writeMode="single"/>
+      <GD5F4GM8REYIGR id="C885" IsBMM="0" block="131072" maxclk="30000" page="2048" pagePerBlock="64" size="536870912" spare="128" vcc="1.8"/>
+      <GD5F1GM7REYIG id="C891" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="1.8"/>
+      <GD5F1GM7REBIG id="C891" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="1.8"/>
+      <GD5F1GM7UE id="C891" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="3.3"/>
+      <GD5F1GM7UExxG id="C891" IsBMM="0" addr4bit="34" algorithm="1" besize="128" block="131072" dummyMode="append" feature="0" maxclk="133000" page="2048" pagePerBlock="64" readMode="single" sector="2048" size="134217728" spare="128" timing="1000" vcc="3.3" writeMode="single"/>
+      <GD5F2GM7UEYFG id="C892" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F2GM7UEBIG id="C892" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F2GM7REBIG id="C892" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F4GM8UEYFG id="C895" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F4GM8REYIG id="C895" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F4GM8UEBIG id="C895" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F4GM8REBIG id="C895" IsBMM="0" besize="128" maxclk="133000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F1GQ4RFxIG id="C8A148" IsBMM="0" addr4bit="1" algorithm="17" block="131072" maxclk="30000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="128" timing="1000" vcc="1.8"/>
+      <GD5F2GQ4R id="C8A248" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F2GQ4RCYIG id="C8A248" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F2GQ4RCFIG id="C8A248" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F4GM5REYIG id="C8A468" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F4GM5REBIG id="C8A468" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <GD5F1GQ4UC id="C8B1" block="131072" dummyMode="prepend" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <GD5F1GQ4UFxIG id="C8B148" IsBMM="0" addr4bit="1" algorithm="17" block="131072" maxclk="30000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="128" timing="1000" vcc="1.8"/>
+      <GD5F2GQ4UC id="C8B2" block="131072" dummyMode="prepend" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <GD5F2GQ4U id="C8B248" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F2GQ4UCYIG id="C8B248" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F2GQ4UCFIG id="C8B248" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F4GQ4UC id="C8B4" block="262144" dummyMode="prepend" feature="0" page="4096" readMode="dual" size="536870912" spare="256" writeMode="single"/>
+      <GD5F4GM5UEYFG id="C8B468" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F4GM5UEBIG id="C8B468" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <GD5F4GQ4RB id="C8C4" besize="128" page="2048" planes="2" size="536870912" spare="128" vcc="1.8"/>
+      <GD5F4GQ4RC id="C8C4" besize="128" page="2048" planes="2" size="536870912" spare="128" vcc="1.8"/>
+      <GD5F1GQ4RExxH id="C8C9" besize="128" page="2048" size="134217728" spare="128" vcc="1.8"/>
+      <GD5F1GQ4UB id="C8D1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <GD5F2GQ4UB id="C8D2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <GD5F1GQ4UE id="C8D3" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <GD5F4GQ4UB id="C8D4" besize="128" page="2048" planes="2" size="536870912" spare="128" vcc="3.3"/>
+      <GD5F4GQ4UC id="C8D4" besize="128" block="262144" dummyMode="append" feature="0" page="2048" planes="2" readMode="dual" size="536870912" spare="128" vcc="3.3" writeMode="single"/>
+      <GD5F2GQ4UE id="C8D5" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <GD5F1GQ4UA id="C8F1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+    </GIGADEVICE>
+    <HeYangTek>
+      <HYF2GQ4UDACAE id="C922" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <HYF2GQ4UHCCAE id="C95A" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+      <HYF1GQ4UTACAE id="0115" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="3.3"/>
+      <HYF1GQ4UTDCAE id="0115" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="3.3"/>
+      <HYF2GQ4UTACAE id="0125" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <HYF2GQ4UTDCAE id="0125" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <HYF1GQ4UDACAE id="C921" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" pagePerBlock="64" readMode="dual" size="134217728" spare="64" vcc="3.3" writeMode="single"/>
+      <HYF2GQ4UAACAE id="C952" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <HYF2GQ4UADCAE id="C952" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" planes="2" readMode="dual" size="268435456" spare="64" vcc="3.3" writeMode="single"/>
+      <HYF4GQ4UAACBE id="C9D4" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="536870912" spare="64" vcc="3.3"/>
+    </HeYangTek>
+    <ISSI>
+      <IS37SML01G8A id="9D16" besize="128" maxclk="104000" page="2048" size="134217728" spare="64" vcc="3.3"/>
+      <IS38SML01G8A id="9D16" besize="128" maxclk="104000" page="2048" size="134217728" spare="64" vcc="3.3"/>
+      <IS37SMW01G8A id="9D17" besize="128" maxclk="30000" page="2048" size="134217728" spare="64" vcc="1.8"/>
+      <IS38SMW01G8A id="9D17" besize="128" maxclk="30000" page="2048" size="134217728" spare="64" vcc="1.8"/>
+      <IS37SML02G8A id="9D26" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <IS38SML02G8A id="9D26" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <IS37SMW02G8A id="9D27" besize="128" maxclk="30000" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <IS38SMW02G8A id="9D27" besize="128" maxclk="30000" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <IS37SML04G8A id="9D36" besize="128" maxclk="104000" page="2048" planes="2" size="536870912" spare="128" vcc="3.3"/>
+      <IS38SML04G8A id="9D36" besize="128" maxclk="104000" page="2048" planes="2" size="536870912" spare="128" vcc="3.3"/>
+      <IS37SMW04G8A id="9D37" besize="128" maxclk="30000" page="2048" planes="2" size="536870912" spare="128" vcc="1.8"/>
+      <IS38SMW04G8A id="9D37" besize="128" maxclk="30000" page="2048" planes="2" size="536870912" spare="128" vcc="1.8"/>
+      <IS37SML08G8A id="9D46" besize="128" maxclk="104000" page="2048" planes="2" size="1073741824" spare="128" vcc="3.3"/>
+      <IS38SML08G8A id="9D46" besize="128" maxclk="104000" page="2048" planes="2" size="1073741824" spare="128" vcc="3.3"/>
+      <IS37SMW08G8A id="9D47" besize="128" maxclk="30000" page="2048" planes="2" size="1073741824" spare="128" vcc="1.8"/>
+      <IS38SMW08G8A id="9D47" besize="128" maxclk="30000" page="2048" planes="2" size="1073741824" spare="128" vcc="1.8"/>
+      <IS37SML01G1 id="C8217F" IsBMM="0" addr4bit="0" algorithm="5" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3"/>
+      <IS38SML01G1 id="C8217F" IsBMM="0" addr4bit="0" algorithm="5" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3"/>
+    </ISSI>
+    <KIOXIA>
+      <TH58CVG3S0HRAIJ id="98E4" block="262144" dummyMode="append" feature="0" page="4096" readMode="dual" size="1073741824" spare="128" writeMode="single"/>
+      <TC58CVG1S3HRAIJ id="98EB40" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <TC58CVG2S0HRAIJ id="98ED" block="262144" dummyMode="append" feature="0" page="4096" readMode="dual" size="536870912" spare="128" writeMode="single"/>
+      <TC58CVG2S0HRAIJ id="98ED51" besize="128" maxclk="104000" page="2048" planes="2" size="536870912" spare="64" vcc="3.3"/>
+    </KIOXIA>
+    <MACRONIX>
+      <MX35LF1GE4AB id="C212" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" pagePerBlock="64" readMode="dual" size="134217728" spare="64" vcc="3.3" writeMode="single"/>
+      <MX35LF1G24AD-Z4I id="C21403" IsBMM="0" addr4bit="36" algorithm="6" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="134217728" spare="128" timing="1000" vcc="3.3"/>
+      <MX35LF2G14AC id="C220" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <MX25L25645G id="C22019" addr4bit="17" algorithm="22" besize="128" block="65536" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <MX25L25645GZ2I-10G id="C22019" addr4bit="17" algorithm="22" besize="128" block="65536" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <MX25L25645GZNI-10G id="C22019" addr4bit="17" algorithm="22" besize="128" block="65536" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <MX25L25645GZ2I-08G id="C22019" addr4bit="17" algorithm="22" besize="128" block="65536" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <MX25L25645GZNI-08G id="C22019" addr4bit="17" algorithm="22" besize="128" block="65536" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <MMX25L25635FMI-10G id="C22019" addr4bit="17" algorithm="22" besize="128" block="65536" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <MX25L25635FZ2I-10G id="C22019" addr4bit="17" algorithm="22" besize="128" block="65536" page="2048" sector="256" size="33554432" spare="64" timing="1000" vcc="3.3"/>
+      <MX66L1G45G id="C2201B" IsBMM="0" block="131072" maxclk="104000" page="2048" pagePerBlock="64" size="134217728" spare="64" vcc="3.3"/>
+      <MX66L2G45J id="C2201C" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <MX66L2G45G id="C2201C" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <MX35LF2GE4AB id="C222" IsBMM="0" block="131072" dummyMode="append" feature="1" maxclk="104000" page="2048" pagePerBlock="64" readMode="dual" size="268435456" spare="64" vcc="3.3" writeMode="single"/>
+      <MX35LF2G24AD-Z4I id="C22403" IsBMM="0" addr4bit="36" algorithm="6" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="268435456" spare="128" timing="1000" vcc="3.3"/>
+      <MX66U1G45G id="C2253B" IsBMM="0" block="131072" maxclk="104000" page="2048" pagePerBlock="64" size="134217728" spare="64" vcc="1.8"/>
+      <MX35LF4G24AD-新版X id="C23503" IsBMM="0" addr4bit="36" algorithm="6" besize="128" block="262144" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="4096" size="536870912" spare="256" timing="1000" vcc="3.3"/>
+      <MX35LF4G24AD-Z4I id="C23503" IsBMM="0" addr4bit="36" algorithm="6" besize="128" block="262144" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="4096" size="536870912" spare="256" timing="1000" vcc="3.3"/>
+      <MX77L25650F id="C27519" besize="128" page="2048" planes="2" size="33554432" spare="64" vcc="3.3"/>
+      <MX77L25650FZ4I42 id="C27519" besize="128" page="2048" planes="2" size="33554432" spare="64" vcc="3.3"/>
+      <MX77U25650F id="C27539" besize="128" page="2048" planes="2" size="33554432" spare="64" vcc="1.8"/>
+      <MX77U25655F id="C27539" besize="128" page="2048" planes="2" size="33554432" spare="64" vcc="1.8"/>
+      <MX35UF1G24AD id="C294" besize="128" page="2048" planes="2" size="134217728" spare="64" vcc="1.8"/>
+      <MX35UF1G24AD id="C29403" IsBMM="0" addr4bit="36" algorithm="6" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="64" timing="1000" vcc="1.8"/>
+      <MX35UF1GE4AD id="C29603" IsBMM="0" addr4bit="36" algorithm="3" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="64" timing="1000" vcc="1.8"/>
+      <MX35UF2G24AD id="C2A403" IsBMM="0" addr4bit="36" algorithm="6" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="268435456" spare="64" timing="1000" vcc="1.8"/>
+      <MX35UF2GE4AD id="C2A603" IsBMM="0" addr4bit="36" algorithm="3" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="268435456" spare="64" timing="1000" vcc="1.8"/>
+      <MX35UF4G24AD id="C2B503" IsBMM="0" addr4bit="36" algorithm="6" besize="128" block="262144" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="4096" size="536870912" spare="128" timing="1000" vcc="1.8"/>
+      <MX35UF4GE4AD id="C2B703" IsBMM="0" addr4bit="36" algorithm="3" besize="128" block="262144" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="4096" size="536870912" spare="128" timing="1000" vcc="1.8"/>
+      <MX35LF2GE4AD id="C22603" block="131072" dummyMode="append" feature="1" page="2048" readMode="dual" size="268435456" spare="128" writeMode="single"/>
+    </MACRONIX>
+    <MICRON>
+      <MT25QL256BBB1EW9-0SIT id="20BA19" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <MT25QL512BBB1EW9-0SIT id="20BA20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <MT25QL512ABA8E12-1SIT id="20BA20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <MT25QL512ABB8E56-0SIT id="20BA20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <MT25QL256ABA8E55-0SIT id="20BA20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="3.3"/>
+      <MT25QL01GBBB1EW9-0SIT id="20BA21" besize="128" maxclk="104000" page="2048" size="134217728" spare="64" vcc="3.3"/>
+      <MT25QL02GBBB1EW9-0SIT id="20BA22" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <MT25QU256BBB1EW9-0SIT id="20BB19" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="1.8"/>
+      <MT25QU512BBB1EW9-0SIT id="20BB20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="1.8"/>
+      <MT25QU512ABA8E12-1SIT id="20BB20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="1.8"/>
+      <MT25QU512ABB8E56-0SIT id="20BB20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="1.8"/>
+      <MT25QU256ABA8E55-0SIT id="20BB20" addr4bit="17" algorithm="0" besize="128" block="65536" page="2048" sector="256" size="67108864" spare="64" timing="1000" vcc="1.8"/>
+      <MT25QU01GBBB1EW9-0SIT id="20BB21" besize="128" maxclk="104000" page="2048" size="134217728" spare="64" vcc="1.8"/>
+      <MT25QU02GBBB1EW9-0SIT id="20BB22" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <MT29F1G01AAADD id="2C12" besize="128" maxclk="104000" page="2048" planes="2" size="134217728" spare="64" vcc="3.3"/>
+      <MT29F1G01 id="2C14" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+      <MT29F2G01ABAGDWB id="2C24" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <MT29F2G01ABAGDSF-ECC_OOB id="2C24" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <MT29F2G01ABAGD12 id="2C24" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="64" vcc="3.3"/>
+      <MT29F4G01 id="2C32" besize="128" page="2048" planes="2" size="536870912" spare="128" vcc="3.3"/>
+      <MT29F4G01ABBFDWB id="2C3435" IsBMM="0" block="262144" maxclk="104000" page="4096" pagePerBlock="64" size="536870912" spare="256" vcc="3.3"/>
+      <MT29F4G01 id="2C36" block="131072" dummyMode="append" feature="5" page="2048" readMode="dual" size="536870912" spare="128" writeMode="single"/>
+    </MICRON>
+    <PN>
+      <PN26Q01A-X id="A1C1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="128" writeMode="single"/>
+    </PN>
+    <SkyHigh>
+      <S35ML01G3-128B id="0114" besize="128" page="2048" size="524288" spare="128" vcc="3.3"/>
+      <S35ML01G3 id="0115" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" size="524288" spare="64" vcc="3.3"/>
+      <S35ML02G3 id="0125" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <S35ML04G3 id="0125" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="128" vcc="3.3"/>
+    </SkyHigh>
+    <TOSHIBA>
+      <TC58CVG0S3H id="98C2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <TC58CVG1S3H id="98CB" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <TC58CVG2S0H id="98CD" block="262144" dummyMode="append" feature="0" page="4096" readMode="dual" size="536870912" spare="128" writeMode="single"/>
+    </TOSHIBA>
+    <TYM>
+      <TYM25D2GA01 id="1901" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <TYM25D2GA02 id="1902" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <TYM25D1GA03 id="1903" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+    </TYM>
+    <WINBOND>
+      <W25R256JW id="EF186019" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <W25Q256JWFIQ id="EF186019" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <W25Q256JWFIN id="EF186019" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <W25Q256JWFJQ id="EF186019" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <W25Q256JWFIM id="EF188019" besize="128" page="2048" size="33554432" spare="64" vcc="1.8"/>
+      <W25X10BL id="EF3011" addr4bit="0" algorithm="0" besize="128" block="65536" page="2048" planes="2" sector="256" size="131072" spare="64" timing="1000" vcc="3.3"/>
+      <W25X20BL id="EF3012" addr4bit="0" algorithm="0" besize="128" block="65536" page="2048" planes="2" sector="256" size="262144" spare="64" timing="1000" vcc="3.3"/>
+      <W25X40BL id="EF3013" addr4bit="0" algorithm="0" besize="128" block="65536" page="2048" planes="2" sector="256" size="524288" spare="64" timing="1000" vcc="3.3"/>
+      <W25X80BL id="EF3014" addr4bit="0" algorithm="0" besize="128" block="65536" page="2048" planes="2" sector="256" size="1048576" spare="64" timing="1000" vcc="3.3"/>
+      <W25N01KV id="EFAA21" IsBMM="1" addr4bit="34" algorithm="0" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3"/>
+      <W25N01KVZEIG id="EFAA21" IsBMM="1" addr4bit="34" algorithm="0" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" pagePerBlock="64" planes="2" readMode="dual" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3" writeMode="single"/>
+      <W25N02KVZEIG-最新 id="EFAA22" IsBMM="0" addr4bit="34" algorithm="8" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="268435456" spare="64" timing="1000" vcc="3.3"/>
+      <W25N02KVZEIG id="EFAA22" IsBMM="0" addr4bit="34" algorithm="8" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" pagePerBlock="64" planes="2" readMode="dual" sector="2048" size="268435456" spare="64" timing="1000" vcc="3.3" writeMode="single"/>
+      <W25N04KV id="EFAA23" IsBMM="0" addr4bit="34" algorithm="8" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" pagePerBlock="64" planes="2" readMode="dual" sector="2048" size="536870912" spare="128" timing="1000" vcc="3.3" writeMode="single"/>
+      <W25M02GVZEIG-最新 id="EFAB21" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="2" maxclk="104000" page="2048" pagePerBlock="64" planes="2" readMode="dual" size="268435456" spare="64" vcc="3.3" writeMode="single"/>
+      <W25N01KV-新版 id="EFAE21" addr4bit="34" algorithm="8" besize="128" block="131072" dummyMode="append" feature="0" page="2048" planes="2" readMode="dual" sector="2048" size="134217728" spare="64" timing="1000" vcc="3.3" writeMode="single"/>
+      <W25N01GW id="EFBA21" IsBMM="1" addr4bit="34" algorithm="0" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" sector="2048" size="134217728" spare="64" timing="1000" vcc="1.8"/>
+      <W25N02KWZEIR id="EFBA22" IsBMM="0" addr4bit="34" algorithm="8" block="131072" maxclk="104000" page="2048" pagePerBlock="64" sector="2048" size="268435456" spare="128" timing="1000" vcc="1.8"/>
+      <W25N04KW id="EFBA23" IsBMM="0" addr4bit="34" algorithm="8" besize="128" block="131072" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="2048" size="536870912" spare="128" timing="1000" vcc="1.8"/>
+      <W25M02GWZEIG-最新 id="EFBB21" besize="128" page="2048" planes="2" size="268435456" spare="64" vcc="1.8"/>
+      <W25N01JW id="EFBC21" addr4bit="34" algorithm="0" besize="128" block="131072" page="2048" sector="2048" size="134217728" spare="64" timing="1000" vcc="1.8"/>
+    </WINBOND>
+    <XTX>
+      <XT26G01CWSIGA id="0B11" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" pagePerBlock="64" readMode="dual" size="134217728" spare="128" vcc="3.3" writeMode="single"/>
+      <XT26G02CWSIGA id="0B12" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <XT26G02CWS1G-G id="0B12" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <XT26Q01D id="0B51" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" size="134217728" spare="128" vcc="1.8"/>
+      <XT26Q02D id="0B52" IsBMM="0" besize="128" maxclk="104000" page="2048" pagePerBlock="64" planes="2" size="268435456" spare="128" vcc="1.8"/>
+      <XT26Q04D id="0B53" IsBMM="0" addr4bit="33" algorithm="12" besize="128" block="262144" maxclk="104000" page="2048" pagePerBlock="64" planes="2" sector="4096" size="536870912" spare="128" timing="1000" vcc="1.8"/>
+      <XT26G01A id="0BE1" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="134217728" spare="64" writeMode="single"/>
+      <XT26G02A id="0BE2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <XT26G02B id="0BF2" block="131072" dummyMode="append" feature="0" page="2048" readMode="dual" size="268435456" spare="64" writeMode="single"/>
+      <PN26G01AWSIUG id="A1E1" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <PN26G01AWSIUG-H id="A1E1" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" planes="2" readMode="dual" size="268435456" spare="128" vcc="3.3" writeMode="single"/>
+      <PN26G02AWSIUG id="A1E2" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <PN26G02AWSIUG-H id="A1E2" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <PN26G02ABGIUG id="A1E2" besize="128" maxclk="104000" page="2048" planes="2" size="268435456" spare="128" vcc="3.3"/>
+      <PN26G02ABGIUG-H id="A1E2" besize="128" block="131072" dummyMode="append" feature="0" maxclk="104000" page="2048" planes="2" readMode="dual" size="268435456" spare="128" vcc="3.3" writeMode="single"/>
+    </XTX>
+    <ZXIC>
+      <ZX298100A0 id="2C24" IsBMM="0" besize="128" block="131072" dummyMode="append" feature="1" maxclk="104000" page="2048" pagePerBlock="64" planes="2" readMode="dual" size="268435456" spare="128" vcc="3.3" writeMode="single"/>
+    </ZXIC>
+    <Zetta>
+      <ZD35Q1GA id="BA71" besize="128" maxclk="104000" page="2048" size="134217728" spare="64" vcc="3.3"/>
+    </Zetta>
+    <JSC>
+      <JS28P1GQSCAHG-83 id="BF01" page="2048" block="131072" size="134217728" spare="64"/>
+    </JSC>
+</SPI_NAND>

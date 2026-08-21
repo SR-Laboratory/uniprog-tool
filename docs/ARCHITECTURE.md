@@ -94,7 +94,7 @@ modules/                       Hand-maintained source
   upt-adapter-ch34x-libusb/    CH34X libusb adapter package
 
 profiles/                      Build profiles
-flashdb/                       Plaintext chip database XML
+flashdb/                       Per-protocol chip XML fragments and manifest
 tools/                         Node.js assembly/build/package/verify scripts
 scripts/                       Helper scripts for dev and bundling
 build/                         Generated workspace (gitignored)
@@ -139,7 +139,8 @@ What the assembler does:
 2. Copies every module selected by the profile to its declared target path.
 3. For plugin packages, copies only the install payload: `unipkg.toml`,
    `dist/` for UI packages, and sidecar/DLL files for adapter packages.
-4. Copies the plaintext `flashdb/chiplib.xml` into the generated workspace.
+4. Merges the per-protocol fragments under `flashdb/protocols/` into the
+   generated `chiplib.xml`.
 5. Copies the vendor DLL for the DLL profile.
 6. Writes `build-manifest.json`.
 7. Generates `package.json` at the profile root and rewrites the generated

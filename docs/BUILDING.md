@@ -498,7 +498,7 @@ This is a line-ending notice, not a failure. Leave it as is.
 version.toml                 Single source of truth for the version
 modules/                     Hand-maintained source, one directory per module
 profiles/                    Build profiles in TOML
-flashdb/                     Plaintext chip database XML source
+flashdb/                     Per-protocol plaintext chip XML + manifest
 tools/                       assemble / build / package / verify / tauri wrappers
 scripts/                     Helper scripts used by the build and dev servers
 build/                       Generated workspace (gitignored)

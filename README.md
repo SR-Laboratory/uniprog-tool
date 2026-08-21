@@ -131,16 +131,18 @@ Backend selection is a compile-time Cargo feature. See
 
 `chiplib.bin` is the runtime database and is lightly obfuscated on disk
 (FFW-style per-byte mask + rotate). The maintainable plaintext chip list is
-the XML file in `flashdb/chiplib.xml`; the assembler copies it into the
-generated workspace during a build. No obfuscated XML is stored in the
-repository, and no plaintext database file is left in the working directory.
+split by protocol in `flashdb/protocols/`, controlled by
+`flashdb/manifest.toml`; the assembler merges the fragments into the generated
+workspace during a build. No obfuscated XML is stored in the repository, and
+no plaintext database file is left in the working directory.
 
 Maintenance tools (also see `cargo run --example chipdb_tool -- help`):
 
 ```bash
-# Rebuild chiplib.bin from the plaintext XML source
+# Rebuild chiplib.bin from the plaintext XML fragments
+npm run chipdb:merge
 cargo run --example chipdb_tool -- xml2bin \
-  flashdb/chiplib.xml modules/upt-bootstrap/root/chiplib.bin
+  build/chipdb/chiplib.xml modules/upt-bootstrap/root/chiplib.bin
 
 # Merge a TSV chip table (insert missing, enrich existing attributes)
 cargo run --example chipdb_tool -- merge modules/upt-bootstrap/root/chiplib.bin chips.tsv

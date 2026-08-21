@@ -167,8 +167,8 @@ npm run verify:libusb
 
 ## 芯片数据库
 
-- 明文芯片清单维护在 `flashdb/chiplib.xml`，提交进仓库。组装器会把它
-  复制进生成工程。
+- 明文芯片清单按协议拆分维护在 `flashdb/protocols/`，合并顺序由
+  `flashdb/manifest.toml` 控制。组装器会把它们合并进生成工程。
 - `chiplib.bin` 是运行时数据库，磁盘上使用轻量混淆。
 - 解码只发生在内存中；不得提交或在工作目录留下明文芯片库。
 - 批量更新优先使用 `chipdb_tool merge <bin> <chips.tsv>`，单颗芯片使用

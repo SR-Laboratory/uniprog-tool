@@ -1,0 +1,5 @@
+<I2C_SPD>
+    <ST-ATMEL>
+      <AT34C02 id="" adapt="adapI2CM34" addrtype="1" page="16" size="256"/>
+    </ST-ATMEL>
+</I2C_SPD>

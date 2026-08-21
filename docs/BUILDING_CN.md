@@ -480,7 +480,7 @@ UniProgrammer/Vite/cargo 进程后重试。
 version.toml                 版本号唯一事实来源
 modules/                     手工维护的源码，每个模块一个目录
 profiles/                    TOML 格式的构建 profile
-flashdb/                     明文芯片数据库 XML 源文件
+flashdb/                     按协议拆分的明文芯片 XML + manifest
 tools/                       assemble / build / package / verify / tauri 包装脚本
 scripts/                     构建和开发服务器使用的辅助脚本
 build/                       生成的工程（gitignore）
