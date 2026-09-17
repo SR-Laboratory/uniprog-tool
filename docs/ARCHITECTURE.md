@@ -41,6 +41,8 @@ L0 is never replaceable and never Tauri-dependent. It provides:
   script plugin runtime, runtime helpers.
 - `HostApi` — an abstraction that the UI layer implements so the core does
   not depend on a specific UI framework.
+- `UiHost` — UI service for status/progress/log events and dialogs; the Tauri
+  and Slint shells each provide one implementation.
 
 ### L1 required set
 

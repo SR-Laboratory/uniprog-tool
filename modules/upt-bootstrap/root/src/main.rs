@@ -30,10 +30,10 @@ fn main() {
 /// Slint shell skeleton (compile-time switch).
 #[cfg(feature = "ui-slint")]
 fn main() {
-    use l0_core::ui::NullUiHost;
-    use std::sync::Arc;
+    use ui_slint::SlintUiHost;
 
-    let runtime = match boot::boot_with_ui(Arc::new(NullUiHost)) {
+    let ui_host = SlintUiHost::new();
+    let runtime = match boot::boot_with_ui(ui_host.clone()) {
         Ok(runtime) => runtime,
         Err(error) => {
             eprintln!("启动失败: {error}");
@@ -41,7 +41,7 @@ fn main() {
         }
     };
 
-    if let Err(error) = ui_slint::run(runtime) {
+    if let Err(error) = ui_slint::run(runtime, ui_host) {
         eprintln!("Slint 启动失败: {error}");
         std::process::exit(1);
     }
