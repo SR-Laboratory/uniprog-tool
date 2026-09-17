@@ -3,17 +3,18 @@
 pub mod app_ops;
 pub mod boot;
 pub mod l0_core;
+
+#[cfg(feature = "ui-slint")]
+pub mod ui_slint;
+#[cfg(not(feature = "ui-slint"))]
 pub mod ui_tauri;
 
-use app_ops::core;
-use boot::AppRuntime;
-use l0_core::ui::UiHost;
-use l0_core::unipkg_protocol;
-use std::sync::{Arc, Mutex};
-use tauri::{Emitter, Manager, WindowEvent};
-use ui_tauri::ui_host::TauriUiHost;
-
+/// Tauri shell (default).
+#[cfg(not(feature = "ui-slint"))]
 fn main() {
+    use std::sync::Arc;
+    use ui_tauri::ui_host::TauriUiHost;
+
     let ui_host = Arc::new(TauriUiHost::new());
     let runtime = match boot::boot_with_ui(ui_host.clone()) {
         Ok(runtime) => runtime,
@@ -23,49 +24,32 @@ fn main() {
         }
     };
 
-    let plugin_assets = runtime.unipkg_assets();
-    let managed_ui: Arc<dyn UiHost> = runtime.ui.clone();
-    let attach_host = ui_host.clone();
-    let AppRuntime {
-        state,
-        plugin_manager,
-        hal_router,
-        ..
-    } = runtime;
+    ui_tauri::run(runtime, ui_host);
+}
 
-    let builder = tauri::Builder::default()
-        .manage(state)
-        .manage(plugin_manager)
-        .manage(hal_router)
-        .manage(managed_ui)
-        .setup(move |app| {
-            attach_host.attach(app.handle().clone());
-            Ok(())
-        })
-        .on_window_event(|window, event| {
-            if let WindowEvent::CloseRequested { api, .. } = event {
-                let busy = window
-                    .state::<Mutex<core::AppState>>()
-                    .lock()
-                    .map(|s| s.operation_running)
-                    .unwrap_or(false);
-                if busy {
-                    // Rust 侧同步拦截，保证任务栏右键“关闭窗口”也走确认流程。
-                    api.prevent_close();
-                    let _ = window.emit("close_requested_while_busy", ());
-                }
-            }
-        });
-    let builder = ui_tauri::commands::attach_handler(builder);
+/// Slint shell skeleton (compile-time switch).
+#[cfg(feature = "ui-slint")]
+fn main() {
+    use l0_core::ui::NullUiHost;
+    use std::sync::Arc;
 
-    unipkg_protocol::UnipkgProtocol::register(builder, plugin_assets)
-        .run(tauri::generate_context!())
-        .expect("启动失败");
+    let runtime = match boot::boot_with_ui(Arc::new(NullUiHost)) {
+        Ok(runtime) => runtime,
+        Err(error) => {
+            eprintln!("启动失败: {error}");
+            std::process::exit(1);
+        }
+    };
+
+    if let Err(error) = ui_slint::run(runtime) {
+        eprintln!("Slint 启动失败: {error}");
+        std::process::exit(1);
+    }
 }
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::app_ops::core;
 
     #[test]
     fn nor_4byte_boundary() {

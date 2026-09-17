@@ -1,0 +1,31 @@
+[build]
+name = "desktop-slint-libusb"
+ui = "slint"
+backend = "libusb"
+modules = [
+  "upt-bootstrap",
+  "upt-core",
+  "upt-plugin-runtime",
+  "upt-hal-runtime",
+  "upt-chipdb-runtime",
+  "upt-proto-runtime",
+  "upt-devices-runtime",
+  "upt-ui-slint",
+  "upt-app-ops",
+  "upt-shell-tauri",
+  "upt-shell-tauri-hexview",
+  "upt-hal-package",
+  "upt-proto-package",
+  "upt-chipdb-package",
+  "upt-adapter-ch34x-libusb",
+]
+required = [
+  "src/l0_core",
+  "src/ui_slint",
+  "src/app_ops",
+  "plugins/builtin/upt.tauri",
+  "plugins/builtin/upt.tauri.hexview",
+  "plugins/builtin/upt.hal",
+  "plugins/builtin/upt.proto",
+  "plugins/builtin/upt.chipdb",
+]

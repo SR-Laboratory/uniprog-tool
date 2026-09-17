@@ -132,6 +132,18 @@ const profile = parseToml(fs.readFileSync(profileFile, 'utf8')).build
 if (!profile?.name || !Array.isArray(profile.modules)) fail(`invalid profile: ${profileFile}`)
 const ui = profile.ui ?? 'tauri'
 if (!['tauri', 'slint'].includes(ui)) fail(`profile ui must be "tauri" or "slint": ${profileFile}`)
+if (ui === 'slint' && profile.modules.includes('upt-ui-tauri')) {
+  fail(`profile ${profileName}: ui = "slint" must not select upt-ui-tauri`)
+}
+if (ui === 'tauri' && profile.modules.includes('upt-ui-slint')) {
+  fail(`profile ${profileName}: ui = "tauri" must not select upt-ui-slint`)
+}
+if (ui === 'slint' && !profile.modules.includes('upt-ui-slint')) {
+  fail(`profile ${profileName}: ui = "slint" requires the upt-ui-slint module`)
+}
+if (ui === 'tauri' && !profile.modules.includes('upt-ui-tauri')) {
+  fail(`profile ${profileName}: ui = "tauri" requires the upt-ui-tauri module`)
+}
 const requiredTargets = Array.isArray(profile.required) ? profile.required : []
 
 const buildDir = path.join(root, 'build', profile.name, 'src-tauri')
@@ -173,6 +185,20 @@ for (const name of profile.modules) {
   }
   copied.push({ name, source: module.source, target: module.target })
   console.log(`[assemble] ${name} -> ${module.target}`)
+}
+
+// rustfmt resolves every `mod` declaration, including items behind `#[cfg]`.
+// Write an empty stub for the inactive shell so `cargo fmt --all` keeps working
+// for both ui = "tauri" and ui = "slint" profiles.
+const inactiveUiModule = ui === 'slint' ? 'ui_tauri' : 'ui_slint'
+const inactiveFile = path.join(buildDir, 'src', `${inactiveUiModule}.rs`)
+const inactiveDir = path.join(buildDir, 'src', inactiveUiModule)
+if (!fs.existsSync(inactiveFile) && !fs.existsSync(path.join(inactiveDir, 'mod.rs'))) {
+  fs.mkdirSync(path.dirname(inactiveFile), { recursive: true })
+  fs.writeFileSync(
+    inactiveFile,
+    `//! Generated stub for the inactive UI shell; see tools/assemble.mjs.\n`,
+  )
 }
 
 const missingRequired = requiredTargets.filter(

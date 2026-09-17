@@ -1,0 +1,6 @@
+[module]
+name = "upt-ui-slint"
+layer = "l1"
+kind = "code"
+source = "modules/upt-ui-slint/src"
+target = "src/ui_slint"

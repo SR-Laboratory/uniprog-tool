@@ -26,6 +26,7 @@ chrono = { version = "0.4", default-features = false, features = ["clock"] }
 rquickjs = "0.12.2"
 zip = "2.4"
 ureq = "2.12"
+slint = { version = "1.18", optional = true }
 upt-chipdb = { path = "crates/upt-chipdb" }
 upt-devices = { path = "crates/upt-devices" }
 upt-hal = { path = "crates/upt-hal" }
@@ -44,3 +45,5 @@ custom-protocol = ["tauri/custom-protocol"]
 #  - hal-libusb ：强制 libusb/rusb（Windows 调试或 Linux 正常路径）
 hal-dll = ["upt-devices/hal-dll"]
 hal-libusb = ["upt-devices/hal-libusb"]
+# 编译期 UI 壳选择：默认 Tauri；启用后 main 走 Slint 骨架。
+ui-slint = ["dep:slint"]

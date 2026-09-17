@@ -3,4 +3,7 @@
 
 pub mod commands;
 pub mod dialogs;
+pub mod run;
 pub mod ui_host;
+
+pub use run::run;
