@@ -1,108 +1,37 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 pub mod app_ops;
+pub mod boot;
 pub mod l0_core;
 pub mod ui_tauri;
 
 use app_ops::core;
-use l0_core::host::{HostApi, HostContext};
-use l0_core::{console, runtime, settings, unipkg_protocol, upt_log};
-use std::path::Path;
+use boot::AppRuntime;
+use l0_core::unipkg_protocol;
 use std::sync::Mutex;
 use tauri::{Emitter, Manager, WindowEvent};
-use upt_hal::hal_router::HalRouter;
-use upt_plugin::{BootCheck, PluginManager};
-
-/// Write a readable Chinese boot-error report next to the executable and stop
-/// the process when the required L1 plugin set is not healthy.
-fn write_boot_error(base: &Path, boot: &BootCheck) {
-    let mut message = String::from("UniProgrammer 启动失败：必需插件缺失或无效\n\n");
-
-    if !boot.missing.is_empty() {
-        message.push_str("缺少的必需插件:\n");
-        for name in &boot.missing {
-            message.push_str(&format!("  - {name}\n"));
-        }
-        message.push('\n');
-    }
-
-    if !boot.invalid.is_empty() {
-        message.push_str("无效的必需插件:\n");
-        for name in &boot.invalid {
-            message.push_str(&format!("  - {name}\n"));
-        }
-        message.push('\n');
-    }
-
-    message.push_str("请恢复 plugins/builtin 目录下的内置插件清单后重试。\n");
-
-    let error_path = base.join("uniprog-boot-error.txt");
-    if let Err(e) = std::fs::write(&error_path, message.as_bytes()) {
-        eprintln!("写入启动错误文件失败 {}: {e}", error_path.display());
-    }
-}
 
 fn main() {
-    let debug_console = settings::startup_debug_console();
-    let log_level = if debug_console {
-        upt_log::Level::Debug
-    } else {
-        upt_log::Level::Info
+    let runtime = match boot::boot() {
+        Ok(runtime) => runtime,
+        Err(error) => {
+            eprintln!("启动失败: {error}");
+            std::process::exit(1);
+        }
     };
-    // 先初始化文本日志，再分配控制台；文件 sink 始终开启。调试构建或
-    // 用户开启“调试控制台”时，同样把日志写到 stderr。
-    let _ = upt_log::init(
-        log_level,
-        debug_console || cfg!(debug_assertions),
-        Some(settings::log_file()),
-    );
 
-    if debug_console {
-        // 必须在任何 eprintln!/侧车进程启动之前完成，这样后端日志和
-        // CH34X 侧车的 stderr 都会进入同一个控制台窗口。
-        console::attach();
-        std::env::set_var("UNIPROG_DEBUG_CONSOLE", "1");
-        runtime::log_info("调试控制台已启用");
-    }
+    let plugin_assets = runtime.unipkg_assets();
+    let AppRuntime {
+        state,
+        plugin_manager,
+        hal_router,
+        ..
+    } = runtime;
 
-    let host = HostContext::new(runtime::exe_dir());
-    let exe = host.root_dir();
-    host.log(
-        upt_log::Level::Info,
-        &format!("UniProgrammer 启动，根目录: {}", exe.display()),
-    );
-    let mut plugin_manager = PluginManager::load(&exe);
-    let boot = plugin_manager.boot_check();
-    if !boot.missing.is_empty() || !boot.invalid.is_empty() {
-        host.log(upt_log::Level::Info, "启动失败：L1 必需插件缺失或无效");
-        write_boot_error(&exe, &boot);
-        std::process::exit(1);
-    }
-    host.log(
-        upt_log::Level::Info,
-        &format!(
-            "插件扫描完成：{} 个插件，{} 个错误",
-            plugin_manager.plugins.len(),
-            plugin_manager.errors.len()
-        ),
-    );
-    let hal_router = HalRouter::start(&mut plugin_manager, &exe);
-    let plugin_assets = unipkg_protocol::UnipkgProtocol::from_manager(&plugin_manager);
     let builder = tauri::Builder::default()
-        .manage(Mutex::new(core::AppState {
-            ch34x: None,
-            serprog: None,
-            lib: None,
-            connected_device: None,
-            detected: None,
-            sidecar_adapter: None,
-            sidecar_device: None,
-            last_serial_ports: Vec::new(),
-            cached_serprog: Vec::new(),
-            operation_running: false,
-        }))
-        .manage(Mutex::new(plugin_manager))
-        .manage(Mutex::new(hal_router))
+        .manage(state)
+        .manage(plugin_manager)
+        .manage(hal_router)
         .on_window_event(|window, event| {
             if let WindowEvent::CloseRequested { api, .. } = event {
                 let busy = window
