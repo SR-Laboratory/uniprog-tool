@@ -130,6 +130,8 @@ const profileFile = path.join(profilesDir, `${profileName}.toml`)
 if (!fs.existsSync(profileFile)) fail(`profile not found: ${profileFile}`)
 const profile = parseToml(fs.readFileSync(profileFile, 'utf8')).build
 if (!profile?.name || !Array.isArray(profile.modules)) fail(`invalid profile: ${profileFile}`)
+const ui = profile.ui ?? 'tauri'
+if (!['tauri', 'slint'].includes(ui)) fail(`profile ui must be "tauri" or "slint": ${profileFile}`)
 const requiredTargets = Array.isArray(profile.required) ? profile.required : []
 
 const buildDir = path.join(root, 'build', profile.name, 'src-tauri')
@@ -182,7 +184,7 @@ if (missingRequired.length > 0) {
 
 fs.writeFileSync(
   path.join(buildDir, 'build-manifest.json'),
-  `${JSON.stringify({ profile: profileName, backend: profile.backend, modules: copied }, null, 2)}\n`,
+  `${JSON.stringify({ profile: profileName, ui, backend: profile.backend, modules: copied }, null, 2)}\n`,
 )
 
 // Generate a minimal npm shim so `npx tauri build` can run from the profile

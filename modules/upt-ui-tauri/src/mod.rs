@@ -3,3 +3,4 @@
 
 pub mod commands;
 pub mod dialogs;
+pub mod ui_host;

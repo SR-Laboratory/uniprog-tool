@@ -7,5 +7,6 @@ pub mod plugin_install;
 pub mod runtime;
 pub mod script_plugin;
 pub mod settings;
+pub mod ui;
 pub mod unipkg_protocol;
 pub mod upt_log;

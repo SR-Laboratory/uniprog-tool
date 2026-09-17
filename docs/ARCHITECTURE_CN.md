@@ -112,10 +112,14 @@ Profile 选择模块并声明哪些生成目标必须存在：
 ```toml
 [build]
 name = "desktop-tauri-libusb"
+ui = "tauri"          # tauri | slint（编译期选择 UI 壳）
 backend = "libusb"
 modules = [ ... ]
 required = [ "src/l0_core", "plugins/builtin/upt.tauri", ... ]
 ```
+
+`ui` 选择编译进二进制的 UI 壳。当前发布流水线仍只打包 Tauri 壳；
+Slint 骨架先通过组装与独立编译检查，待功能对齐后再进入发布流程。
 
 ---
 

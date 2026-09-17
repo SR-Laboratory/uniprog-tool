@@ -6,10 +6,11 @@
 //! any future shell receives the already-booted runtime and only drives the UI.
 
 use std::path::Path;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 
 use crate::app_ops::core::AppState;
 use crate::l0_core::host::{HostApi, HostContext};
+use crate::l0_core::ui::{NullUiHost, UiHost};
 use crate::l0_core::{console, runtime, settings, unipkg_protocol, upt_log};
 use upt_hal::hal_router::HalRouter;
 use upt_plugin::{BootCheck, PluginManager};
@@ -20,6 +21,9 @@ pub struct AppRuntime {
     pub state: Mutex<AppState>,
     pub plugin_manager: Mutex<PluginManager>,
     pub hal_router: Mutex<HalRouter>,
+    /// UI service injected by the selected shell. Core code only talks to the
+    /// [`UiHost`] trait; headless boots use [`NullUiHost`].
+    pub ui: Arc<dyn UiHost>,
 }
 
 impl AppRuntime {
@@ -81,6 +85,14 @@ fn default_state() -> AppState {
 /// Returns an error string after writing `uniprog-boot-error.txt` when the
 /// required L1 plugin set is missing or invalid.
 pub fn boot() -> Result<AppRuntime, String> {
+    boot_with_ui(Arc::new(NullUiHost))
+}
+
+/// Boot with a shell-provided UI service.
+///
+/// The shell constructs its [`UiHost`] first, then hands it to this function so
+/// core code can report progress before the window is created.
+pub fn boot_with_ui(ui: Arc<dyn UiHost>) -> Result<AppRuntime, String> {
     let debug_console = settings::startup_debug_console();
     let log_level = if debug_console {
         upt_log::Level::Debug
@@ -132,5 +144,6 @@ pub fn boot() -> Result<AppRuntime, String> {
         state: Mutex::new(default_state()),
         plugin_manager: Mutex::new(plugin_manager),
         hal_router: Mutex::new(hal_router),
+        ui,
     })
 }

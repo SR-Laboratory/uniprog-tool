@@ -116,10 +116,15 @@ A profile selects modules and declares which generated targets are required:
 ```toml
 [build]
 name = "desktop-tauri-libusb"
+ui = "tauri"          # tauri | slint (compile-time shell)
 backend = "libusb"
 modules = [ ... ]
 required = [ "src/l0_core", "plugins/builtin/upt.tauri", ... ]
 ```
+
+`ui` selects which shell is compiled into the binary. The release pipeline
+currently packages the Tauri shell only; the Slint skeleton is assembled and
+checked separately while it reaches feature parity.
 
 ---
 

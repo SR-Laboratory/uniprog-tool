@@ -6,9 +6,10 @@ use crate::app_ops::operations::BlankCheckResult;
 use crate::app_ops::{autodetect, core, operations};
 use crate::l0_core::runtime::{exe_dir, log_info};
 use crate::l0_core::settings;
+use crate::l0_core::ui::{UiEvent, UiHost};
 use crate::ui_tauri::dialogs;
 use serde::Serialize;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 use tauri::{Emitter, Manager, State};
 use upt_chipdb as chiplib;
 use upt_devices::ch34x::{Ch34xDevice, Ch34xSettings, ChipKind};
@@ -17,46 +18,6 @@ use upt_hal::hal_router::{HalRouter, SidecarSelection};
 use upt_hal::sidecar_nor::SidecarNor;
 use upt_plugin::{self as plugin, BuiltinModule, PluginManager};
 use upt_proto::firmware;
-
-#[derive(Clone, Serialize)]
-struct ReadProgressEvent {
-    done: u64,
-    total: u64,
-}
-
-#[derive(Clone, Serialize)]
-struct WriteProgressEvent {
-    done: u64,
-    total: u64,
-}
-
-#[derive(Clone, Serialize)]
-struct VerifyProgressEvent {
-    done: u64,
-    total: u64,
-}
-
-#[derive(Clone, Serialize)]
-struct BadBlockProgressEvent {
-    done: u32,
-    total: u32,
-}
-
-#[derive(Clone, Serialize)]
-struct BlankCheckProgressEvent {
-    done: u64,
-    total: u64,
-}
-
-#[derive(Clone, Serialize)]
-struct EraseProgressEvent {
-    done: u64,
-    total: u64,
-    phase: String,
-    message: String,
-    #[serde(rename = "elapsedMs")]
-    elapsed_ms: Option<u64>,
-}
 
 #[derive(Serialize)]
 struct FirmwareLoadResult {
@@ -312,12 +273,11 @@ async fn nor_wp_disable(state: State<'_, Mutex<AppState>>) -> Result<String, Str
 #[tauri::command]
 async fn scan_bad_blocks(
     state: State<'_, Mutex<AppState>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
 ) -> Result<BadBlockScanResult, String> {
     let mut s = state.lock().map_err(|e| e.to_string())?;
     core::scan_bad_blocks(&mut s, &mut |done, total| {
-        app.emit("bad_block_progress", BadBlockProgressEvent { done, total })
-            .ok();
+        ui.emit(UiEvent::progress("bad_block", done as u64, total as u64));
     })
 }
 
@@ -379,7 +339,7 @@ fn set_at45_page_mode(
 async fn chip_erase(
     state: State<'_, Mutex<AppState>>,
     router_state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
     bad_block_mode: Option<String>,
 ) -> Result<String, String> {
     let mut s = state.lock().map_err(|e| e.to_string())?;
@@ -391,21 +351,17 @@ async fn chip_erase(
         &mut s,
         bad_block_mode.as_deref(),
         &mut |p| {
-            app.emit(
-                "erase_progress",
-                EraseProgressEvent {
-                    done: p.done,
-                    total: p.total,
-                    phase: p.phase,
-                    message: p.message,
-                    elapsed_ms: p.elapsed_ms,
-                },
-            )
-            .ok();
+            ui.emit(UiEvent::Progress {
+                task: "erase".to_string(),
+                done: p.done,
+                total: p.total,
+                phase: Some(p.phase),
+                message: Some(p.message),
+                elapsed_ms: p.elapsed_ms,
+            });
         },
         &mut |done, total| {
-            app.emit("bad_block_progress", BadBlockProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("bad_block", done as u64, total as u64));
         },
         Some(&mut router),
     );
@@ -421,7 +377,7 @@ async fn chip_erase(
 async fn blank_check(
     state: State<'_, Mutex<AppState>>,
     router_state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
     size: u64,
     start_addr: u64,
     bad_block_mode: Option<String>,
@@ -437,15 +393,10 @@ async fn blank_check(
         start_addr,
         bad_block_mode.as_deref(),
         &mut |done, total| {
-            app.emit(
-                "blank_check_progress",
-                BlankCheckProgressEvent { done, total },
-            )
-            .ok();
+            ui.emit(UiEvent::progress("blank_check", done, total));
         },
         &mut |done, total| {
-            app.emit("bad_block_progress", BadBlockProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("bad_block", done as u64, total as u64));
         },
         Some(&mut router),
     );
@@ -464,7 +415,7 @@ async fn blank_check(
 async fn read_chip(
     state: State<'_, Mutex<AppState>>,
     router_state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
     size: u64,
     start_addr: u64,
     bad_block_mode: Option<String>,
@@ -480,12 +431,10 @@ async fn read_chip(
         start_addr,
         bad_block_mode.as_deref(),
         &mut |done, total| {
-            app.emit("read_progress", ReadProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("read", done, total));
         },
         &mut |done, total| {
-            app.emit("bad_block_progress", BadBlockProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("bad_block", done as u64, total as u64));
         },
         Some(&mut router),
     )?;
@@ -518,7 +467,7 @@ fn request_header(request: &tauri::ipc::Request<'_>, name: &str) -> Option<Strin
 async fn write_chip(
     state: State<'_, Mutex<AppState>>,
     router_state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
     request: tauri::ipc::Request<'_>,
 ) -> Result<String, String> {
     let data = raw_request_bytes(&request)?;
@@ -541,12 +490,10 @@ async fn write_chip(
         force_segmented,
         bad_block_mode.as_deref(),
         &mut |done, total| {
-            app.emit("write_progress", WriteProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("write", done, total));
         },
         &mut |done, total| {
-            app.emit("bad_block_progress", BadBlockProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("bad_block", done as u64, total as u64));
         },
         Some(&mut router),
     );
@@ -560,7 +507,7 @@ async fn write_chip(
 async fn verify_chip(
     state: State<'_, Mutex<AppState>>,
     router_state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
     request: tauri::ipc::Request<'_>,
 ) -> Result<String, String> {
     let data = raw_request_bytes(&request)?;
@@ -580,12 +527,10 @@ async fn verify_chip(
         start_addr,
         bad_block_mode.as_deref(),
         &mut |done, total| {
-            app.emit("verify_progress", VerifyProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("verify", done, total));
         },
         &mut |done, total| {
-            app.emit("bad_block_progress", BadBlockProgressEvent { done, total })
-                .ok();
+            ui.emit(UiEvent::progress("bad_block", done as u64, total as u64));
         },
         Some(&mut router),
     );
@@ -1007,7 +952,7 @@ fn sidecar_read(
     size: u64,
     start_addr: Option<u64>,
     state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
 ) -> Result<tauri::ipc::Response, String> {
     // sidecar_read_chip 暂不支持起始地址，保留该参数供后续扩展。
     let _ = start_addr;
@@ -1017,7 +962,7 @@ fn sidecar_read(
         device_id: device,
     };
     let data = operations::sidecar_read_chip(&mut router, &selection, size, &mut |done, total| {
-        let _ = app.emit("read_progress", ReadProgressEvent { done, total });
+        ui.emit(UiEvent::progress("read", done, total));
     })?;
     Ok(tauri::ipc::Response::new(data))
 }
@@ -1027,7 +972,7 @@ fn sidecar_read(
 fn sidecar_write(
     request: tauri::ipc::Request<'_>,
     state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
 ) -> Result<String, String> {
     let adapter =
         request_header(&request, "x-adapter").ok_or_else(|| "缺少 x-adapter 请求头".to_string())?;
@@ -1048,7 +993,7 @@ fn sidecar_write(
         data,
         start_addr,
         &mut |done, total| {
-            let _ = app.emit("write_progress", WriteProgressEvent { done, total });
+            ui.emit(UiEvent::progress("write", done, total));
         },
     )
 }
@@ -1058,7 +1003,7 @@ fn sidecar_write(
 fn sidecar_verify(
     request: tauri::ipc::Request<'_>,
     state: State<'_, Mutex<HalRouter>>,
-    app: tauri::AppHandle,
+    ui: State<'_, Arc<dyn UiHost>>,
 ) -> Result<String, String> {
     let adapter =
         request_header(&request, "x-adapter").ok_or_else(|| "缺少 x-adapter 请求头".to_string())?;
@@ -1079,7 +1024,7 @@ fn sidecar_verify(
         data,
         start_addr,
         &mut |done, total| {
-            let _ = app.emit("verify_progress", VerifyProgressEvent { done, total });
+            ui.emit(UiEvent::progress("verify", done, total));
         },
     )
 }

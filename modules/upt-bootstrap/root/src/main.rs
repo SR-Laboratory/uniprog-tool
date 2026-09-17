@@ -7,12 +7,15 @@ pub mod ui_tauri;
 
 use app_ops::core;
 use boot::AppRuntime;
+use l0_core::ui::UiHost;
 use l0_core::unipkg_protocol;
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 use tauri::{Emitter, Manager, WindowEvent};
+use ui_tauri::ui_host::TauriUiHost;
 
 fn main() {
-    let runtime = match boot::boot() {
+    let ui_host = Arc::new(TauriUiHost::new());
+    let runtime = match boot::boot_with_ui(ui_host.clone()) {
         Ok(runtime) => runtime,
         Err(error) => {
             eprintln!("启动失败: {error}");
@@ -21,6 +24,8 @@ fn main() {
     };
 
     let plugin_assets = runtime.unipkg_assets();
+    let managed_ui: Arc<dyn UiHost> = runtime.ui.clone();
+    let attach_host = ui_host.clone();
     let AppRuntime {
         state,
         plugin_manager,
@@ -32,6 +37,11 @@ fn main() {
         .manage(state)
         .manage(plugin_manager)
         .manage(hal_router)
+        .manage(managed_ui)
+        .setup(move |app| {
+            attach_host.attach(app.handle().clone());
+            Ok(())
+        })
         .on_window_event(|window, event| {
             if let WindowEvent::CloseRequested { api, .. } = event {
                 let busy = window

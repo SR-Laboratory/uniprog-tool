@@ -40,6 +40,15 @@ if (!fs.existsSync(profileFile)) fail(`profile not found: ${profileFile}`)
 const tomlText = fs.readFileSync(profileFile, 'utf8')
 const backendMatch = /^backend = "([^"]+)"/m.exec(tomlText)
 const backend = backendMatch?.[1] ?? 'libusb'
+const uiMatch = /^ui = "([^"]+)"/m.exec(tomlText)
+const ui = uiMatch?.[1] ?? 'tauri'
+if (!['tauri', 'slint'].includes(ui)) fail(`profile ui must be "tauri" or "slint": ${profileFile}`)
+if (ui !== 'tauri') {
+  fail(
+    `profile "${profileName}" uses ui = "${ui}", but tools/build.mjs currently only packages the Tauri shell. ` +
+      'Use tools/assemble.mjs plus cargo for the Slint skeleton until the packaging pipeline is ported.',
+  )
+}
 const features = backend === 'libusb' ? ['--features', 'hal-libusb'] : []
 const configArg = backend === 'libusb' ? ['--config', 'src-tauri/tauri.libusb.conf.json'] : []
 

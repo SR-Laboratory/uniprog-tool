@@ -1,5 +1,6 @@
 [build]
 name = "desktop-tauri-libusb"
+ui = "tauri"
 backend = "libusb"
 modules = [
   "upt-bootstrap",

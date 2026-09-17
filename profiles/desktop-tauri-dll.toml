@@ -1,5 +1,6 @@
 [build]
 name = "desktop-tauri-dll"
+ui = "tauri"
 backend = "dll"
 modules = [
   "upt-bootstrap",
