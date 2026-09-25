@@ -7,11 +7,13 @@ import { spawnSync } from 'node:child_process'
 //
 //   node tools/build.mjs --profile desktop-tauri-libusb
 //   node tools/build.mjs --profile desktop-tauri-dll
+//   node tools/build.mjs --profile desktop-slint-libusb
 //   node tools/build.mjs --profile desktop-tauri-libusb --skip-smoke   # CI
 //
-// Pipeline:
-//   frontend build -> assemble -> cargo release -> prepare sidecars ->
-//   tauri bundle (NSIS + resources) inside build/<profile>.
+// Pipeline (Tauri): frontend build -> assemble -> cargo release ->
+//   prepare sidecars -> tauri bundle (NSIS + resources) inside build/<profile>.
+// Pipeline (Slint): frontend build -> assemble -> cargo release ->
+//   prepare sidecars -> portable-only package (no NSIS installer).
 
 const root = path.resolve(import.meta.dirname, '..')
 
@@ -43,13 +45,11 @@ const backend = backendMatch?.[1] ?? 'libusb'
 const uiMatch = /^ui = "([^"]+)"/m.exec(tomlText)
 const ui = uiMatch?.[1] ?? 'tauri'
 if (!['tauri', 'slint'].includes(ui)) fail(`profile ui must be "tauri" or "slint": ${profileFile}`)
-if (ui !== 'tauri') {
-  fail(
-    `profile "${profileName}" uses ui = "${ui}", but tools/build.mjs currently only packages the Tauri shell. ` +
-      'Use tools/assemble.mjs plus cargo for the Slint skeleton until the packaging pipeline is ported.',
-  )
-}
-const features = backend === 'libusb' ? ['--features', 'hal-libusb'] : []
+
+const featureList = []
+if (backend === 'libusb') featureList.push('hal-libusb')
+if (ui === 'slint') featureList.push('ui-slint')
+const features = featureList.length > 0 ? ['--features', featureList.join(',')] : []
 const configArg = backend === 'libusb' ? ['--config', 'src-tauri/tauri.libusb.conf.json'] : []
 
 const profileRoot = path.join(root, 'build', profileName)
@@ -88,22 +88,37 @@ const cargoArgs = [
 ]
 if (run('cargo', cargoArgs, srcTauri) !== 0) fail('cargo release build failed')
 
-// 4. Tauri bundler. Its beforeBundle hook builds/copies sidecars and restores
-//    the real main binary in the generated workspace.
-const tauriArgs = [
-  path.join(root, 'node_modules', '@tauri-apps', 'cli', 'tauri.js'),
-  'build',
-  ...configArg,
-  ...features,
-  '--ci',
-]
-if (run(process.execPath, tauriArgs, profileRoot) !== 0) fail('tauri bundle failed')
+// 4. Tauri bundler (Tauri shell) or sidecar preparation (Slint shell).
+if (ui === 'tauri') {
+  const tauriArgs = [
+    path.join(root, 'node_modules', '@tauri-apps', 'cli', 'tauri.js'),
+    'build',
+    ...configArg,
+    ...features,
+    '--ci',
+  ]
+  if (run(process.execPath, tauriArgs, profileRoot) !== 0) fail('tauri bundle failed')
+} else {
+  // Slint has no Tauri bundler; build both sidecars and copy them into the
+  // plugin packages. The main binary is already correct, so skip the
+  // Tauri-specific main-binary restore hook.
+  const prepareArgs = [
+    path.join(root, 'scripts', 'prepare-bundle.cjs'),
+    '--release',
+    '--src-tauri',
+    srcTauri,
+    '--skip-main-binary',
+  ]
+  if (run(process.execPath, prepareArgs, root) !== 0) fail('sidecar preparation failed')
+}
 
 // 5. Stage 6: collect the finished build into `dist/<profile>/`.
 //    CI passes `--skip-smoke` because launching the GUI on a runner is flaky;
-//    local builds keep the startup smoke check by default.
+//    local builds keep the startup smoke check by default. The Slint shell has
+//    no NSIS installer yet, so it uses the portable-only packaging path.
 const packageArgs = [path.join(root, 'tools', 'package.mjs'), '--profile', profileName]
 if (skipSmoke) packageArgs.push('--skip-smoke')
+if (ui !== 'tauri') packageArgs.push('--portable-only')
 if (run(process.execPath, packageArgs, root) !== 0) fail('packaging failed')
 
 console.log(`[build] profile ${profileName} finished in ${profileRoot}`)

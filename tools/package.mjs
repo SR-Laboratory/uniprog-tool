@@ -10,10 +10,11 @@ import { parse as parseToml } from 'smol-toml'
 //
 //   node tools/package.mjs --profile desktop-tauri-libusb
 //   node tools/package.mjs --profile desktop-tauri-dll --skip-smoke
+//   node tools/package.mjs --profile desktop-slint-libusb --portable-only
 //
 // Layout produced:
 //   dist/<profile>/
-//     installer/<setup.exe>
+//     installer/<setup.exe>          (skipped with --portable-only)
 //     portable/uniprog-<version>-<os>-<arch>.zip
 //     packages/<plugin-name>-<plugin-version>.unipkg
 //     manifest.json
@@ -85,8 +86,9 @@ function parseArgs(args) {
   const profileIndex = args.indexOf('--profile')
   const profileName = profileIndex >= 0 ? args[profileIndex + 1] : null
   const skipSmoke = args.includes('--skip-smoke')
+  const portableOnly = args.includes('--portable-only')
   if (!profileName) fail('missing --profile <name>')
-  return { profileName, skipSmoke }
+  return { profileName, skipSmoke, portableOnly }
 }
 
 function platformTag() {
@@ -491,7 +493,7 @@ function collectPluginPackages(pluginsBuiltinDir) {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  const { profileName, skipSmoke } = parseArgs(process.argv.slice(2))
+  const { profileName, skipSmoke, portableOnly } = parseArgs(process.argv.slice(2))
 
   const profileFile = path.join(root, 'profiles', `${profileName}.toml`)
   if (!fs.existsSync(profileFile)) fail(`profile not found: ${profileFile}`)
@@ -546,17 +548,20 @@ async function main() {
 
   const bundleDir = path.join(releaseDir, 'bundle')
   const nsisDir = path.join(bundleDir, 'nsis')
-  const installers = fs.existsSync(nsisDir)
-    ? fs.readdirSync(nsisDir).filter((name) => name.toLowerCase().endsWith('-setup.exe'))
-    : []
-  if (installers.length !== 1) {
-    fail(
-      installers.length === 0
-        ? `no NSIS installer found in ${nsisDir}`
-        : `ambiguous NSIS installers in ${nsisDir}: ${installers.join(', ')}`,
-    )
+  let installerSource = null
+  if (!portableOnly) {
+    const installers = fs.existsSync(nsisDir)
+      ? fs.readdirSync(nsisDir).filter((name) => name.toLowerCase().endsWith('-setup.exe'))
+      : []
+    if (installers.length !== 1) {
+      fail(
+        installers.length === 0
+          ? `no NSIS installer found in ${nsisDir}`
+          : `ambiguous NSIS installers in ${nsisDir}: ${installers.join(', ')}`,
+      )
+    }
+    installerSource = path.join(nsisDir, installers[0])
   }
-  const installerSource = path.join(nsisDir, installers[0])
 
   const profileDist = path.join(distRoot, profile.name)
   const failedDir = path.join(profileDist, 'failed')
@@ -566,13 +571,18 @@ async function main() {
 
   const staging = path.join(profileDist, `.staging-${process.pid}`)
   activeStaging = staging
-  fs.mkdirSync(path.join(staging, 'installer'), { recursive: true })
+  if (!portableOnly) fs.mkdirSync(path.join(staging, 'installer'), { recursive: true })
   fs.mkdirSync(path.join(staging, 'portable'), { recursive: true })
   fs.mkdirSync(path.join(staging, 'packages'), { recursive: true })
 
-  const installerName = path.basename(installerSource)
-  fs.copyFileSync(installerSource, path.join(staging, 'installer', installerName))
-  console.log(`[package] installer: ${installerName}`)
+  let installerName = null
+  if (!portableOnly) {
+    installerName = path.basename(installerSource)
+    fs.copyFileSync(installerSource, path.join(staging, 'installer', installerName))
+    console.log(`[package] installer: ${installerName}`)
+  } else {
+    console.log('[package] installer: skipped (--portable-only)')
+  }
 
   const portableName = `uniprog-${version}-${platformTag()}-${archTag()}.zip`
   const portableSrc = path.join(staging, '.portable-src')
@@ -620,11 +630,15 @@ async function main() {
   }
 
   const artifacts = {
-    installer: {
-      file: `installer/${installerName}`,
-      size: fs.statSync(path.join(staging, 'installer', installerName)).size,
-      sha256: sha256File(path.join(staging, 'installer', installerName)),
-    },
+    ...(portableOnly
+      ? {}
+      : {
+          installer: {
+            file: `installer/${installerName}`,
+            size: fs.statSync(path.join(staging, 'installer', installerName)).size,
+            sha256: sha256File(path.join(staging, 'installer', installerName)),
+          },
+        }),
     portable: {
       file: `portable/${portableName}`,
       size: fs.statSync(portableZip).size,
@@ -647,6 +661,7 @@ async function main() {
     productName,
     version,
     backend,
+    portableOnly,
     builtAt: new Date().toISOString(),
     gitCommit: gitCommit(),
     smokeChecked: !skipSmoke,
@@ -656,9 +671,10 @@ async function main() {
   const manifestPath = path.join(staging, 'manifest.json')
   fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
 
-  // Commit: replace only the three artifact directories, keep `failed/` and
+  // Commit: replace only the built artifact directories, keep `failed/` and
   // never touch the previous success before the new staging is complete.
-  for (const category of ['installer', 'portable', 'packages']) {
+  const categories = portableOnly ? ['portable', 'packages'] : ['installer', 'portable', 'packages']
+  for (const category of categories) {
     const destination = path.join(profileDist, category)
     fs.rmSync(destination, { recursive: true, force: true })
     fs.renameSync(path.join(staging, category), destination)

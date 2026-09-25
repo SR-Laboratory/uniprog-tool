@@ -12,8 +12,8 @@ use std::sync::OnceLock;
 use serde::Serialize;
 use tauri::{AppHandle, Emitter};
 
-use super::dialogs;
 use crate::l0_core::ui::{ConfirmRequest, FileFilter, UiEvent, UiHost, UiLogLevel, UiTheme};
+use crate::ui_dialogs as dialogs;
 
 #[derive(Clone, Serialize)]
 struct StatusEvent {

@@ -20,6 +20,7 @@ const srcTauri =
   argIndex >= 0 ? path.resolve(process.argv[argIndex + 1]) : path.resolve(root, 'src-tauri')
 const cargoManifest = path.join(srcTauri, 'Cargo.toml')
 const release = process.argv.includes('--release')
+const skipMainBinary = process.argv.includes('--skip-main-binary')
 
 const cargoTargets = [
   { feature: 'hal-dll', bin: 'upt_ch34x_sidecar_dll' },
@@ -53,7 +54,9 @@ for (const { feature, bin } of cargoTargets) {
 }
 
 const scripts = [
-  [process.execPath, [path.join(__dirname, 'fix-main-binary.cjs'), '--src-tauri', srcTauri]],
+  ...(skipMainBinary
+    ? []
+    : [[process.execPath, [path.join(__dirname, 'fix-main-binary.cjs'), '--src-tauri', srcTauri]]]),
   [
     process.execPath,
     [

@@ -7,7 +7,7 @@ use crate::app_ops::{autodetect, core, operations};
 use crate::l0_core::runtime::{exe_dir, log_info};
 use crate::l0_core::settings;
 use crate::l0_core::ui::{UiEvent, UiHost};
-use crate::ui_tauri::dialogs;
+use crate::ui_dialogs as dialogs;
 use serde::Serialize;
 use std::sync::{Arc, Mutex};
 use tauri::{Emitter, Manager, State};

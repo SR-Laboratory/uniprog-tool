@@ -228,6 +228,37 @@ appear and close automatically. To skip that check (for example in CI):
 npm run dist:libusb -- --skip-smoke
 ```
 
+### 7.1 Slint shell preview (portable only)
+
+The Slint shell is still a preview and has no NSIS installer yet. It uses the
+same assembly pipeline with the `ui-slint` Cargo feature and packages only the
+portable zip:
+
+```powershell
+npm run dist:slint
+```
+
+Direct command:
+
+```powershell
+node tools/build.mjs --profile desktop-slint-libusb
+```
+
+Expected result:
+
+```text
+dist/desktop-slint-libusb/
+  portable/uniprog-<version>-win-x64.zip
+  packages/upt.tauri-1.0.0.unipkg
+  packages/upt.tauri.hexview-1.0.0.unipkg
+  packages/upt.hal.ch34x_libusb-1.0.0.unipkg
+  manifest.json
+```
+
+The portable layout is smoke-checked the same way as the Tauri build.
+`npm run verify:slint` runs fmt/check/clippy/test against the Slint workspace
+without producing packages.
+
 ---
 
 ## 8. Build the local (DLL) release

@@ -77,7 +77,8 @@ modules/                       手工维护的源码
   upt-bootstrap/               根 Cargo.toml、Tauri 配置、图标、测试
   upt-core/                    L0 核心模块
   upt-ui-tauri/                Tauri UI 层（HostApi 实现、命令）
-  upt-ui-slint/                Slint 壳骨架（编译期替代方案）
+  upt-ui-slint/                Slint 壳（编译期替代方案）
+  upt-ui-dialogs/              共享原生文件对话框
   upt-app-ops/                 芯片状态与操作，供不同前端共用
   upt-plugin-runtime/          upt-plugin crate
   upt-hal-runtime/             upt-hal crate（HAL 路由、sidecar 客户端）
@@ -121,9 +122,8 @@ modules = [ ... ]
 required = [ "src/l0_core", "plugins/builtin/upt.tauri", ... ]
 ```
 
-`ui` 选择编译进二进制的 UI 壳。当前发布流水线仍只打包 Tauri 壳；
-Slint 骨架通过 `npm run assemble:slint` / `npm run verify:slint` 组装与检查，
-待功能对齐后再进入发布流程。
+`ui` 选择编译进二进制的 UI 壳。发布流水线为 Tauri 壳生成安装包；
+Slint 壳在功能对齐期间支持 `npm run dist:slint` 仅便携版打包。
 
 ---
 

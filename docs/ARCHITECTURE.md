@@ -81,7 +81,8 @@ modules/                       Hand-maintained source
   upt-bootstrap/               Root Cargo.toml, tauri configs, icons, tests
   upt-core/                    L0 core modules
   upt-ui-tauri/                Tauri UI layer (HostApi implementation, commands)
-  upt-ui-slint/                Slint shell skeleton (compile-time alternative)
+  upt-ui-slint/                Slint shell (compile-time alternative)
+  upt-ui-dialogs/              Shared native file dialogs
   upt-app-ops/                 Chip state and operations shared by frontends
   upt-plugin-runtime/          upt-plugin crate
   upt-hal-runtime/             upt-hal crate (HAL router, sidecar client)
@@ -126,9 +127,8 @@ required = [ "src/l0_core", "plugins/builtin/upt.tauri", ... ]
 ```
 
 `ui` selects which shell is compiled into the binary. The release pipeline
-currently packages the Tauri shell only; the Slint skeleton is assembled and
-checked with `npm run assemble:slint` / `npm run verify:slint` while it reaches
-feature parity.
+packages Tauri installers; the Slint shell supports portable-only packaging via
+`npm run dist:slint` while it reaches feature parity.
 
 ---
 

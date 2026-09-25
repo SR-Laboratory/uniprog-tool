@@ -29,8 +29,10 @@
     "package": "node tools/package.mjs",
     "package:libusb": "node tools/package.mjs --profile desktop-tauri-libusb",
     "package:dll": "node tools/package.mjs --profile desktop-tauri-dll",
+    "package:slint": "node tools/package.mjs --profile desktop-slint-libusb --portable-only",
     "dist:libusb": "node tools/build.mjs --profile desktop-tauri-libusb",
     "dist:dll": "node tools/build.mjs --profile desktop-tauri-dll",
+    "dist:slint": "node tools/build.mjs --profile desktop-slint-libusb",
     "tauri": "node tools/tauri.mjs"
   },
   "dependencies": {

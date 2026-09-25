@@ -219,6 +219,35 @@ CI 中）：
 npm run dist:libusb -- --skip-smoke
 ```
 
+### 7.1 Slint 壳预览版（仅便携版）
+
+Slint 壳目前仍是预览版，还没有 NSIS 安装包。它复用同一套源码组装流程，
+通过 `ui-slint` Cargo feature 编译，并且只打包便携版：
+
+```powershell
+npm run dist:slint
+```
+
+等价直接命令：
+
+```powershell
+node tools/build.mjs --profile desktop-slint-libusb
+```
+
+成功后结果：
+
+```text
+dist/desktop-slint-libusb/
+  portable/uniprog-<version>-win-x64.zip
+  packages/upt.tauri-1.0.0.unipkg
+  packages/upt.tauri.hexview-1.0.0.unipkg
+  packages/upt.hal.ch34x_libusb-1.0.0.unipkg
+  manifest.json
+```
+
+便携版会像 Tauri 版一样做启动冒烟检查。`npm run verify:slint` 只对 Slint
+工作区跑 fmt/check/clippy/test，不产出安装包。
+
 ---
 
 ## 8. 构建本地发布版（DLL）

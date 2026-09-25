@@ -11,6 +11,7 @@ modules = [
   "upt-proto-runtime",
   "upt-devices-runtime",
   "upt-ui-slint",
+  "upt-ui-dialogs",
   "upt-app-ops",
   "upt-shell-tauri",
   "upt-shell-tauri-hexview",
@@ -22,6 +23,7 @@ modules = [
 required = [
   "src/l0_core",
   "src/ui_slint",
+  "src/ui_dialogs",
   "src/app_ops",
   "plugins/builtin/upt.tauri",
   "plugins/builtin/upt.tauri.hexview",

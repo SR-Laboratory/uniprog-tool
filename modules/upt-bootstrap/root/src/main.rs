@@ -3,6 +3,7 @@
 pub mod app_ops;
 pub mod boot;
 pub mod l0_core;
+pub mod ui_dialogs;
 
 #[cfg(feature = "ui-slint")]
 pub mod ui_slint;

@@ -2,7 +2,6 @@
 //! should live under this module so the L0 core stays transport-agnostic.
 
 pub mod commands;
-pub mod dialogs;
 pub mod run;
 pub mod ui_host;
 

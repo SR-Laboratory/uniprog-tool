@@ -45,15 +45,15 @@ impl UiHost for SlintUiHost {
     }
 
     fn open_file(&self, _filters: &[FileFilter]) -> Result<Option<PathBuf>, String> {
-        Ok(None)
+        crate::ui_dialogs::open_file().map(|path| path.map(PathBuf::from))
     }
 
     fn save_file(
         &self,
         _filters: &[FileFilter],
-        _default_name: &str,
+        default_name: &str,
     ) -> Result<Option<PathBuf>, String> {
-        Ok(None)
+        crate::ui_dialogs::save_file(default_name, "bin").map(|path| path.map(PathBuf::from))
     }
 
     fn open_external(&self, url: &str) -> Result<(), String> {

@@ -1,0 +1,6 @@
+[module]
+name = "upt-ui-dialogs"
+layer = "l1"
+kind = "code"
+source = "modules/upt-ui-dialogs/src"
+target = "src/ui_dialogs"
