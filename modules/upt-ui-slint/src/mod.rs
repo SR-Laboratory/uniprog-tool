@@ -40,6 +40,11 @@ slint::slint! {
         callback connect-device(string);
         callback detect-chip();
         callback load-firmware();
+        callback read-chip();
+        callback write-chip();
+        callback verify-chip();
+        callback erase-chip();
+        callback save-read-data();
 
         in-out property <string> app_title: "UniProgrammer";
         in-out property <string> device_status: "设备：未扫描";
@@ -47,6 +52,8 @@ slint::slint! {
         in-out property <string> firmware_status: "固件：未加载";
         in-out property <string> status_text: "就绪";
         in-out property <string> event_text: "尚未收到事件";
+        in-out property <string> hex_text: "（尚未读取）";
+        in-out property <bool> has_read_data: false;
         in-out property <string> progress_text: "";
         in-out property <float> progress_value: 0.0;
         in-out property <bool> busy: false;
@@ -222,6 +229,101 @@ slint::slint! {
                             wrap: word-wrap;
                         }
 
+                        HorizontalLayout {
+                            spacing: 6px;
+
+                            Rectangle {
+                                height: 30px;
+                                horizontal-stretch: 1;
+                                background: #2d6cdf;
+                                border-radius: 4px;
+                                Text {
+                                    text: "读取";
+                                    color: #ffffff;
+                                    font-size: 13px;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                                TouchArea {
+                                    width: parent.width;
+                                    height: parent.height;
+                                    clicked => { root.read-chip(); }
+                                }
+                            }
+                            Rectangle {
+                                height: 30px;
+                                horizontal-stretch: 1;
+                                background: #2d6cdf;
+                                border-radius: 4px;
+                                Text {
+                                    text: "写入";
+                                    color: #ffffff;
+                                    font-size: 13px;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                                TouchArea {
+                                    width: parent.width;
+                                    height: parent.height;
+                                    clicked => { root.write-chip(); }
+                                }
+                            }
+                            Rectangle {
+                                height: 30px;
+                                horizontal-stretch: 1;
+                                background: #2d6cdf;
+                                border-radius: 4px;
+                                Text {
+                                    text: "校验";
+                                    color: #ffffff;
+                                    font-size: 13px;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                                TouchArea {
+                                    width: parent.width;
+                                    height: parent.height;
+                                    clicked => { root.verify-chip(); }
+                                }
+                            }
+                            Rectangle {
+                                height: 30px;
+                                horizontal-stretch: 1;
+                                background: #a54b3a;
+                                border-radius: 4px;
+                                Text {
+                                    text: "擦除";
+                                    color: #ffffff;
+                                    font-size: 13px;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                                TouchArea {
+                                    width: parent.width;
+                                    height: parent.height;
+                                    clicked => { root.erase-chip(); }
+                                }
+                            }
+                            Rectangle {
+                                height: 30px;
+                                horizontal-stretch: 1;
+                                background: #3b4a5f;
+                                border-radius: 4px;
+                                Text {
+                                    text: "保存读取数据";
+                                    color: #ffffff;
+                                    font-size: 13px;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                                TouchArea {
+                                    width: parent.width;
+                                    height: parent.height;
+                                    clicked => { root.save-read-data(); }
+                                }
+                            }
+                        }
+
                         Rectangle {
                             background: #151b24;
                             border-radius: 8px;
@@ -230,15 +332,13 @@ slint::slint! {
                             vertical-stretch: 1;
 
                             Text {
-                                x: 20px;
-                                y: 0px;
-                                width: parent.width - 40px;
-                                height: parent.height;
-                                text: "后续接入：读写、擦除、校验、Hex 查看与坏块管理";
-                                color: #8b98ab;
-                                horizontal-alignment: center;
-                                vertical-alignment: center;
-                                wrap: word-wrap;
+                                x: 10px;
+                                y: 8px;
+                                width: parent.width - 20px;
+                                height: parent.height - 16px;
+                                text: root.hex_text;
+                                color: #c8d3e2;
+                                font-size: 11px;
                             }
                         }
 
@@ -329,6 +429,26 @@ pub fn run(runtime: AppRuntime, ui_host: Arc<SlintUiHost>) -> Result<(), String>
         let controller = Arc::clone(&controller);
         window.on_load_firmware(move || controller.load_firmware());
     }
+    {
+        let controller = Arc::clone(&controller);
+        window.on_read_chip(move || controller.read_chip());
+    }
+    {
+        let controller = Arc::clone(&controller);
+        window.on_write_chip(move || controller.write_chip());
+    }
+    {
+        let controller = Arc::clone(&controller);
+        window.on_verify_chip(move || controller.verify_chip());
+    }
+    {
+        let controller = Arc::clone(&controller);
+        window.on_erase_chip(move || controller.erase_chip());
+    }
+    {
+        let controller = Arc::clone(&controller);
+        window.on_save_read_data(move || controller.save_read_data());
+    }
 
     let receiver = ui_host
         .take_receiver()
@@ -372,32 +492,44 @@ fn apply_ui_event(window: &MainWindow, event: UiEvent) {
             message,
             elapsed_ms,
         } => {
-            let mut text = match (total, &message) {
-                (0, Some(message)) => format!("{task}: {message}"),
-                (0, None) => format!("{task}: {done}"),
-                (_, Some(message)) => format!("{task}: {message} ({done}/{total})"),
-                (_, None) => format!("{task}: {done}/{total}"),
-            };
-            if let Some(phase) = phase {
-                text.push_str(&format!(" · {phase}"));
-            }
-            if let Some(elapsed_ms) = elapsed_ms {
-                text.push_str(&format!(" · {elapsed_ms} ms"));
-            }
-
-            window.set_progress_text(text.into());
-            window.set_progress_value(if total > 0 {
-                done as f32 / total as f32
-            } else {
-                0.0
-            });
-            window.set_busy(true);
+            apply_progress(window, task, done, total, phase, message, elapsed_ms);
         }
         UiEvent::Busy { running } => {
             window.set_busy(running);
         }
         UiEvent::ThemeChanged { .. } | UiEvent::LanguageChanged { .. } => {}
     }
+}
+
+fn apply_progress(
+    window: &MainWindow,
+    task: String,
+    done: u64,
+    total: u64,
+    phase: Option<String>,
+    message: Option<String>,
+    elapsed_ms: Option<u64>,
+) {
+    let mut text = match (total, &message) {
+        (0, Some(message)) => format!("{task}: {message}"),
+        (0, None) => format!("{task}: {done}"),
+        (_, Some(message)) => format!("{task}: {message} ({done}/{total})"),
+        (_, None) => format!("{task}: {done}/{total}"),
+    };
+    if let Some(phase) = phase {
+        text.push_str(&format!(" · {phase}"));
+    }
+    if let Some(elapsed_ms) = elapsed_ms {
+        text.push_str(&format!(" · {elapsed_ms} ms"));
+    }
+
+    window.set_progress_text(text.into());
+    window.set_progress_value(if total > 0 {
+        done as f32 / total as f32
+    } else {
+        0.0
+    });
+    window.set_busy(true);
 }
 
 fn apply_app_event(window: &MainWindow, event: SlintAppEvent) {
@@ -440,6 +572,28 @@ fn apply_app_event(window: &MainWindow, event: SlintAppEvent) {
         } => {
             window.set_firmware_status(format!("固件：{path}\n{length} 字节 · {format}").into());
             window.set_event_text(format!("已加载固件 {path}（{length} 字节，{format}）").into());
+        }
+        SlintAppEvent::Progress {
+            task,
+            done,
+            total,
+            phase,
+            message,
+            elapsed_ms,
+        } => {
+            apply_progress(window, task, done, total, phase, message, elapsed_ms);
+        }
+        SlintAppEvent::Busy(running) => {
+            window.set_busy(running);
+            if !running {
+                window.set_progress_text("".into());
+                window.set_progress_value(0.0);
+            }
+        }
+        SlintAppEvent::ReadData { length, preview } => {
+            window.set_hex_text(preview.into());
+            window.set_has_read_data(true);
+            window.set_event_text(format!("读取完成：{length} 字节（Hex 预览前 4 KiB）").into());
         }
         SlintAppEvent::Error(message) => {
             window.set_status_text(format!("错误：{message}").into());
