@@ -506,8 +506,8 @@ chips = [
   { id = "C22019", model = "KH25L25635F", addr4bit = 17, algorithm = 22, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：C22019 同 ID 的 Macronix MX25L25645G = 33,554,432
   { id = "C22019", model = "KH25L25645G", addr4bit = 17, algorithm = 22, block = 65536, page = 256, script = "KH25L25645G_OTP.pas", sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：同上
   { id = "C22019", model = "KH25L25639F", addr4bit = 17, algorithm = 22, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：同上
-  { id = "C22519", model = "KH25U25639F", page = 256, size = 268435456, vcc = "1.8" },
-  { id = "C22519", model = "KH25U25645G", page = 256, size = 268435456, vcc = "1.8" },
+  { id = "C22519", model = "KH25U25639F", page = 256, size = 33554432, vcc = "1.8" },   # 268435456->33554432：同型号的 3.3V 版 KH25L25645G/25639F 已是 33,554,432（C22019），本组为 1.8V 版 C22519
+  { id = "C22519", model = "KH25U25645G", page = 256, size = 33554432, vcc = "1.8" },   # 268435456->33554432：同型号的 3.3V 版 KH25L25645G/25639F 已是 33,554,432（C22019），本组为 1.8V 版 C22519
   { id = "C22615", model = "KH25L8036D", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 1048576, timing = 1000, vcc = "3.3" }
 ]
 
