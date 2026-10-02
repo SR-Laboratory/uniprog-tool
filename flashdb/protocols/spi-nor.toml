@@ -14,7 +14,9 @@ chips = [
   { id = "1F4216", model = "AT25QL321", block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000 },
   { id = "1F4218", model = "AT25QL128A", block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000 },
   { id = "1F4317", model = "AT25QL641", block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },
-  { id = "1F7018", model = "AT25SF128", block = 65536, page = 256, sector = 4096, size = 16777216 }
+  { id = "1F7018", model = "AT25SF128", block = 65536, page = 256, sector = 4096, size = 16777216 },
+  { id = "1F4401", model = "AT25DF041A", block = 65536, page = 256, sector = 4096, size = 524288, timing = 1000 },
+  { id = "1F4601", model = "AT26DF161A", block = 65536, page = 256, sector = 4096, size = 2097152, timing = 1000 }
 ]
 
 [vendors.AKM]
@@ -109,7 +111,10 @@ chips = [
   { id = "684017", model = "BY25Q64E", addr4bit = 0, algorithm = 3, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1200, vcc = "3.3" },
   { id = "684017", model = "BY25Q64ES-F", addr4bit = 0, algorithm = 3, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1200, vcc = "3.3" },
   { id = "684018", model = "BY25B128AS", algorithm = 3, block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000 },
-  { id = "E06015", model = "BY25Q16AL", page = 256, size = 2097152, vcc = "1.8" }
+  { id = "E06015", model = "BY25Q16AL", page = 256, size = 2097152, vcc = "1.8" },
+  { id = "686012", model = "BY25Q20AL-1.8V", page = 256, size = 262144, timing = 500, vcc = "1.8" },
+  { id = "E04012", model = "BY25Q20AS", block = 65536, page = 256, sector = 4096, size = 262144, timing = 500 },
+  { id = "686016", model = "BY25Q32AL-1.8V", page = 256, size = 4194304, timing = 1000, vcc = "1.8" }
 ]
 
 [vendors.DEUTRON]
@@ -146,7 +151,8 @@ chips = [
   { id = "8C4118", model = "F25L128QA", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
   { id = "8C3214", model = "F25D08QA", page = 256, size = 1048576, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
   { id = "8C3215", model = "F25D16QA", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
-  { id = "8C281B", model = "F25HP01G", page = 256, size = 134217728, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 104 }
+  { id = "8C281B", model = "F25HP01G", page = 256, size = 134217728, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 104 },
+  { id = "8C1414", model = "F25L16PA", block = 65536, page = 256, sector = 4096, size = 2097152, timing = 1000 }
 ]
 
 [vendors.EON]
@@ -199,7 +205,8 @@ chips = [
   { id = "1C5116", model = "EN25QU32", page = 256, size = 4194304, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 133 },
   { id = "1C5117", model = "EN25QU64", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 133 },
   { id = "1C5118", model = "EN25QU128", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 133 },
-  { id = "1C5119", model = "EN25QU256", page = 256, size = 33554432, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 133 }
+  { id = "1C5119", model = "EN25QU256", page = 256, size = 33554432, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 133 },
+  { id = "1C3316", model = "EN25Q32", block = 65536, page = 256, sector = 4096, size = 4194304, timing = 1000 }
 ]
 
 [vendors.EXCELSEMI]
@@ -320,7 +327,8 @@ chips = [
   { id = "C86319", model = "GD25LF255E-DTR", block = 65536, page = 256, sector = 4096, size = 33554432 },
   { id = "C86619", model = "GD25LT256E-DTR", addr4bit = 17, algorithm = 26, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000 },
   { id = "C86719", model = "GD25LB256E", page = 256, size = 33554432, vcc = "1.8" },
-  { id = "C8671A", model = "GD25LB512ME", addr4bit = 1, algorithm = 26, block = 65536, page = 256, sector = 256, size = 67108864, timing = 1000 }
+  { id = "C8671A", model = "GD25LB512ME", addr4bit = 1, algorithm = 26, block = 65536, page = 256, sector = 256, size = 67108864, timing = 1000 },
+  { id = "C84112", model = "GD25Q21B", block = 65536, page = 256, sector = 4096, size = 262144, timing = 1000 }
 ]
 
 [vendors.GeneralPlus]
@@ -637,7 +645,8 @@ chips = [
   { id = "014015", model = "S25FL116K", algorithm = 3, block = 65536, page = 256, sector = 256, size = 2097152, timing = 1000 },
   { id = "014016", model = "S25FL132K", algorithm = 3, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000 },
   { id = "014017", model = "S25FL164K", block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },
-  { id = "016019", model = "FL256LAIF01", block = 65536, page = 256, sector = 4096, size = 33554432 }
+  { id = "016019", model = "FL256LAIF01", block = 65536, page = 256, sector = 4096, size = 33554432 },
+  { id = "012017", model = "S25FL128", block = 65536, page = 256, sector = 4096, size = 16777216, timing = 1000 }
 ]
 
 [vendors.SST]
@@ -663,7 +672,8 @@ chips = [
   { id = "BF2653", model = "SST26WF064C", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
   { id = "BF2601", model = "SST26VF016", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
   { id = "BF2602", model = "SST26VF032", page = 256, size = 4194304, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
-  { id = "BF2603", model = "SST26VF064", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 }
+  { id = "BF2603", model = "SST26VF064", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
+  { id = "BF2501", model = "SST25WF512", page = 256, size = 65536, timing = 1000, vcc = "1.8", addr4bit = 0, block = 32768, sector = 4096 }
 ]
 
 [vendors.ST]
@@ -816,7 +826,8 @@ chips = [
   { id = "EF8016", model = "W25Q32JW_DTR", algorithm = 3, block = 65536, maxclk = 15000, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "1.8" },
   { id = "EF8017", model = "W25Q64JW-IM_1.8V", maxclk = 15000, page = 256, size = 8388608, vcc = "1.8" },
   { id = "EF8018", model = "W25Q128JW_DTR", block = 65536, maxclk = 15000, page = 256, sector = 4096, size = 16777216 },
-  { id = "EF8019", model = "W25Q256JW-DTR", block = 65536, maxclk = 133000, page = 256, sector = 4096, size = 33554432 }
+  { id = "EF8019", model = "W25Q256JW-DTR", block = 65536, maxclk = 133000, page = 256, sector = 4096, size = 33554432 },
+  { id = "EF3018", model = "W25X128", block = 65536, page = 256, sector = 4096, size = 16777216, timing = 1000 }
 ]
 
 [vendors.XICOR]
