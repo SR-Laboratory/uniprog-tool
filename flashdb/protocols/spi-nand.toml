@@ -1,6 +1,15 @@
 protocol = "SPI_NAND"
 description = "SPI_NAND Flash database"
 
+# A JEDEC id identifies the silicon, not the brand printed on the package.
+# Some entries below therefore share an id with entries listed under another
+# vendor, because one die is sold under more than one name - through a second
+# source, through rebranding, or because one vendor acquired another.
+# ZX298100A0 shares its id with Micron's MT29F2G01ABAGD family.
+#
+# This is expected, and the parameters are equivalent. When a read id matches
+# more than one entry, pick the part number you actually have.
+
 [vendors.ATO]
 chips = [
   { id = "9B12", model = "ATO25D1GA", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "single", size = 134217728, spare = 64, writeMode = "single" },

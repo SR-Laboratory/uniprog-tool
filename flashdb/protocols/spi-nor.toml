@@ -1,6 +1,16 @@
 protocol = "SPI_NOR"
 description = "SPI_NOR Flash database"
 
+# A JEDEC id identifies the silicon, not the brand printed on the package.
+# Some entries below therefore share an id with entries listed under another
+# vendor, because one die is sold under more than one name - through a second
+# source, through rebranding, or because one vendor acquired another.
+# NX25P10..NX25P32 are the Winbond W25P10..W25P32 parts, and EPCS4/EPCS64 are
+# the ST M25P40/M25P64 parts.
+#
+# This is expected, and the parameters are equivalent. When a read id matches
+# more than one entry, pick the part number you actually have.
+
 [vendors.ACE]
 chips = [
   { id = "A13110", model = "ACE25C512", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 65536, timing = 1000, vcc = "3.3" },
