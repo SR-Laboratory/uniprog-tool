@@ -40,8 +40,8 @@ chips = [
 ]
 [vendors.Altera]
 chips = [
-  # { id = "000000", model = "EPCS4", page = 256, size = 524288 }   # JEDEC 待确认
-  # { id = "000000", model = "EPCS64", page = 256, size = 8388608 }   # JEDEC 待确认
+  { id = "202013", model = "EPCS4", page = 256, size = 524288 },   # EPCS4 = M25P40 (ST)
+  { id = "202017", model = "EPCS64", page = 256, size = 8388608 },   # EPCS64 = M25P64 (ST)
   # { id = "000000", model = "EPCQ16", page = 256, size = 2097152 }   # JEDEC 待确认
   # { id = "000000", model = "EPCQ128", page = 256, size = 16777216 }   # JEDEC 待确认
   # { id = "000000", model = "EPCQ256N", page = 256, size = 33554432 }   # JEDEC 待确认
