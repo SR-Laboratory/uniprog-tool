@@ -25,7 +25,9 @@ chips = [
   { id = "1F4312", model = "AT25XE021A", page = 256, size = 262144, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 70 },
   { id = "1F4413", model = "AT25XE041B", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 85 },
   { id = "1F4514", model = "AT25XE081B", page = 256, size = 1048576, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 85 },
-  { id = "1F4615", model = "AT25XE161B", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 100 }
+  { id = "1F4615", model = "AT25XE161B", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 100 },
+  { id = "1F6501", model = "AT25DF011", page = 256, size = 131072 },
+  # { id = "000000", model = "AT25DF256", page = 256, size = 32768 }   # JEDEC 待确认
 ]
 
 [vendors.AKM]
@@ -36,6 +38,15 @@ chips = [
   { id = "", model = "AK6514", page = 64, size = 16384, spicmd = 95, vcc = "3.3" },
   { id = "", model = "AK6514", page = 64, size = 32768, spicmd = 95, vcc = "3.3" }
 ]
+[vendors.Altera]
+chips = [
+  # { id = "000000", model = "EPCS4", page = 256, size = 524288 }   # JEDEC 待确认
+  # { id = "000000", model = "EPCS64", page = 256, size = 8388608 }   # JEDEC 待确认
+  # { id = "000000", model = "EPCQ16", page = 256, size = 2097152 }   # JEDEC 待确认
+  # { id = "000000", model = "EPCQ128", page = 256, size = 16777216 }   # JEDEC 待确认
+  # { id = "000000", model = "EPCQ256N", page = 256, size = 33554432 }   # JEDEC 待确认
+]
+
 
 [vendors.AMIC]
 chips = [
@@ -149,7 +160,8 @@ chips = [
   { id = "684213", model = "BY25D40AS", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 80 },
   { id = "684214", model = "BY25D80AS", page = 256, size = 1048576, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 80 },
   { id = "684217", model = "BY25D64AS", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 80 },
-  { id = "684218", model = "BY25D128AS", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 80 }
+  { id = "684218", model = "BY25D128AS", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 80 },
+  { id = "684919", model = "BY25FQM512ES", page = 256, size = 67108864 }
 ]
 
 [vendors.DEUTRON]
@@ -195,7 +207,8 @@ chips = [
   { id = "8C1414", model = "F25L16PA", block = 65536, page = 256, sector = 4096, size = 2097152, timing = 1000 },
   { id = "8C2113", model = "F25L004AT", block = 4096, sector = 2048, page = 256, size = 524288 },
   { id = "8C2114", model = "F25L008AT", block = 4096, sector = 2048, page = 256, size = 1048576 },
-  { id = "8C2115", model = "F25L016AT", block = 4096, sector = 2048, page = 256, size = 2097152 }
+  { id = "8C2115", model = "F25L016AT", block = 4096, sector = 2048, page = 256, size = 2097152 },
+  { id = "8C3011", model = "F25L02PA", page = 256, size = 262144 }
 ]
 
 [vendors.EON]
@@ -302,7 +315,11 @@ chips = [
 [vendors.Fremont]
 chips = [
   { id = "0E4012", model = "FT25H02", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 262144, timing = 1000, vcc = "3.3" },
-  { id = "0E4015", model = "FT25H16", block = 65536, page = 256, sector = 4096, size = 2097152 }
+  { id = "0E4015", model = "FT25H16", block = 65536, page = 256, sector = 4096, size = 2097152 },
+  { id = "A12811", model = "FM25F02", page = 256, size = 262144 },
+  { id = "A12812", model = "FM25F04", page = 256, size = 524288 },
+  { id = "A12813", model = "FM25Q08", page = 256, size = 1048576 },
+  { id = "A12814", model = "FM25Q16", page = 256, size = 2097152 }
 ]
 
 [vendors.GigaDevice]
@@ -452,7 +469,13 @@ chips = [
   { id = "9D5A19", model = "IS25LX256", page = 256, size = 33554432, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 166 },
   { id = "9D5A1A", model = "IS25LX512", page = 256, size = 67108864, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 200 },
   { id = "9D5B19", model = "IS25WX256", page = 256, size = 33554432, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 200 },
-  { id = "9D1252", model = "IS25LQ020B", block = 4096, sector = 2048, page = 256, size = 262144 }
+  { id = "9D1252", model = "IS25LQ020B", block = 4096, sector = 2048, page = 256, size = 262144 },
+  { id = "9D4010", model = "IS25LQ010B", page = 256, size = 131072 },
+  { id = "9D4011", model = "IS25WP020D", page = 256, size = 262144 },
+  { id = "9D4015", model = "IS25WP032", page = 256, size = 4194304 },
+  { id = "9D4012", model = "IS25WP040D", page = 256, size = 524288 },
+  { id = "9D4016", model = "IS25WP064", page = 256, size = 8388608 },
+  { id = "9D4013", model = "IS25WP080D", page = 256, size = 1048576 }
 ]
 
 [vendors.KHIC]
@@ -583,7 +606,9 @@ chips = [
   { id = "9D7F13", model = "NX25P80", block = 65536, page = 256, sector = 4096, size = 1048576 },
   { id = "9D7F7C", model = "NX25P10", block = 65536, page = 256, sector = 4096, size = 131072 },
   { id = "9D7F7D", model = "NX25P20", block = 65536, page = 256, sector = 4096, size = 262144 },
-  { id = "9D7F7E", model = "NX25P40", block = 65536, page = 256, sector = 4096, size = 524288 }
+  { id = "9D7F7E", model = "NX25P40", block = 65536, page = 256, sector = 4096, size = 524288 },
+  # { id = "000000", model = "NX25P16", page = 256, size = 2097152 }   # JEDEC 待确认
+  # { id = "000000", model = "NX25P32", page = 256, size = 4194304 }   # JEDEC 待确认
 ]
 
 [vendors.NM]
@@ -676,8 +701,30 @@ chips = [
   { id = "856017", model = "P25Q64H", block = 65536, page = 256, sector = 65536, size = 8388608 },
   { id = "856018", model = "P25Q128H", block = 65536, page = 256, sector = 65536, size = 16777216 },
   { id = "852010", model = "PY25Q06H", page = 256, size = 65536, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
-  { id = "852015", model = "PY25Q16H", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 }
+  { id = "852015", model = "PY25Q16H", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
+  { id = "854010", model = "P25D12L", page = 256, size = 1572864 },
+  { id = "854411", model = "P25D22L", page = 256, size = 2883584 },
+  { id = "854010", model = "P25Q06L", page = 256, size = 65536 },
+  { id = "854010", model = "P25Q06U", page = 256, size = 65536 },
+  { id = "854011", model = "P25Q11L", page = 256, size = 131072 },
+  { id = "854011", model = "P25Q11U", page = 256, size = 131072 },
+  { id = "854012", model = "P25Q21L", page = 256, size = 262144 },
+  { id = "854012", model = "P25Q21U", page = 256, size = 262144 },
+  { id = "854412", model = "P25Q40H-E", page = 256, size = 524288 },
+  { id = "854011", model = "P25T12L", page = 256, size = 1572864 },
+  { id = "854012", model = "P25T22L", page = 256, size = 2883584 },
+  # { id = "000000", model = "P25D07L", page = 256, size = 917504 }   # JEDEC 待确认
 ]
+[vendors.SAIFUN]
+chips = [
+  # { id = "000000", model = "SA25F010", page = 256, size = 131072 }   # JEDEC 待确认
+  # { id = "000000", model = "SA25F020", page = 256, size = 262144 }   # JEDEC 待确认
+  # { id = "000000", model = "SA25F040", page = 256, size = 524288 }   # JEDEC 待确认
+  # { id = "000000", model = "SA25F080", page = 256, size = 1048576 }   # JEDEC 待确认
+  # { id = "000000", model = "SA25F160", page = 256, size = 2097152 }   # JEDEC 待确认
+  # { id = "000000", model = "SA25F320", page = 256, size = 4194304 }   # JEDEC 待确认
+]
+
 
 [vendors.Sanyo]
 chips = [
@@ -688,7 +735,8 @@ chips = [
   { id = "6226", model = "LE25FW206M", block = 65536, page = 256, sector = 4096, size = 262144 },
   { id = "6244", model = "LE25FU206MA", block = 65536, page = 256, sector = 4096, size = 262144 },
   { id = "623313", model = "LE25FU406C", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 50 },
-  { id = "624113", model = "LE25FU406", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 50 }
+  { id = "624113", model = "LE25FU406", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 50 },
+  # { id = "000000", model = "LE25FS406", page = 256, size = 4194304 }   # JEDEC 待确认
 ]
 
 [vendors.SK]
@@ -758,7 +806,8 @@ chips = [
   { id = "BF0044", model = "SST25VF040B", block = 4096, sector = 2048, page = 256, size = 524288 },
   { id = "BF0080", model = "SST25VF080", block = 4096, sector = 2048, page = 256, size = 1048576 },
   { id = "BF0080", model = "SST25VF080A", block = 4096, sector = 2048, page = 256, size = 1048576 },
-  { id = "BF0080", model = "SST25VF080B", block = 4096, sector = 2048, page = 256, size = 1048576 }
+  { id = "BF0080", model = "SST25VF080B", block = 4096, sector = 2048, page = 256, size = 1048576 },
+  { id = "BF0048", model = "SST25LF010A", page = 256, size = 131072 }
 ]
 
 [vendors.STMicro]
@@ -926,7 +975,8 @@ chips = [
   { id = "EF4010", model = "W25Q05CL", page = 256, size = 65536, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
   { id = "EF6010", model = "W25Q05NW", page = 256, size = 65536, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
   { id = "EF9022", model = "W25H02JV", page = 256, size = 268435456, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 },
-  { id = "EF9021", model = "W25H01JV", page = 256, size = 134217728, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 }
+  { id = "EF9021", model = "W25H01JV", page = 256, size = 134217728, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 },
+  { id = "B36013", model = "W25Q10EW", page = 256, size = 131072 }
 ]
 
 [vendors.XICOR]
