@@ -419,7 +419,7 @@ chips = [
 chips = [
   { id = "C22010", model = "GPR25L005E", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 65536, timing = 1000, vcc = "3.3" },
   { id = "C22012", model = "GPR25L020B", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 262144, timing = 1000, vcc = "3.3" },
-  { id = "C22015", model = "GPR25L161B", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 262144, timing = 1000, vcc = "3.3" },
+  { id = "C22015", model = "GPR25L161B", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 2097152, timing = 1000, vcc = "3.3" },   # 262144->2097152：SPI Flash 库：C2 20 15 -> GPR25L161B -> 2 MiB
   { id = "C22016", model = "GPR25L3203F", addr4bit = 0, algorithm = 23, block = 65536, page = 256, script = "GPR25L3203F_OTP.pas", sector = 256, size = 4194304, timing = 1000, vcc = "3.3" }
 ]
 
@@ -587,7 +587,11 @@ chips = [
   { id = "20BA18", model = "MT25QL128AB", block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000 },
   { id = "20BB17", model = "N25Q064A11EF640E", block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },
   { id = "20BB18", model = "MT25QU128ABA", block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000 },
-  { id = "2CCB19", model = "N25W256A11", block = 65536, page = 256, sector = 4096, size = 33554432 }
+  { id = "2CCB19", model = "N25W256A11", block = 65536, page = 256, sector = 4096, size = 33554432 },
+  { id = "20BA20", model = "MT25QL256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
+  { id = "20BA19", model = "MT25QL256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
+  { id = "20BB20", model = "MT25QU256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
+  { id = "20BB19", model = "MT25QU256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
 ]
 
 [vendors.NANTRONICS]
@@ -689,7 +693,7 @@ chips = [
   { id = "852017", model = "PY25Q64HA", block = 65536, page = 256, sector = 65536, size = 8388608 },
   { id = "852018", model = "PY25Q128HA", algorithm = 4, block = 65536, maxclk = 104000, page = 256, sector = 256, size = 16777216, timing = 1000, vcc = "3.3" },
   { id = "854213", model = "P25D40SH", page = 256, size = 524288 },
-  { id = "856010", model = "P25Q05H", block = 65536, page = 256, sector = 4096, size = 8192 },
+  { id = "856010", model = "P25Q05H", block = 65536, page = 256, sector = 4096, size = 65536 },   # 8192->65536：SPI Flash 库：85 60 10 -> P25Q05H -> 64 KiB
   { id = "856011", model = "P25Q10H", algorithm = 2, block = 65536, page = 256, sector = 256, size = 131072, timing = 1000 },
   { id = "856012", model = "P25Q20H", algorithm = 2, block = 65536, page = 256, sector = 256, size = 262144, timing = 1000 },
   { id = "856013", model = "P25D40H", addr4bit = 0, algorithm = 2, block = 65536, page = 256, sector = 256, size = 524288, timing = 1000, vcc = "3.3" },
@@ -961,7 +965,7 @@ chips = [
   { id = "EF6118", model = "W25M512JW", page = 256, size = 67108864, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 104 },
   { id = "EF8516", model = "W77Q32JV", page = 256, size = 4194304, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },
   { id = "EF8517", model = "W77Q64JV", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },
-  { id = "EF4218", model = "W74M64FV", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },
+  { id = "EF4218", model = "W74M64FV", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },   # 16777216->8388608：Winbond 官方：W74M64FV = 64Mb / 8MB
   { id = "EFAA20", model = "W29N01HV", page = 2048, size = 134217728, sector = 131072, block = 131072, vcc = "3.3", addr4bit = "01", maxclk = 50 },
   { id = "EFAC23", model = "W29N04GV_1", page = 2048, size = 536870912, sector = 131072, block = 131072, vcc = "3.3", addr4bit = "01", maxclk = 50 },
   { id = "EF4010", model = "W25Q05CL", page = 256, size = 65536, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },

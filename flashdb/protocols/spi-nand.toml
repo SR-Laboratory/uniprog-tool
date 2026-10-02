@@ -28,17 +28,17 @@ chips = [
   { id = "E521", model = "DS35M1GA-IB", besize = 128, block = 131072, dummyMode = "append", feature = 0, maxclk = 104000, page = 2048, readMode = "dual", size = 134217728, spare = 64, vcc = "1.8", writeMode = "single" },
   { id = "E522", model = "DS35M2GA-IB", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "E522", model = "DS35M2GA-IB-最新版", besize = 128, block = 131072, dummyMode = "append", feature = 1, maxclk = 104000, page = 2048, planes = 2, readMode = "dual", size = 268435456, spare = 64, vcc = "1.8", writeMode = "single" },
-  { id = "E564", model = "DS35M4GB-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "E564", model = "DS35M4GBS-A2B", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "E564", model = "DS35M4GB-JB_2048M", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
+  { id = "E564", model = "DS35M4GB-IB", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "1.8" },   # 268435456->536870912：东芯官方：DS35M4GB = 4Gbit
+  { id = "E564", model = "DS35M4GBS-A2B", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "1.8" },   # 268435456->536870912：同上
+  { id = "E564", model = "DS35M4GB-JB_4096M", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "1.8" },   # 268435456->536870912：同上；后缀名随之改为 _4096M
   { id = "E571", model = "DS35Q1GA-IB", besize = 128, block = 131072, dummyMode = "append", feature = 0, maxclk = 104000, page = 2048, readMode = "dual", size = 134217728, spare = 64, vcc = "3.3", writeMode = "single" },
   { id = "E572", model = "DS35Q2GA-IB", besize = 128, block = 131072, dummyMode = "append", feature = 1, maxclk = 104000, page = 2048, planes = 2, readMode = "dual", size = 268435456, spare = 64, vcc = "3.3", writeMode = "single" },
   { id = "E5A1", model = "DS35M4GB-JB_1024M", besize = 128, page = 2048, planes = 2, size = 134217728, spare = 64, vcc = "1.8" },
   { id = "E5A2", model = "DS35M2GB-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "E5A2", model = "DS35M2GBS-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "E5B4", model = "DS35M4GB-IB_1", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "E5B4", model = "DS35M4GBS-A2B_1", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "E5B4", model = "DS35M4GB-JB_2048M_1", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
+  { id = "E5B4", model = "DS35M4GB-IB_1", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" },   # 268435456->536870912：同上
+  { id = "E5B4", model = "DS35M4GBS-A2B_1", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" },   # 268435456->536870912：同上
+  { id = "E5B4", model = "DS35M4GB-JB_4096M_1", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" },   # 268435456->536870912：同上；后缀名随之改为 _4096M_1
   { id = "E5F1", model = "DS35M1GB-IB", besize = 128, page = 2048, size = 134217728, spare = 64, vcc = "3.3" },
   { id = "E5F1", model = "DS35M1GBS-IB", besize = 128, page = 2048, size = 134217728, spare = 64, vcc = "3.3" },
   { id = "E5F1", model = "DS35M1GB-IB", besize = 128, page = 2048, size = 134217728, spare = 64, vcc = "1.8" },
@@ -178,16 +178,16 @@ chips = [
   { id = "C892", model = "GD5F2GM7UEYFG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "C892", model = "GD5F2GM7UEBIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "C892", model = "GD5F2GM7REBIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "C895", model = "GD5F4GM8UEYFG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "C895", model = "GD5F4GM8REYIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "C895", model = "GD5F4GM8UEBIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "C895", model = "GD5F4GM8REBIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
+  { id = "C895", model = "GD5F4GM8UEYFG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 536870912, spare = 64, vcc = "3.3" },   # 268435456->536870912：GD5F4G = 4Gbit；同段其它 GD5F4G* 均为此值
+  { id = "C895", model = "GD5F4GM8REYIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 536870912, spare = 64, vcc = "1.8" },   # 268435456->536870912：同上
+  { id = "C895", model = "GD5F4GM8UEBIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 536870912, spare = 64, vcc = "3.3" },   # 268435456->536870912：同上
+  { id = "C895", model = "GD5F4GM8REBIG", IsBMM = 0, besize = 128, maxclk = 133000, page = 2048, pagePerBlock = 64, planes = 2, size = 536870912, spare = 64, vcc = "1.8" },   # 268435456->536870912：同上
   { id = "C8A148", model = "GD5F1GQ4RFxIG", IsBMM = 0, addr4bit = 1, algorithm = 17, block = 131072, maxclk = 30000, page = 2048, pagePerBlock = 64, sector = 2048, size = 134217728, spare = 128, timing = 1000, vcc = "1.8" },
   { id = "C8A248", model = "GD5F2GQ4R", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "C8A248", model = "GD5F2GQ4RCYIG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "C8A248", model = "GD5F2GQ4RCFIG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "C8A468", model = "GD5F4GM5REYIG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "C8A468", model = "GD5F4GM5REBIG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
+  { id = "C8A468", model = "GD5F4GM5REYIG", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "1.8" },   # 268435456->536870912：同上
+  { id = "C8A468", model = "GD5F4GM5REBIG", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "1.8" },   # 268435456->536870912：同上
   { id = "C8B1", model = "GD5F1GQ4UC", block = 131072, dummyMode = "prepend", feature = 0, page = 2048, readMode = "dual", size = 134217728, spare = 128, writeMode = "single" },
   { id = "C8B148", model = "GD5F1GQ4UFxIG", IsBMM = 0, addr4bit = 1, algorithm = 17, block = 131072, maxclk = 30000, page = 2048, pagePerBlock = 64, sector = 2048, size = 134217728, spare = 128, timing = 1000, vcc = "1.8" },
   { id = "C8B2", model = "GD5F2GQ4UC", block = 131072, dummyMode = "prepend", feature = 0, page = 2048, readMode = "dual", size = 268435456, spare = 128, writeMode = "single" },
@@ -195,8 +195,8 @@ chips = [
   { id = "C8B248", model = "GD5F2GQ4UCYIG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "C8B248", model = "GD5F2GQ4UCFIG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "C8B4", model = "GD5F4GQ4UC", block = 262144, dummyMode = "prepend", feature = 0, page = 4096, readMode = "dual", size = 536870912, spare = 256, writeMode = "single" },
-  { id = "C8B468", model = "GD5F4GM5UEYFG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "C8B468", model = "GD5F4GM5UEBIG", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
+  { id = "C8B468", model = "GD5F4GM5UEYFG", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" },   # 268435456->536870912：同上
+  { id = "C8B468", model = "GD5F4GM5UEBIG", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" },   # 268435456->536870912：同上
   { id = "C8C4", model = "GD5F4GQ4RB", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 128, vcc = "1.8" },
   { id = "C8C4", model = "GD5F4GQ4RC", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 128, vcc = "1.8" },
   { id = "C8C9", model = "GD5F1GQ4RExxH", besize = 128, page = 2048, size = 134217728, spare = 128, vcc = "1.8" },
@@ -289,18 +289,14 @@ chips = [
 
 [vendors.MICRON]
 chips = [
-  { id = "20BA19", model = "MT25QL256BBB1EW9-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "20BA20", model = "MT25QL512BBB1EW9-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "20BA20", model = "MT25QL512ABA8E12-1SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "20BA20", model = "MT25QL512ABB8E56-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "3.3" },
-  { id = "20BA20", model = "MT25QL256ABA8E55-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "20BA21", model = "MT25QL01GBBB1EW9-0SIT", besize = 128, maxclk = 104000, page = 2048, size = 134217728, spare = 64, vcc = "3.3" },
   { id = "20BA22", model = "MT25QL02GBBB1EW9-0SIT", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "20BB19", model = "MT25QU256BBB1EW9-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "1.8" },
   { id = "20BB20", model = "MT25QU512BBB1EW9-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "1.8" },
   { id = "20BB20", model = "MT25QU512ABA8E12-1SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "1.8" },
   { id = "20BB20", model = "MT25QU512ABB8E56-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "1.8" },
-  { id = "20BB20", model = "MT25QU256ABA8E55-0SIT", addr4bit = 17, algorithm = 0, besize = 128, block = 65536, page = 2048, sector = 256, size = 67108864, spare = 64, timing = 1000, vcc = "1.8" },
   { id = "20BB21", model = "MT25QU01GBBB1EW9-0SIT", besize = 128, maxclk = 104000, page = 2048, size = 134217728, spare = 64, vcc = "1.8" },
   { id = "20BB22", model = "MT25QU02GBBB1EW9-0SIT", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "2C12", model = "MT29F1G01AAADD", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 134217728, spare = 64, vcc = "3.3" },
@@ -376,8 +372,8 @@ chips = [
   { id = "0BE1", model = "XT26G01A", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 134217728, spare = 64, writeMode = "single" },
   { id = "0BE2", model = "XT26G02A", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 268435456, spare = 64, writeMode = "single" },
   { id = "0BF2", model = "XT26G02B", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 268435456, spare = 64, writeMode = "single" },
-  { id = "A1E1", model = "PN26G01AWSIUG", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 128, vcc = "3.3" },
-  { id = "A1E1", model = "PN26G01AWSIUG-H", besize = 128, block = 131072, dummyMode = "append", feature = 0, maxclk = 104000, page = 2048, planes = 2, readMode = "dual", size = 268435456, spare = 128, vcc = "3.3", writeMode = "single" },
+  { id = "A1E1", model = "PN26G01AWSIUG", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 134217728, spare = 128, vcc = "3.3" },   # 268435456->134217728：XTX 原厂：PN26G01A = 1Gbit
+  { id = "A1E1", model = "PN26G01AWSIUG-H", besize = 128, block = 131072, dummyMode = "append", feature = 0, maxclk = 104000, page = 2048, planes = 2, readMode = "dual", size = 134217728, spare = 128, vcc = "3.3", writeMode = "single" },   # 268435456->134217728：同上
   { id = "A1E2", model = "PN26G02AWSIUG", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 128, vcc = "3.3" },
   { id = "A1E2", model = "PN26G02AWSIUG-H", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 128, vcc = "3.3" },
   { id = "A1E2", model = "PN26G02ABGIUG", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 128, vcc = "3.3" },
