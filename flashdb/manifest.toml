@@ -18,6 +18,7 @@ order = [
   "AVR",
   "MCU",
   "PARALLEL_NAND",
+  "SWD",
 ]
 
 [chipdb.sources]
@@ -34,3 +35,4 @@ Microwire = "protocols/microwire.toml"
 AVR = "protocols/avr.toml"
 MCU = "protocols/mcu.toml"
 PARALLEL_NAND = "protocols/parallel-nand.toml"
+SWD = "protocols/swd.toml"

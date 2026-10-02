@@ -531,6 +531,7 @@ impl Chiplib {
             ("AVR", 10),
             ("MCU", 11),
             ("PARALLEL_NAND", 12),
+            ("SWD", 13),
         ]
         .iter()
         .cloned()
@@ -905,6 +906,7 @@ fn protocol_id_to_name(id: u16) -> String {
         10 => "AVR".to_string(),
         11 => "MCU".to_string(),
         12 => "PARALLEL_NAND".to_string(),
+        13 => "SWD".to_string(),
         _ => "Unknown".to_string(),
     }
 }
@@ -924,6 +926,7 @@ fn protocol_name_to_id(name: &str) -> u16 {
         "AVR" => 10,
         "MCU" => 11,
         "PARALLEL_NAND" => 12,
+        "SWD" => 13,
         _ => 0xFF,
     }
 }

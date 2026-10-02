@@ -1,0 +1,83 @@
+protocol = "SWD"
+description = "ARM Cortex-M Flash database (SWD debug interface)"
+
+# TEMPORARY PLACEHOLDER - not a working table yet.
+#
+# Support for microcontrollers programmed over SWD is planned but not
+# implemented: there is no identification, no flash algorithm loading and
+# no programming path yet. This slot is reserved ahead of that work so the
+# build does not have to change again when the parts are added.
+#
+# Until support lands, the table stays empty and picks nothing.
+#
+# The layout each entry is meant to carry:
+#
+#   id      device identification word reported by the target over SWD.
+#           The leading hex digits are fixed; the rest is the part's debug
+#           device id. Parts that share a die share this value.
+#   model   part number as printed on the package.
+#   core    core family (M0+, M3, M4, M7, M33, ...). Decides which
+#           programming algorithm family applies.
+#   flash   main flash size in bytes.
+#   page    erase page or sector size in bytes.
+#   ram     RAM available for the algorithm to run in, {base, size}.
+#   algo    flash algorithm to load into the target, by name. An empty
+#           value selects the generic algorithm for `core`.
+#
+# Parts whose identification word is unknown cannot be auto-detected; they
+# are held back until an identification method is confirmed for them.
+#
+# The vendor sections below are the ones expected to carry parts. They are
+# kept even while empty, because the build requires at least one [vendors]
+# table to be present.
+
+[vendors.Artery]
+chips = []
+
+[vendors.CMS]
+chips = []
+
+[vendors.ChipSea]
+chips = []
+
+[vendors.FudanMicro]
+chips = []
+
+[vendors.Geehy]
+chips = []
+
+[vendors.GigaDevice]
+chips = []
+
+[vendors.HDSC]
+chips = []
+
+[vendors.Hangshun]
+chips = []
+
+[vendors.MindMotion]
+chips = []
+
+[vendors.Nations]
+chips = []
+
+[vendors.Navota]
+chips = []
+
+[vendors.Nordic]
+chips = []
+
+[vendors.NXP]
+chips = []
+
+[vendors.Puya]
+chips = []
+
+[vendors.ST]
+chips = []
+
+[vendors.SiliconLabs]
+chips = []
+
+[vendors.Synwit]
+chips = []

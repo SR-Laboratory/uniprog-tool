@@ -32,6 +32,7 @@ const PROTOCOL_IDS = {
   AVR: 10,
   MCU: 11,
   PARALLEL_NAND: 12,
+  SWD: 13,
 }
 
 function fail(message) {
