@@ -14,7 +14,8 @@ description = "SPI_NOR Flash database"
 [vendors.ACE]
 chips = [
   { id = "A13110", model = "ACE25C512", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 65536, timing = 1000, vcc = "3.3" },
-  { id = "E06018", model = "ACE25A128G_1V8", block = 65536, page = 256, sector = 4096, size = 16777216 }
+  { id = "E06018", model = "ACE25A128G_1V8", block = 65536, page = 256, sector = 4096, size = 16777216 },
+  { id = "0E4013", model = "ACE25C512C", page = 256, size = 65536 }
 ]
 
 [vendors.Adesto]
@@ -118,7 +119,9 @@ chips = [
 [vendors.ATO]
 chips = [
   { id = "9B3216", model = "ATO25Q32", page = 256, size = 4194304 },
-  { id = "E04014", model = "GT25Q80A", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 1048576, timing = 1000, vcc = "3.3" }
+  { id = "E04014", model = "GT25Q80A", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 1048576, timing = 1000, vcc = "3.3" },
+  { id = "C44010", model = "GT25Q10C", page = 256, size = 131072 },
+  { id = "C46016", model = "GT25Q32A", page = 256, size = 4194304 }
 ]
 
 [vendors.BOHONG]
@@ -422,7 +425,10 @@ chips = [
   { id = "C8671B", model = "GD25LR1G", page = 256, size = 134217728, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 133 },
   { id = "C86010", model = "GD25LD05", page = 256, size = 65536, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 80 },
   { id = "C86011", model = "GD25LD10", page = 256, size = 131072, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 80 },
-  { id = "C86013", model = "GD25LD40", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 80 }
+  { id = "C86013", model = "GD25LD40", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 80 },
+  { id = "C86817", model = "GD25LX64J", page = 256, size = 8388608 },
+  { id = "C8471A", model = "GD25R512ME", page = 256, size = 67108864 },
+  { id = "C86412", model = "GD25WD40C", page = 256, size = 524288 }
 ]
 
 [vendors.GeneralPlus]
@@ -484,7 +490,8 @@ chips = [
   { id = "9D4015", model = "IS25WP032", page = 256, size = 4194304 },
   { id = "9D4012", model = "IS25WP040D", page = 256, size = 524288 },
   { id = "9D4016", model = "IS25WP064", page = 256, size = 8388608 },
-  { id = "9D4013", model = "IS25WP080D", page = 256, size = 1048576 }
+  { id = "9D4013", model = "IS25WP080D", page = 256, size = 1048576 },
+  { id = "9D2211", model = "IS25LD040", page = 256, size = 524288 }
 ]
 
 [vendors.KHIC]
@@ -602,7 +609,9 @@ chips = [
   { id = "20BA20", model = "MT25QL256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）,
   { id = "20BA19", model = "MT25QL256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）,
   { id = "20BB20", model = "MT25QU256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）,
-  { id = "20BB19", model = "MT25QU256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
+  { id = "20BB19", model = "MT25QU256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）,
+  { id = "20BA22", model = "MT25QL02GCBB8ESF-0SIT", page = 256, size = 268435456 },
+  { id = "20BB21", model = "MT25QU01GBBB", page = 256, size = 134217728 }
 ]
 
 [vendors.NANTRONICS]
@@ -689,7 +698,8 @@ chips = [
   { id = "9D7B", model = "PM25LV512", block = 65536, page = 256, sector = 4096, size = 65536 },
   { id = "9D7C", model = "PM25LV010_1", block = 65536, page = 256, sector = 4096, size = 131072 },
   { id = "9D7D", model = "PM25LV020", block = 65536, page = 256, sector = 4096, size = 262144 },
-  { id = "9D7E", model = "PM25LD040", block = 65536, page = 256, sector = 4096, size = 524288 }
+  { id = "9D7E", model = "PM25LD040", block = 65536, page = 256, sector = 4096, size = 524288 },
+  { id = "9D2200", model = "PM25LD020C", page = 256, size = 262144 }
 ]
 
 [vendors.PN]
@@ -727,7 +737,8 @@ chips = [
   { id = "854412", model = "P25Q40H-E", page = 256, size = 524288 },
   { id = "854011", model = "P25T12L", page = 256, size = 1572864 },
   { id = "854012", model = "P25T22L", page = 256, size = 2883584 },
-  { id = "854410", model = "P25D07L", page = 256, size = 65536 },   # 原厂 9Fh 返回 85 44 10；容量按 Puya ID 族规律推定(码10=512Kbit)，待确认
+  { id = "854410", model = "P25D07L", page = 256, size = 65536 },   # 原厂 9Fh 返回 85 44 10；容量按 Puya ID 族规律推定(码10=512Kbit)，待确认,
+  { id = "856617", model = "P25Q64SN", page = 256, size = 8388608 }
 ]
 [vendors.SAIFUN]
 chips = [
@@ -1060,7 +1071,8 @@ chips = [
   { id = "207013", model = "XM25QH04", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
   { id = "207014", model = "XM25QH08", page = 256, size = 1048576, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
   { id = "204113", model = "XM25QU04", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
-  { id = "204114", model = "XM25QU08", page = 256, size = 1048576, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 }
+  { id = "204114", model = "XM25QU08", page = 256, size = 1048576, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
+  { id = "204420", model = "XM25RU512C", page = 256, size = 67108864 }
 ]
 
 [vendors.XTX]
@@ -1116,7 +1128,9 @@ chips = [
   { id = "5E4018", model = "ZB25VQ128", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
   { id = "5E6015", model = "ZB25LQ16", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
   { id = "5E6016", model = "ZB25LQ32", page = 256, size = 4194304, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
-  { id = "5E6017", model = "ZB25LQ64", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 }
+  { id = "5E6017", model = "ZB25LQ64", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
+  { id = "5E6012", model = "ZB25VQ20A", page = 256, size = 262144 },
+  { id = "5E3214", model = "ZB25WD80B", page = 256, size = 1048576 }
 ]
 
 [vendors.Zetta]
