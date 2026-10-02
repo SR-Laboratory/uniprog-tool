@@ -716,12 +716,12 @@ chips = [
 ]
 [vendors.SAIFUN]
 chips = [
-  { id = "000000", model = "SA25F010", page = 256, size = 131072 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
-  { id = "000000", model = "SA25F020", page = 256, size = 262144 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
-  { id = "000000", model = "SA25F040", page = 256, size = 524288 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
-  { id = "000000", model = "SA25F080", page = 256, size = 1048576 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
-  { id = "000000", model = "SA25F160", page = 256, size = 2097152 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
-  { id = "000000", model = "SA25F320", page = 256, size = 4194304 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh
+  { id = "000000", model = "SA25F010", page = 256, size = 131072 },   # 确认无标准JEDEC：ABh+3dummy -> 10h（原厂确认）
+  { id = "000000", model = "SA25F020", page = 256, size = 262144 },   # 确认无标准JEDEC：ABh+3dummy -> 11h（原厂确认）
+  { id = "000000", model = "SA25F040", page = 256, size = 524288 },   # 确认无标准JEDEC：ABh+3dummy -> 12h（推断）
+  { id = "000000", model = "SA25F080", page = 256, size = 1048576 },   # 确认无标准JEDEC：ABh+3dummy -> 13h（推断）
+  { id = "000000", model = "SA25F160", page = 256, size = 2097152 },   # 确认无标准JEDEC：ABh+3dummy -> 14h（推断）
+  { id = "000000", model = "SA25F320", page = 256, size = 4194304 },   # 确认无标准JEDEC：ABh+3dummy -> 15h（推断）
 ]
 
 
