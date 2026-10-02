@@ -419,7 +419,7 @@ chips = [
 chips = [
   { id = "C22010", model = "GPR25L005E", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 65536, timing = 1000, vcc = "3.3" },
   { id = "C22012", model = "GPR25L020B", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 262144, timing = 1000, vcc = "3.3" },
-  { id = "C22015", model = "GPR25L161B", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 2097152, timing = 1000, vcc = "3.3" },   # 262144->2097152：SPI Flash 库：C2 20 15 -> GPR25L161B -> 2 MiB
+  { id = "C22015", model = "GPR25L161B", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 2097152, timing = 1000, vcc = "3.3" },   # 262144->2097152：SPI Flash 库：C2 20 15 -> GPR25L161B -> 2 MiB,
   { id = "C22016", model = "GPR25L3203F", addr4bit = 0, algorithm = 23, block = 65536, page = 256, script = "GPR25L3203F_OTP.pas", sector = 256, size = 4194304, timing = 1000, vcc = "3.3" }
 ]
 
@@ -450,7 +450,7 @@ chips = [
   { id = "9D7017", model = "IC25WP064A", algorithm = 17, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },
   { id = "9D7018", model = "IC25WP128", algorithm = 17, block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000 },
   { id = "9D7019", model = "IS25WP256A", addr4bit = 33, algorithm = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000 },
-  { id = "9D6022", model = "IS25LP02GG", page = 256, sector = 4096, block = 4096, size = 268435456, addr4bit = 1 },   # 容量修正 2147483648->268435456：9D60xx 序列 9D601B=1Gbit 之后即 2 Gbit
+  { id = "9D6022", model = "IS25LP02GG", page = 256, sector = 4096, block = 4096, size = 268435456, addr4bit = 1 },   # 容量修正 2147483648->268435456：9D60xx 序列 9D601B=1Gbit 之后即 2 Gbit,
   { id = "9D601A", model = "IS25LP512M", page = 256, size = 67108864, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 },
   { id = "9D6011", model = "IS25LP010", page = 256, size = 131072, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },
   { id = "9D6012", model = "IS25LP020", page = 256, size = 262144, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },
@@ -489,25 +489,25 @@ chips = [
   { id = "C22014", model = "KH25L8005", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 1048576, timing = 1000, vcc = "3.3" },
   { id = "C22014", model = "KH25L8006EM2I-12G", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 1048576, timing = 1000, vcc = "3.3" },
   { id = "C22016", model = "KH25L3206E", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },
-  { id = "C22016", model = "KH25L3206E-最新", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：C22016 同 ID 的 Macronix MX25L3236F = 4,194,304
-  { id = "C22016", model = "KH25L3236F", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上
-  { id = "C22016", model = "KH25L3208E", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上
-  { id = "C22016", model = "KH25L3235E", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上
-  { id = "C22016", model = "KH25L3273E", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上
-  { id = "C22016", model = "KH25L3233F", addr4bit = 0, algorithm = 23, block = 65536, page = 256, script = "KH25L3233F_OTP.pas", sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上
-  { id = "C22017", model = "KH25L6406E", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：C22017 同 ID 的 Macronix MX25L6436F = 8,388,608
-  { id = "C22017", model = "KH25L6436F", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：同上
-  { id = "C22017", model = "KH25L6406E-最新", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：同上
-  { id = "C22017", model = "KH25L6436F-最新", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：同上
+  { id = "C22016", model = "KH25L3206E-最新", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：C22016 同 ID 的 Macronix MX25L3236F = 4,194,304,
+  { id = "C22016", model = "KH25L3236F", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上,
+  { id = "C22016", model = "KH25L3208E", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上,
+  { id = "C22016", model = "KH25L3235E", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上,
+  { id = "C22016", model = "KH25L3273E", addr4bit = 0, algorithm = 23, block = 65536, page = 256, sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上,
+  { id = "C22016", model = "KH25L3233F", addr4bit = 0, algorithm = 23, block = 65536, page = 256, script = "KH25L3233F_OTP.pas", sector = 256, size = 4194304, timing = 1000, vcc = "3.3" },   # 容量修正 33554432->4194304：同上,
+  { id = "C22017", model = "KH25L6406E", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：C22017 同 ID 的 Macronix MX25L6436F = 8,388,608,
+  { id = "C22017", model = "KH25L6436F", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：同上,
+  { id = "C22017", model = "KH25L6406E-最新", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：同上,
+  { id = "C22017", model = "KH25L6436F-最新", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000, vcc = "3.3" },   # 容量修正 67108864->8388608：同上,
   { id = "C22018", model = "KH25L12833FM2I-10G", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000, vcc = "3.3" },
   { id = "C22018", model = "KH25L12835FM2I-10G", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000, vcc = "3.3" },
   { id = "C22018", model = "KH25L12835FMI-10G", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000, vcc = "3.3" },
   { id = "C22018", model = "KH25L12833FMI-10G", addr4bit = 0, algorithm = 22, block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000, vcc = "3.3" },
-  { id = "C22019", model = "KH25L25635F", addr4bit = 17, algorithm = 22, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：C22019 同 ID 的 Macronix MX25L25645G = 33,554,432
-  { id = "C22019", model = "KH25L25645G", addr4bit = 17, algorithm = 22, block = 65536, page = 256, script = "KH25L25645G_OTP.pas", sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：同上
-  { id = "C22019", model = "KH25L25639F", addr4bit = 17, algorithm = 22, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：同上
-  { id = "C22519", model = "KH25U25639F", page = 256, size = 33554432, vcc = "1.8" },   # 268435456->33554432：同型号的 3.3V 版 KH25L25645G/25639F 已是 33,554,432（C22019），本组为 1.8V 版 C22519
-  { id = "C22519", model = "KH25U25645G", page = 256, size = 33554432, vcc = "1.8" },   # 268435456->33554432：同型号的 3.3V 版 KH25L25645G/25639F 已是 33,554,432（C22019），本组为 1.8V 版 C22519
+  { id = "C22019", model = "KH25L25635F", addr4bit = 17, algorithm = 22, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：C22019 同 ID 的 Macronix MX25L25645G = 33,554,432,
+  { id = "C22019", model = "KH25L25645G", addr4bit = 17, algorithm = 22, block = 65536, page = 256, script = "KH25L25645G_OTP.pas", sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：同上,
+  { id = "C22019", model = "KH25L25639F", addr4bit = 17, algorithm = 22, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 容量修正 268435456->33554432：同上,
+  { id = "C22519", model = "KH25U25639F", page = 256, size = 33554432, vcc = "1.8" },   # 268435456->33554432：同型号的 3.3V 版 KH25L25645G/25639F 已是 33,554,432（C22019），本组为 1.8V 版 C22519,
+  { id = "C22519", model = "KH25U25645G", page = 256, size = 33554432, vcc = "1.8" },   # 268435456->33554432：同型号的 3.3V 版 KH25L25645G/25639F 已是 33,554,432（C22019），本组为 1.8V 版 C22519,
   { id = "C22615", model = "KH25L8036D", addr4bit = 0, algorithm = 0, block = 65536, page = 256, sector = 256, size = 1048576, timing = 1000, vcc = "3.3" }
 ]
 
@@ -577,7 +577,7 @@ chips = [
   { id = "C2853A", model = "MX25LM51245G", page = 256, size = 67108864, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 200 },
   { id = "C22513", model = "MX25L4026E", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 86 },
   { id = "C22818", model = "MX25R12835F", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = 3, addr4bit = 0, maxclk = 80 },
-  { id = "C22017", model = "MX25L6450F", block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },   # 与 MX25L6436F 同 ID 同参数,
+  { id = "C22017", model = "MX25L6450F", block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },   # 与 MX25L6436F 同 ID 同参数
 ]
 
 [vendors.MICRON]
@@ -589,9 +589,9 @@ chips = [
   { id = "20BB17", model = "N25Q064A11EF640E", block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },
   { id = "20BB18", model = "MT25QU128ABA", block = 65536, page = 256, sector = 256, size = 16777216, timing = 1000 },
   { id = "2CCB19", model = "N25W256A11", block = 65536, page = 256, sector = 4096, size = 33554432 },
-  { id = "20BA20", model = "MT25QL256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
-  { id = "20BA19", model = "MT25QL256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
-  { id = "20BB20", model = "MT25QU256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
+  { id = "20BA20", model = "MT25QL256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）,
+  { id = "20BA19", model = "MT25QL256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "3.3" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）,
+  { id = "20BB20", model = "MT25QU256ABA8E55-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）,
   { id = "20BB19", model = "MT25QU256BBB1EW9-0SIT", addr4bit = 17, block = 65536, page = 256, sector = 256, size = 33554432, timing = 1000, vcc = "1.8" },   # 由 spi-nand 移入（MT25Q 是 SPI NOR）
 ]
 
@@ -608,9 +608,9 @@ chips = [
 [vendors.NEXFLASH]
 chips = [
   { id = "EF2014", model = "NX25P80", block = 65536, page = 256, sector = 4096, size = 1048576 },   # 原为 9D7F13（实为 PMC 7F9D13 两字节对调）；= W25P80,
-  { id = "EF1000", model = "NX25P10", block = 65536, page = 256, sector = 4096, size = 131072 },   # 原为 9D7F7C（实为 PMC 7F9D7C 两字节对调）；= W25P10
-  { id = "EF1100", model = "NX25P20", block = 65536, page = 256, sector = 4096, size = 262144 },   # 原为 9D7F7D（实为 PMC 7F9D7D 两字节对调）；= W25P20
-  { id = "EF1200", model = "NX25P40", block = 65536, page = 256, sector = 4096, size = 524288 },   # 原为 9D7F7E（实为 PMC 7F9D7E 两字节对调）；= W25P40
+  { id = "EF1000", model = "NX25P10", block = 65536, page = 256, sector = 4096, size = 131072 },   # 原为 9D7F7C（实为 PMC 7F9D7C 两字节对调）；= W25P10,
+  { id = "EF1100", model = "NX25P20", block = 65536, page = 256, sector = 4096, size = 262144 },   # 原为 9D7F7D（实为 PMC 7F9D7D 两字节对调）；= W25P20,
+  { id = "EF1200", model = "NX25P40", block = 65536, page = 256, sector = 4096, size = 524288 },   # 原为 9D7F7E（实为 PMC 7F9D7E 两字节对调）；= W25P40,
   { id = "EF2015", model = "NX25P16", page = 256, size = 2097152 },   # = Winbond W25P16 rebrand,
   { id = "EF2016", model = "NX25P32", page = 256, size = 4194304 },   # = Winbond W25P32 rebrand
 ]
@@ -694,7 +694,7 @@ chips = [
   { id = "852017", model = "PY25Q64HA", block = 65536, page = 256, sector = 65536, size = 8388608 },
   { id = "852018", model = "PY25Q128HA", algorithm = 4, block = 65536, maxclk = 104000, page = 256, sector = 256, size = 16777216, timing = 1000, vcc = "3.3" },
   { id = "854213", model = "P25D40SH", page = 256, size = 524288 },
-  { id = "856010", model = "P25Q05H", block = 65536, page = 256, sector = 4096, size = 65536 },   # 8192->65536：SPI Flash 库：85 60 10 -> P25Q05H -> 64 KiB
+  { id = "856010", model = "P25Q05H", block = 65536, page = 256, sector = 4096, size = 65536 },   # 8192->65536：SPI Flash 库：85 60 10 -> P25Q05H -> 64 KiB,
   { id = "856011", model = "P25Q10H", algorithm = 2, block = 65536, page = 256, sector = 256, size = 131072, timing = 1000 },
   { id = "856012", model = "P25Q20H", algorithm = 2, block = 65536, page = 256, sector = 256, size = 262144, timing = 1000 },
   { id = "856013", model = "P25D40H", addr4bit = 0, algorithm = 2, block = 65536, page = 256, sector = 256, size = 524288, timing = 1000, vcc = "3.3" },
@@ -721,11 +721,11 @@ chips = [
 ]
 [vendors.SAIFUN]
 chips = [
-  { id = "000000", model = "SA25F010", page = 256, size = 131072 },   # 确认无标准JEDEC：ABh+3dummy -> 10h（原厂确认）
-  { id = "000000", model = "SA25F020", page = 256, size = 262144 },   # 确认无标准JEDEC：ABh+3dummy -> 11h（原厂确认）
-  { id = "000000", model = "SA25F040", page = 256, size = 524288 },   # 确认无标准JEDEC：ABh+3dummy -> 12h（推断）
-  { id = "000000", model = "SA25F080", page = 256, size = 1048576 },   # 确认无标准JEDEC：ABh+3dummy -> 13h（推断）
-  { id = "000000", model = "SA25F160", page = 256, size = 2097152 },   # 确认无标准JEDEC：ABh+3dummy -> 14h（推断）
+  { id = "000000", model = "SA25F010", page = 256, size = 131072 },   # 确认无标准JEDEC：ABh+3dummy -> 10h（原厂确认）,
+  { id = "000000", model = "SA25F020", page = 256, size = 262144 },   # 确认无标准JEDEC：ABh+3dummy -> 11h（原厂确认）,
+  { id = "000000", model = "SA25F040", page = 256, size = 524288 },   # 确认无标准JEDEC：ABh+3dummy -> 12h（推断）,
+  { id = "000000", model = "SA25F080", page = 256, size = 1048576 },   # 确认无标准JEDEC：ABh+3dummy -> 13h（推断）,
+  { id = "000000", model = "SA25F160", page = 256, size = 2097152 },   # 确认无标准JEDEC：ABh+3dummy -> 14h（推断）,
   { id = "000000", model = "SA25F320", page = 256, size = 4194304 },   # 确认无标准JEDEC：ABh+3dummy -> 15h（推断）
 ]
 
@@ -966,7 +966,7 @@ chips = [
   { id = "EF6118", model = "W25M512JW", page = 256, size = 67108864, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 104 },
   { id = "EF8516", model = "W77Q32JV", page = 256, size = 4194304, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },
   { id = "EF8517", model = "W77Q64JV", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },
-  { id = "EF4218", model = "W74M64FV", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },   # 16777216->8388608：Winbond 官方：W74M64FV = 64Mb / 8MB
+  { id = "EF4218", model = "W74M64FV", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 133 },   # 16777216->8388608：Winbond 官方：W74M64FV = 64Mb / 8MB,
   { id = "EFAA20", model = "W29N01HV", page = 2048, size = 134217728, sector = 131072, block = 131072, vcc = "3.3", addr4bit = "01", maxclk = 50 },
   { id = "EFAC23", model = "W29N04GV_1", page = 2048, size = 536870912, sector = 131072, block = 131072, vcc = "3.3", addr4bit = "01", maxclk = 50 },
   { id = "EF4010", model = "W25Q05CL", page = 256, size = 65536, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
@@ -974,7 +974,7 @@ chips = [
   { id = "EF9022", model = "W25H02JV", page = 256, size = 268435456, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 },
   { id = "EF9021", model = "W25H01JV", page = 256, size = 134217728, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 },
   { id = "B36013", model = "W25Q10EW", page = 256, size = 131072 },
-  { id = "EF186019", model = "W25Q256JWEQ", page = 256, size = 33554432, vcc = "1.8" },   # 与 W25Q256JWFIQ 同 ID 同参数,
+  { id = "EF186019", model = "W25Q256JWEQ", page = 256, size = 33554432, vcc = "1.8" },   # 与 W25Q256JWFIQ 同 ID 同参数
 ]
 
 [vendors.XICOR]
@@ -1156,10 +1156,10 @@ chips = [
 
 [vendors.Alliance]
 chips = [
-  { id = "523016", model = "AS25F1032", page = 256, size = 4194304, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
-  { id = "523017", model = "AS25F2048", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
-  { id = "523018", model = "AS25F4096", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 },
-  { id = "523019", model = "AS25F1G", page = 256, size = 33554432, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 104 },
+  # { id = "523016", model = "AS25F1032", page = 256, size = 4194304, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 }   # 待核实：型号名与 Alliance 官方命名体系不符（官方为 AS25F304/316/364/3128/3256/3512），容量无可靠依据
+  # { id = "523017", model = "AS25F2048", page = 256, size = 8388608, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 }   # 待核实：型号名与 Alliance 官方命名体系不符（官方为 AS25F304/316/364/3128/3256/3512），容量无可靠依据
+  # { id = "523018", model = "AS25F4096", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 104 }   # 待核实：型号名与 Alliance 官方命名体系不符（官方为 AS25F304/316/364/3128/3256/3512），容量无可靠依据
+  # { id = "523019", model = "AS25F1G", page = 256, size = 33554432, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 104 }   # 待核实：型号名与 Alliance 官方命名体系不符（官方为 AS25F304/316/364/3128/3256/3512），容量无可靠依据；另 addr4bit 为字符串，应确认
   { id = "521412", model = "AS25DF021A", page = 256, size = 262144, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 70 },
   { id = "521413", model = "AS25DF041A", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 70 }
 ]
