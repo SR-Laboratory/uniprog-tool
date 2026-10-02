@@ -26,8 +26,8 @@ chips = [
   { id = "1F4413", model = "AT25XE041B", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 85 },
   { id = "1F4514", model = "AT25XE081B", page = 256, size = 1048576, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 85 },
   { id = "1F4615", model = "AT25XE161B", page = 256, size = 2097152, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 100 },
-  { id = "1F6501", model = "AT25DF011", page = 256, size = 131072 }
-  # { id = "000000", model = "AT25DF256", page = 256, size = 32768 }   # JEDEC 待确认
+  { id = "1F6501", model = "AT25DF011", page = 256, size = 131072 },
+  { id = "1F4200", model = "AT25DF256", page = 256, size = 32768 },   # 原厂手册 9Fh 返回 1F 42 00 00，容量 256Kbit
 ]
 
 [vendors.AKM]
@@ -42,8 +42,8 @@ chips = [
 chips = [
   { id = "202013", model = "EPCS4", page = 256, size = 524288 },   # EPCS4 = M25P40 (ST),
   { id = "202017", model = "EPCS64", page = 256, size = 8388608 },   # EPCS64 = M25P64 (ST),
-  { id = "000000", model = "EPCQ16", page = 256, size = 2097152 },   # 确认无标准JEDEC：Altera 私有识别：opcode 02h + device 15h
-  { id = "000000", model = "EPCQ128", page = 256, size = 16777216 },   # 确认无标准JEDEC：Altera 私有识别：opcode 02h + device 18h
+  { id = "000000", model = "EPCQ16", page = 256, size = 2097152 },   # 确认无标准JEDEC：Altera 私有识别：opcode 02h + device 15h,
+  { id = "000000", model = "EPCQ128", page = 256, size = 16777216 },   # 确认无标准JEDEC：Altera 私有识别：opcode 02h + device 18h,
   { id = "000000", model = "EPCQ256N", page = 256, size = 33554432 },   # 确认无标准JEDEC：Altera 私有识别：EPCQ256=device 19h，256N 未确认
 ]
 
@@ -602,7 +602,7 @@ chips = [
 
 [vendors.NEXFLASH]
 chips = [
-  { id = "9D7F13", model = "NX25P80", block = 65536, page = 256, sector = 4096, size = 1048576 },
+  { id = "EF2014", model = "NX25P80", block = 65536, page = 256, sector = 4096, size = 1048576 },   # 原为 9D7F13（实为 PMC 7F9D13 两字节对调）；= W25P80,
   { id = "9D7F7C", model = "NX25P10", block = 65536, page = 256, sector = 4096, size = 131072 },
   { id = "9D7F7D", model = "NX25P20", block = 65536, page = 256, sector = 4096, size = 262144 },
   { id = "9D7F7E", model = "NX25P40", block = 65536, page = 256, sector = 4096, size = 524288 },
@@ -711,16 +711,16 @@ chips = [
   { id = "854012", model = "P25Q21U", page = 256, size = 262144 },
   { id = "854412", model = "P25Q40H-E", page = 256, size = 524288 },
   { id = "854011", model = "P25T12L", page = 256, size = 1572864 },
-  { id = "854012", model = "P25T22L", page = 256, size = 2883584 }
-  # { id = "000000", model = "P25D07L", page = 256, size = 917504 }   # JEDEC 待确认
+  { id = "854012", model = "P25T22L", page = 256, size = 2883584 },
+  { id = "854410", model = "P25D07L", page = 256, size = 65536 },   # 原厂 9Fh 返回 85 44 10；容量按 Puya ID 族规律推定(码10=512Kbit)，待确认
 ]
 [vendors.SAIFUN]
 chips = [
-  { id = "000000", model = "SA25F010", page = 256, size = 131072 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh
-  { id = "000000", model = "SA25F020", page = 256, size = 262144 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh
-  { id = "000000", model = "SA25F040", page = 256, size = 524288 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh
-  { id = "000000", model = "SA25F080", page = 256, size = 1048576 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh
-  { id = "000000", model = "SA25F160", page = 256, size = 2097152 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh
+  { id = "000000", model = "SA25F010", page = 256, size = 131072 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
+  { id = "000000", model = "SA25F020", page = 256, size = 262144 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
+  { id = "000000", model = "SA25F040", page = 256, size = 524288 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
+  { id = "000000", model = "SA25F080", page = 256, size = 1048576 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
+  { id = "000000", model = "SA25F160", page = 256, size = 2097152 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh,
   { id = "000000", model = "SA25F320", page = 256, size = 4194304 },   # 确认无标准JEDEC：Saifun 私有 ABh 读 ID，无 9Fh
 ]
 
