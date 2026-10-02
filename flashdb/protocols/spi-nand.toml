@@ -358,7 +358,8 @@ chips = [
   { id = "EFBA22", model = "W25N02KWZEIR", IsBMM = 0, addr4bit = 34, algorithm = 8, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, sector = 2048, size = 268435456, spare = 128, timing = 1000, vcc = "1.8" },
   { id = "EFBA23", model = "W25N04KW", IsBMM = 0, addr4bit = 34, algorithm = 8, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 536870912, spare = 128, timing = 1000, vcc = "1.8" },
   { id = "EFBB21", model = "W25M02GWZEIG-最新", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "EFBC21", model = "W25N01JW", addr4bit = 34, algorithm = 0, besize = 128, block = 131072, page = 2048, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "1.8" }
+  { id = "EFBC21", model = "W25N01JW", addr4bit = 34, algorithm = 0, besize = 128, block = 131072, page = 2048, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "1.8" },
+  { id = "EF186019", model = "W25Q256JWEQ", besize = 128, page = 2048, size = 33554432, spare = 64, vcc = "1.8" },   # 与 W25R256JW / W25Q256JWFIQ 同 ID 同参数,
 ]
 
 [vendors.XTX]

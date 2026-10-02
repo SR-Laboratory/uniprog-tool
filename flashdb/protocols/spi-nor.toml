@@ -576,7 +576,8 @@ chips = [
   { id = "C22431", model = "MX25L1735E", page = 256, size = 131072, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 80 },
   { id = "C2853A", model = "MX25LM51245G", page = 256, size = 67108864, sector = 4096, block = 65536, vcc = "1.8", addr4bit = "01", maxclk = 200 },
   { id = "C22513", model = "MX25L4026E", page = 256, size = 524288, sector = 4096, block = 65536, vcc = "3.3", addr4bit = 0, maxclk = 86 },
-  { id = "C22818", model = "MX25R12835F", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = 3, addr4bit = 0, maxclk = 80 }
+  { id = "C22818", model = "MX25R12835F", page = 256, size = 16777216, sector = 4096, block = 65536, vcc = 3, addr4bit = 0, maxclk = 80 },
+  { id = "C22017", model = "MX25L6450F", block = 65536, page = 256, sector = 256, size = 8388608, timing = 1000 },   # 与 MX25L6436F 同 ID 同参数,
 ]
 
 [vendors.MICRON]
@@ -972,7 +973,8 @@ chips = [
   { id = "EF6010", model = "W25Q05NW", page = 256, size = 65536, sector = 4096, block = 65536, vcc = "1.8", addr4bit = 0, maxclk = 104 },
   { id = "EF9022", model = "W25H02JV", page = 256, size = 268435456, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 },
   { id = "EF9021", model = "W25H01JV", page = 256, size = 134217728, sector = 4096, block = 65536, vcc = "3.3", addr4bit = "01", maxclk = 133 },
-  { id = "B36013", model = "W25Q10EW", page = 256, size = 131072 }
+  { id = "B36013", model = "W25Q10EW", page = 256, size = 131072 },
+  { id = "EF186019", model = "W25Q256JWEQ", page = 256, size = 33554432, vcc = "1.8" },   # 与 W25Q256JWFIQ 同 ID 同参数,
 ]
 
 [vendors.XICOR]
