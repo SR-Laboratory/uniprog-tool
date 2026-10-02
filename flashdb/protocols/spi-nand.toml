@@ -30,22 +30,22 @@ chips = [
   { id = "E522", model = "DS35M2GA-IB-最新版", besize = 128, block = 131072, dummyMode = "append", feature = 1, maxclk = 104000, page = 2048, planes = 2, readMode = "dual", size = 268435456, spare = 64, vcc = "1.8", writeMode = "single" },
   { id = "E564", model = "DS35M4GB-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "E564", model = "DS35M4GBS-A2B", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "E564", model = "DS35M4GB-JB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
+  { id = "E564", model = "DS35M4GB-JB_2048M", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "E571", model = "DS35Q1GA-IB", besize = 128, block = 131072, dummyMode = "append", feature = 0, maxclk = 104000, page = 2048, readMode = "dual", size = 134217728, spare = 64, vcc = "3.3", writeMode = "single" },
   { id = "E572", model = "DS35Q2GA-IB", besize = 128, block = 131072, dummyMode = "append", feature = 1, maxclk = 104000, page = 2048, planes = 2, readMode = "dual", size = 268435456, spare = 64, vcc = "3.3", writeMode = "single" },
-  { id = "E5A1", model = "DS35M4GB-JB", besize = 128, page = 2048, planes = 2, size = 134217728, spare = 64, vcc = "1.8" },
+  { id = "E5A1", model = "DS35M4GB-JB_1024M", besize = 128, page = 2048, planes = 2, size = 134217728, spare = 64, vcc = "1.8" },
   { id = "E5A2", model = "DS35M2GB-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
   { id = "E5A2", model = "DS35M2GBS-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
-  { id = "E5B4", model = "DS35M4GB-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "E5B4", model = "DS35M4GBS-A2B", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "E5B4", model = "DS35M4GB-JB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
+  { id = "E5B4", model = "DS35M4GB-IB_1", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
+  { id = "E5B4", model = "DS35M4GBS-A2B_1", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
+  { id = "E5B4", model = "DS35M4GB-JB_2048M_1", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "E5F1", model = "DS35M1GB-IB", besize = 128, page = 2048, size = 134217728, spare = 64, vcc = "3.3" },
   { id = "E5F1", model = "DS35M1GBS-IB", besize = 128, page = 2048, size = 134217728, spare = 64, vcc = "3.3" },
   { id = "E5F1", model = "DS35M1GB-IB", besize = 128, page = 2048, size = 134217728, spare = 64, vcc = "1.8" },
   { id = "E5F1", model = "DS35M1GBS-IB", besize = 128, page = 2048, size = 134217728, spare = 64, vcc = "1.8" },
-  { id = "E5F1", model = "DS35M4GB-JB", besize = 128, block = 131072, dummyMode = "append", feature = 0, page = 2048, planes = 2, readMode = "dual", size = 134217728, spare = 64, vcc = "3.3", writeMode = "single" },
-  { id = "E5F2", model = "DS35M2GB-IB", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
-  { id = "E5F2", model = "DS35M2GBS-IB", besize = 128, block = 131072, dummyMode = "append", feature = 1, page = 2048, planes = 2, readMode = "dual", size = 268435456, spare = 64, vcc = "3.3", writeMode = "single" }
+  { id = "E5F1", model = "DS35M4GB-JB_1024M_1", besize = 128, block = 131072, dummyMode = "append", feature = 0, page = 2048, planes = 2, readMode = "dual", size = 134217728, spare = 64, vcc = "3.3", writeMode = "single" },
+  { id = "E5F2", model = "DS35M2GB-IB_1", besize = 128, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
+  { id = "E5F2", model = "DS35M2GBS-IB_1", besize = 128, block = 131072, dummyMode = "append", feature = 1, page = 2048, planes = 2, readMode = "dual", size = 268435456, spare = 64, vcc = "3.3", writeMode = "single" }
 ]
 
 [vendors.ESMT]
@@ -113,7 +113,7 @@ chips = [
   { id = "CD7171", model = "F35SQA001G-WWT", IsBMM = 0, addr4bit = 37, algorithm = 15, besize = 128, block = 131072, maxclk = 15000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "CD7171", model = "F35SQA001G-WWR", IsBMM = 0, addr4bit = 37, algorithm = 15, besize = 128, block = 131072, maxclk = 15000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "CD7171", model = "F35SQA001G-WAT", IsBMM = 0, addr4bit = 37, algorithm = 15, besize = 128, block = 131072, maxclk = 15000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "3.3" },
-  { id = "CD7171", model = "F35SQA001G", IsBMM = 0, addr4bit = 37, algorithm = 15, besize = 128, block = 131072, maxclk = 15000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "3.3" },
+  { id = "CD7171", model = "F35SQA001G_1", IsBMM = 0, addr4bit = 37, algorithm = 15, besize = 128, block = 131072, maxclk = 15000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "CD7272", model = "F35SQA002G-WWT", addr4bit = 37, algorithm = 15, besize = 128, block = 131072, page = 2048, planes = 2, sector = 2048, size = 268435456, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "CD7272", model = "F35SQA002G-WAT", addr4bit = 37, algorithm = 15, besize = 128, block = 131072, page = 2048, planes = 2, sector = 2048, size = 268435456, spare = 64, timing = 1000, vcc = "3.3" },
   { id = "CD7272", model = "F35SQA002G", addr4bit = 37, algorithm = 15, besize = 128, block = 131072, page = 2048, planes = 2, sector = 2048, size = 268435456, spare = 64, timing = 1000, vcc = "3.3" },
@@ -204,7 +204,7 @@ chips = [
   { id = "C8D2", model = "GD5F2GQ4UB", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 268435456, spare = 128, writeMode = "single" },
   { id = "C8D3", model = "GD5F1GQ4UE", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 134217728, spare = 128, writeMode = "single" },
   { id = "C8D4", model = "GD5F4GQ4UB", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 128, vcc = "3.3" },
-  { id = "C8D4", model = "GD5F4GQ4UC", besize = 128, block = 262144, dummyMode = "append", feature = 0, page = 2048, planes = 2, readMode = "dual", size = 536870912, spare = 128, vcc = "3.3", writeMode = "single" },
+  { id = "C8D4", model = "GD5F4GQ4UC_1", besize = 128, block = 262144, dummyMode = "append", feature = 0, page = 2048, planes = 2, readMode = "dual", size = 536870912, spare = 128, vcc = "3.3", writeMode = "single" },
   { id = "C8D5", model = "GD5F2GQ4UE", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 268435456, spare = 128, writeMode = "single" },
   { id = "C8F1", model = "GD5F1GQ4UA", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 134217728, spare = 64, writeMode = "single" }
 ]
@@ -250,7 +250,7 @@ chips = [
   { id = "98E4", model = "TH58CVG3S0HRAIJ", block = 262144, dummyMode = "append", feature = 0, page = 4096, readMode = "dual", size = 1073741824, spare = 128, writeMode = "single" },
   { id = "98EB40", model = "TC58CVG1S3HRAIJ", IsBMM = 0, besize = 128, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "98ED", model = "TC58CVG2S0HRAIJ", block = 262144, dummyMode = "append", feature = 0, page = 4096, readMode = "dual", size = 536870912, spare = 128, writeMode = "single" },
-  { id = "98ED51", model = "TC58CVG2S0HRAIJ", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" }
+  { id = "98ED51", model = "TC58CVG2S0HRAIJ_1", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" }
 ]
 
 [vendors.MACRONIX]
@@ -278,7 +278,7 @@ chips = [
   { id = "C27539", model = "MX77U25650F", besize = 128, page = 2048, planes = 2, size = 33554432, spare = 64, vcc = "1.8" },
   { id = "C27539", model = "MX77U25655F", besize = 128, page = 2048, planes = 2, size = 33554432, spare = 64, vcc = "1.8" },
   { id = "C294", model = "MX35UF1G24AD", besize = 128, page = 2048, planes = 2, size = 134217728, spare = 64, vcc = "1.8" },
-  { id = "C29403", model = "MX35UF1G24AD", IsBMM = 0, addr4bit = 36, algorithm = 6, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "1.8" },
+  { id = "C29403", model = "MX35UF1G24AD_1", IsBMM = 0, addr4bit = 36, algorithm = 6, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "1.8" },
   { id = "C29603", model = "MX35UF1GE4AD", IsBMM = 0, addr4bit = 36, algorithm = 3, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "1.8" },
   { id = "C2A403", model = "MX35UF2G24AD", IsBMM = 0, addr4bit = 36, algorithm = 6, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 268435456, spare = 64, timing = 1000, vcc = "1.8" },
   { id = "C2A603", model = "MX35UF2GE4AD", IsBMM = 0, addr4bit = 36, algorithm = 3, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 268435456, spare = 64, timing = 1000, vcc = "1.8" },
@@ -310,7 +310,7 @@ chips = [
   { id = "2C24", model = "MT29F2G01ABAGD12", IsBMM = 0, besize = 128, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "2C32", model = "MT29F4G01", besize = 128, page = 2048, planes = 2, size = 536870912, spare = 128, vcc = "3.3" },
   { id = "2C3435", model = "MT29F4G01ABBFDWB", IsBMM = 0, block = 262144, maxclk = 104000, page = 4096, pagePerBlock = 64, size = 536870912, spare = 256, vcc = "3.3" },
-  { id = "2C36", model = "MT29F4G01", block = 131072, dummyMode = "append", feature = 5, page = 2048, readMode = "dual", size = 536870912, spare = 128, writeMode = "single" }
+  { id = "2C36", model = "MT29F4G01_1", block = 131072, dummyMode = "append", feature = 5, page = 2048, readMode = "dual", size = 536870912, spare = 128, writeMode = "single" }
 ]
 
 [vendors.PN]
