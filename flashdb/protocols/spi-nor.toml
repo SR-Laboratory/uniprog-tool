@@ -603,9 +603,9 @@ chips = [
 [vendors.NEXFLASH]
 chips = [
   { id = "EF2014", model = "NX25P80", block = 65536, page = 256, sector = 4096, size = 1048576 },   # 原为 9D7F13（实为 PMC 7F9D13 两字节对调）；= W25P80,
-  { id = "9D7F7C", model = "NX25P10", block = 65536, page = 256, sector = 4096, size = 131072 },
-  { id = "9D7F7D", model = "NX25P20", block = 65536, page = 256, sector = 4096, size = 262144 },
-  { id = "9D7F7E", model = "NX25P40", block = 65536, page = 256, sector = 4096, size = 524288 },
+  { id = "EF1000", model = "NX25P10", block = 65536, page = 256, sector = 4096, size = 131072 },   # 原为 9D7F7C（实为 PMC 7F9D7C 两字节对调）；= W25P10
+  { id = "EF1100", model = "NX25P20", block = 65536, page = 256, sector = 4096, size = 262144 },   # 原为 9D7F7D（实为 PMC 7F9D7D 两字节对调）；= W25P20
+  { id = "EF1200", model = "NX25P40", block = 65536, page = 256, sector = 4096, size = 524288 },   # 原为 9D7F7E（实为 PMC 7F9D7E 两字节对调）；= W25P40
   { id = "EF2015", model = "NX25P16", page = 256, size = 2097152 },   # = Winbond W25P16 rebrand,
   { id = "EF2016", model = "NX25P32", page = 256, size = 4194304 },   # = Winbond W25P32 rebrand
 ]
