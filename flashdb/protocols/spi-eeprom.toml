@@ -24,8 +24,7 @@ chips = [
   { id = "", model = "SA25C512L", page = 128, size = 65536, spicmd = 95 }
 ]
 
-[vendors.ST]
+[vendors.STMicro]
 chips = [
   { id = "", model = "M35080-Vx_080D0W", adapt = "adapM35080", page = 32, size = 1024, vcc = "5.0" }
 ]
-

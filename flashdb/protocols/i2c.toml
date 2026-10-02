@@ -10,7 +10,7 @@ chips = [
   { id = "", model = "S-24CS512A", addrtype = 5, page = 128, size = 65536 }
 ]
 
-[vendors.ATMEL]
+[vendors.Atmel]
 chips = [
   { id = "", model = "AT24RF08C", adapt = "adapI2C", addrtype = 3, page = 16, size = 1024 }
 ]
@@ -65,4 +65,3 @@ chips = [
   { id = "", model = "BR24T16FVM-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 },
   { id = "", model = "BR24T16NUX-W", adapt = "adapI2C", addrtype = 4, page = 16, size = 2048 }
 ]
-

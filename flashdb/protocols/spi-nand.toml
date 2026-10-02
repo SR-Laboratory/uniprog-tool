@@ -134,7 +134,7 @@ chips = [
   { id = "C952", model = "HYF2GQ4IAACAE", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 268435456, spare = 64, vcc = "1.8" }
 ]
 
-[vendors.GIGADEVICE]
+[vendors.GigaDevice]
 chips = [
   { id = "C220", model = "GD5F2GQ5UExxH", IsBMM = 0, besize = 128, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
   { id = "C220", model = "GD5F2GQ5RExxH", IsBMM = 0, besize = 128, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "1.8" },
@@ -245,7 +245,7 @@ chips = [
   { id = "C8217F", model = "IS38SML01G1", IsBMM = 0, addr4bit = 0, algorithm = 5, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, sector = 2048, size = 134217728, spare = 64, timing = 1000, vcc = "3.3" }
 ]
 
-[vendors.KIOXIA]
+[vendors.KX]
 chips = [
   { id = "98E4", model = "TH58CVG3S0HRAIJ", block = 262144, dummyMode = "append", feature = 0, page = 4096, readMode = "dual", size = 1073741824, spare = 128, writeMode = "single" },
   { id = "98EB40", model = "TC58CVG1S3HRAIJ", IsBMM = 0, besize = 128, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 64, vcc = "3.3" },
@@ -253,7 +253,7 @@ chips = [
   { id = "98ED51", model = "TC58CVG2S0HRAIJ_1", besize = 128, maxclk = 104000, page = 2048, planes = 2, size = 536870912, spare = 64, vcc = "3.3" }
 ]
 
-[vendors.MACRONIX]
+[vendors.Macronix]
 chips = [
   { id = "C212", model = "MX35LF1GE4AB", IsBMM = 0, besize = 128, block = 131072, dummyMode = "append", feature = 0, maxclk = 104000, page = 2048, pagePerBlock = 64, readMode = "dual", size = 134217728, spare = 64, vcc = "3.3", writeMode = "single" },
   { id = "C21403", model = "MX35LF1G24AD-Z4I", IsBMM = 0, addr4bit = 36, algorithm = 6, besize = 128, block = 131072, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, sector = 2048, size = 134217728, spare = 128, timing = 1000, vcc = "3.3" },
@@ -326,7 +326,7 @@ chips = [
   { id = "0125", model = "S35ML04G3", IsBMM = 0, besize = 128, maxclk = 104000, page = 2048, pagePerBlock = 64, planes = 2, size = 268435456, spare = 128, vcc = "3.3" }
 ]
 
-[vendors.TOSHIBA]
+[vendors.TSB]
 chips = [
   { id = "98C2", model = "TC58CVG0S3H", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 134217728, spare = 64, writeMode = "single" },
   { id = "98CB", model = "TC58CVG1S3H", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 268435456, spare = 64, writeMode = "single" },
@@ -340,7 +340,7 @@ chips = [
   { id = "1903", model = "TYM25D1GA03", block = 131072, dummyMode = "append", feature = 0, page = 2048, readMode = "dual", size = 134217728, spare = 64, writeMode = "single" }
 ]
 
-[vendors.WINBOND]
+[vendors.Winbond]
 chips = [
   { id = "EF186019", model = "W25R256JW", besize = 128, page = 2048, size = 33554432, spare = 64, vcc = "1.8" },
   { id = "EF186019", model = "W25Q256JWFIQ", besize = 128, page = 2048, size = 33554432, spare = 64, vcc = "1.8" },
@@ -398,4 +398,3 @@ chips = [
 chips = [
   { id = "BF01", model = "JS28P1GQSCAHG-83", page = 2048, block = 131072, size = 134217728, spare = 64 }
 ]
-

@@ -7,4 +7,3 @@ chips = [
   { id = "0000000006825150", model = "CY15B104QSN", size = 524288 },
   { id = "7F7F7F7F7F7FC221", model = "CY15B128Q", size = 16384 }
 ]
-

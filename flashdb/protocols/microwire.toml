@@ -37,7 +37,7 @@ chips = [
   { id = "", model = "_93C46_16bits", adapt = "adap93C", addrbitlen = 6, size = 128, vcc = "5.0" }
 ]
 
-[vendors.ST_93Sx6]
+[vendors.STMicro]
 chips = [
   { id = "", model = "M93S66_16bits", adapt = "adap93S", addrbitlen = 8, size = 512 },
   { id = "", model = "M93C86", addrbitlen = 10, size = 2048 },
@@ -47,4 +47,3 @@ chips = [
   { id = "", model = "M93C46", addrbitlen = 6, size = 128 },
   { id = "", model = "M93C06", addrbitlen = 6, size = 16 }
 ]
-
